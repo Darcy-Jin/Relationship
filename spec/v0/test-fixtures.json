@@ -154,6 +154,15 @@
       "id": "F10_repeatability",
       "purpose": "任何实现都必须可重放",
       "requirement": "同一完整 session input 重放 10 次，候选人、事件回应、evidence、pack、choice map 完全一致"
+    },
+    {
+      "id": "F11_high_score_single_round_not_stable",
+      "purpose": "一次强烈反应不能直接稳定成长期需求",
+      "input": {
+        "score": 7,
+        "rounds_seen": 1
+      },
+      "expected_status": "LIKELY"
     }
   ]
 }
