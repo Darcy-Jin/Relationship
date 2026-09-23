@@ -1,0 +1,56 @@
+{
+  "version": "0.1.0",
+  "min_match_count": 2,
+  "templates": [
+    {
+      "id": "CLOSE_AND_INDEPENDENT",
+      "label": "亲密，但彼此都有自己的生活",
+      "requires_any": [
+        "NEED_AUTONOMY",
+        "NEED_RESPONSIVENESS",
+        "NEED_CRISIS_RELIABILITY"
+      ],
+      "text": "你目前更像喜欢一种亲密但不黏住彼此的生活：双方都有自己的事业、兴趣和空间，但表达需要时能被回应，重要时刻彼此可靠。"
+    },
+    {
+      "id": "HIGH_TOGETHERNESS_HOME",
+      "label": "大量共同生活和家庭投入",
+      "requires_any": [
+        "NEED_DAILY_COMPANIONSHIP",
+        "NEED_FAMILY_INVESTMENT",
+        "NEED_FAIRNESS"
+      ],
+      "text": "你目前更像喜欢高共同度的生活：日常有很多一起做的事，对家庭投入明确，而且责任分配让双方都觉得公平。"
+    },
+    {
+      "id": "GROWTH_AND_RELIABILITY",
+      "label": "各自成长，关键时刻可靠",
+      "requires_any": [
+        "NEED_GROWTH",
+        "NEED_CRISIS_RELIABILITY",
+        "NEED_RESPONSIVENESS"
+      ],
+      "text": "你目前更像喜欢两个人都在成长、平时可以各忙各的，但重要事情会认真回应并可靠出现的生活。"
+    },
+    {
+      "id": "SOCIAL_AND_FREE",
+      "label": "社交丰富，关系里保留空间",
+      "requires_any": [
+        "NEED_SOCIAL_ENERGY",
+        "NEED_AUTONOMY",
+        "NEED_SOCIAL_BOUNDARY"
+      ],
+      "text": "你目前更像喜欢有社交、有新鲜感，同时尊重彼此空间和关系边界的生活。"
+    },
+    {
+      "id": "STABLE_AND_PREDICTABLE",
+      "label": "稳定、规律、责任清楚",
+      "requires_any": [
+        "NEED_ECONOMIC_SECURITY",
+        "NEED_PREDICTABILITY",
+        "NEED_FAIRNESS"
+      ],
+      "text": "你目前更像喜欢稳定可预期的共同生活：经济和安排相对稳，责任能说清楚，少一些长期的不确定和失控。"
+    }
+  ]
+}
