@@ -1,0 +1,174 @@
+{
+  "version": "0.1.0",
+  "status_rules": [
+    {
+      "status": "STABLE",
+      "min_score": 6,
+      "min_rounds_seen": 2
+    },
+    {
+      "status": "LIKELY",
+      "min_score": 3,
+      "max_score": 5
+    },
+    {
+      "status": "POSSIBLE",
+      "min_score": 1,
+      "max_score": 2
+    },
+    {
+      "status": "UNSUPPORTED",
+      "max_score": 0
+    }
+  ],
+  "evidence_weights": {
+    "initial_stated": {
+      "MUST_HIGH": 2,
+      "PREFER_HIGH": 1,
+      "NORMAL_OK": 0,
+      "LOW_OK": -1,
+      "DONT_CARE": -2
+    },
+    "selected_fear": 1,
+    "selected_desired_feeling": 1,
+    "tolerance": {
+      "LIKE": {
+        "primary": 0,
+        "secondary": 0,
+        "counter": -2
+      },
+      "ACCEPT": {
+        "primary": 0,
+        "secondary": 0,
+        "counter": -1
+      },
+      "CHANGE_REQUIRED": {
+        "primary": 2,
+        "secondary": 1,
+        "counter": 0
+      },
+      "CANNOT_CONTINUE": {
+        "primary": 3,
+        "secondary": 1,
+        "counter": 0
+      }
+    },
+    "end_of_round_single_change": 2
+  },
+  "hypotheses": [
+    {
+      "id": "NEED_ATTRACTION_GATE",
+      "type": "GATE",
+      "label": "需要足够的主观吸引",
+      "order": 10,
+      "output": "目前看来，只有达到你的主观吸引门槛，你才愿意真正进入关系。"
+    },
+    {
+      "id": "NEED_ECONOMIC_SECURITY",
+      "type": "NEED",
+      "label": "需要经济安全感",
+      "order": 20,
+      "output": "你比较在意共同生活的经济稳定和安全感。"
+    },
+    {
+      "id": "NEED_GROWTH",
+      "type": "NEED",
+      "label": "需要成长和进取",
+      "order": 30,
+      "output": "你比较在意对方有自己的方向、成长和生命力。"
+    },
+    {
+      "id": "NEED_DAILY_COMPANIONSHIP",
+      "type": "NEED",
+      "label": "需要日常陪伴",
+      "order": 40,
+      "output": "你比较在意日常有足够的共同时间和陪伴。"
+    },
+    {
+      "id": "NEED_RESPONSIVENESS",
+      "type": "NEED",
+      "label": "需要被理解和回应",
+      "order": 50,
+      "output": "你比较在意表达需要以后，对方是否认真理解、回应并愿意调整。"
+    },
+    {
+      "id": "NEED_AUTONOMY",
+      "type": "NEED",
+      "label": "需要个人空间",
+      "order": 60,
+      "output": "你比较在意亲密关系里仍然保留自己的时间、兴趣和选择空间。"
+    },
+    {
+      "id": "NEED_FAMILY_INVESTMENT",
+      "type": "NEED",
+      "label": "需要家庭投入",
+      "order": 70,
+      "output": "你比较在意对方愿意长期把时间和责任投入共同生活。"
+    },
+    {
+      "id": "NEED_SOCIAL_ENERGY",
+      "type": "NEED",
+      "label": "需要社交活力和有趣",
+      "order": 80,
+      "output": "你比较喜欢生活里有社交、新鲜感和外部活力。"
+    },
+    {
+      "id": "NEED_PREDICTABILITY",
+      "type": "NEED",
+      "label": "需要可预测性",
+      "order": 90,
+      "output": "你比较在意计划、作息和承诺是稳定可预期的。"
+    },
+    {
+      "id": "NEED_FAIRNESS",
+      "type": "NEED",
+      "label": "需要公平协商",
+      "order": 100,
+      "output": "你比较在意钱、家务、育儿和机会牺牲等责任能够公平协商。"
+    },
+    {
+      "id": "NEED_CRISIS_RELIABILITY",
+      "type": "NEED",
+      "label": "需要关键时刻可靠",
+      "order": 110,
+      "output": "相比平时形式上的陪伴，你可能更在意真正需要对方时，他/她是否靠得住。"
+    },
+    {
+      "id": "NEED_RELATIONSHIP_PRIORITY",
+      "type": "NEED",
+      "label": "需要关系被放在重要位置",
+      "order": 120,
+      "output": "你比较在意自己不是长期被排在工作、朋友或其他事情之后。"
+    },
+    {
+      "id": "NEED_SOCIAL_BOUNDARY",
+      "type": "NEED",
+      "label": "需要舒服的社交边界",
+      "order": 130,
+      "output": "你比较在意伴侣的社交方式和边界让你感到安心、被尊重。"
+    },
+    {
+      "id": "NEED_LIFE_DIRECTION_ALIGNMENT",
+      "type": "GATE",
+      "label": "需要人生方向不冲突",
+      "order": 140,
+      "output": "孩子、城市或长期生活方向上的一致，对你可能属于进入长期关系的前提。"
+    }
+  ],
+  "reason_code_map": {
+    "LOW_TIME": "NEED_DAILY_COMPANIONSHIP",
+    "LOW_PRIORITY": "NEED_RELATIONSHIP_PRIORITY",
+    "LOW_RESPONSE": "NEED_RESPONSIVENESS",
+    "UNPREDICTABLE": "NEED_PREDICTABILITY",
+    "UNFAIR_LOAD": "NEED_FAIRNESS",
+    "TOO_CLOSE": "NEED_AUTONOMY",
+    "TOO_ISOLATED": "NEED_DAILY_COMPANIONSHIP",
+    "LOW_RELIABILITY": "NEED_CRISIS_RELIABILITY",
+    "LOW_GROWTH": "NEED_GROWTH",
+    "FINANCIAL_RISK": "NEED_ECONOMIC_SECURITY",
+    "SOCIAL_BOUNDARY": "NEED_SOCIAL_BOUNDARY",
+    "LOW_FAMILY_INVESTMENT": "NEED_FAMILY_INVESTMENT",
+    "LOW_VITALITY": "NEED_SOCIAL_ENERGY",
+    "LIFE_DIRECTION_CONFLICT": "NEED_LIFE_DIRECTION_ALIGNMENT"
+  }
+}
