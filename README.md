@@ -89,13 +89,13 @@
 
 ## 当前阶段
 
-**完整领域研究、简化游戏模型和 First Playable v0.1 已形成。**
+**完整领域研究、简化游戏模型和确定性游戏引擎 v0 规格已经形成。**
 
 现在进入：
 
-> **第一次真人试玩。**
+> **纯规则程序实现。**
 
-当前不正式开发。
+正式真人试玩要等程序跑起来以后再开始。
 
 ## 现在从哪里继续
 
@@ -125,11 +125,16 @@ docs/game-model-v0.md
 
 - [当前核心模型 v0.2](docs/current-model.md)
 - [简化游戏模型 v0.1](docs/game-model-v0.md)
-- [First Playable v0.1](docs/first-playable-v0.md)
+- [First Playable v0.1（历史文本原型）](docs/first-playable-v0.md)
+- [确定性引擎 v0](docs/engine/deterministic-engine-v0.md)
+- [确定性规则 Rulebook v0](docs/engine/rulebook-v0.md)
+- [机器可读 Spec v0](spec/v0/README.md)
+- [开发交接](docs/engine/implementation-handoff.md)
 
 ### 当前验证
 
 - [First Playable 设计压力测试](docs/validation/01-first-playable-design-stress-test.md)
+- [Engine Spec Validation](docs/engine/spec-validation-v0.md)
 - [真人试玩记录模板](docs/validation/playtest-template.md)
 
 ### 重要决定
