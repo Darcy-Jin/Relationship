@@ -89,11 +89,11 @@
 
 ## 当前阶段
 
-**完整领域研究已经完成，简化游戏模型 v0 已形成。**
+**完整领域研究、简化游戏模型和 First Playable v0.1 已形成。**
 
-现在准备进入：
+现在进入：
 
-> **游戏机制验证 / First Playable 设计。**
+> **第一次真人试玩。**
 
 当前不正式开发。
 
@@ -125,6 +125,12 @@ docs/game-model-v0.md
 
 - [当前核心模型 v0.2](docs/current-model.md)
 - [简化游戏模型 v0.1](docs/game-model-v0.md)
+- [First Playable v0.1](docs/first-playable-v0.md)
+
+### 当前验证
+
+- [First Playable 设计压力测试](docs/validation/01-first-playable-design-stress-test.md)
+- [真人试玩记录模板](docs/validation/playtest-template.md)
 
 ### 重要决定
 
