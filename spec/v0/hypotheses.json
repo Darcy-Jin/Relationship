@@ -1,26 +1,11 @@
 {
   "version": "0.1.0",
-  "status_rules": [
-    {
-      "status": "STABLE",
-      "min_score": 6,
-      "min_rounds_seen": 2
-    },
-    {
-      "status": "LIKELY",
-      "min_score": 3,
-      "max_score": 5
-    },
-    {
-      "status": "POSSIBLE",
-      "min_score": 1,
-      "max_score": 2
-    },
-    {
-      "status": "UNSUPPORTED",
-      "max_score": 0
-    }
-  ],
+  "status_rules": {
+    "STABLE": "score >= 6 && rounds_seen >= 2",
+    "LIKELY": "score >= 3 && !(score >= 6 && rounds_seen >= 2)",
+    "POSSIBLE": "score >= 1 && score <= 2",
+    "UNSUPPORTED": "score <= 0"
+  },
   "evidence_weights": {
     "initial_stated": {
       "MUST_HIGH": 2,
