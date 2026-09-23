@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "note": "这些夹具只验证 v0 规则是否确定性执行，不证明关系科学效度。",
+  "fixtures": [
+    {
+      "id": "F01_first_round_long_distance_filter",
+      "purpose": "硬约束过滤必须确定",
+      "input": {
+        "children_intent": "open",
+        "long_distance": "reject"
+      },
+      "expected_presented_candidates": [
+        "P01",
+        "P02",
+        "P04",
+        "P08"
+      ],
+      "explanation": "P03 long_distance_risk=high 被过滤，按 first_round_priority 由 P08 补位。"
+    },
+    {
+      "id": "F02_pack_career_time_reliability",
+      "purpose": "陪伴/回应/可靠混淆时应选事业-时间-可靠对照包",
+      "hypothesis_state": {
+        "NEED_DAILY_COMPANIONSHIP": {
+          "score": 5,
+          "status": "LIKELY",
+          "this_round": true,
+          "severity": "CHANGE_REQUIRED"
+        },
+        "NEED_RESPONSIVENESS": {
+          "score": 3,
+          "status": "LIKELY",
+          "this_round": true,
+          "severity": "CHANGE_REQUIRED"
+        },
+        "NEED_CRISIS_RELIABILITY": {
+          "score": 2,
+          "status": "POSSIBLE",
+          "this_round": true,
+          "severity": "ACCEPT"
+        }
+      },
+      "expected_pack_id": "CAREER_TIME_RELIABILITY"
+    },
+    {
+      "id": "F03_pack_social_predictability",
+      "purpose": "高社交与不可预测混淆时优先选择对应对照包",
+      "hypothesis_state": {
+        "NEED_SOCIAL_ENERGY": {
+          "score": 2,
+          "status": "POSSIBLE",
+          "this_round": true,
+          "severity": "ACCEPT"
+        },
+        "NEED_PREDICTABILITY": {
+          "score": 5,
+          "status": "LIKELY",
+          "this_round": true,
+          "severity": "CANNOT_CONTINUE"
+        },
+        "NEED_SOCIAL_BOUNDARY": {
+          "score": 3,
+          "status": "LIKELY",
+          "this_round": true,
+          "severity": "CHANGE_REQUIRED"
+        }
+      },
+      "expected_pack_id": "SOCIAL_PREDICTABILITY"
+    },
+    {
+      "id": "F04_attraction_gate",
+      "purpose": "吸引门槛不能被系统磨平",
+      "rounds": [
+        {
+          "round": 1,
+          "rating": 1,
+          "would_consider": false
+        },
+        {
+          "round": 2,
+          "rating": 0,
+          "would_consider": false
+        },
+        {
+          "round": 1,
+          "rating": 3,
+          "would_consider": true
+        },
+        {
+          "round": 2,
+          "rating": 2,
+          "would_consider": true
+        }
+      ],
+      "expected_gate_status": "STABLE"
+    },
+    {
+      "id": "F05_evidence_negative",
+      "purpose": "不能长期接受的主因权重大于次因",
+      "input": {
+        "tolerance": "CANNOT_CONTINUE",
+        "primary_reason": "LOW_RELIABILITY",
+        "secondary_reason": "LOW_TIME"
+      },
+      "expected_delta": {
+        "NEED_CRISIS_RELIABILITY": 3,
+        "NEED_DAILY_COMPANIONSHIP": 1
+      }
+    },
+    {
+      "id": "F06_evidence_counter",
+      "purpose": "低陪伴真实暴露后仍能接受，应形成陪伴强需求的反证",
+      "input": {
+        "hypothesis": "NEED_DAILY_COMPANIONSHIP",
+        "exposure": "LOW",
+        "tolerance": "ACCEPT"
+      },
+      "expected_delta": -1
+    },
+    {
+      "id": "F07_no_counter_without_probe",
+      "purpose": "没真正暴露的维度不能凭人物卡自动形成证据",
+      "input": {
+        "hypothesis": "NEED_DAILY_COMPANIONSHIP",
+        "candidate_daily_availability": 3,
+        "event_probes": [
+          "NEED_FAIRNESS"
+        ],
+        "tolerance": "ACCEPT"
+      },
+      "expected_delta": 0
+    },
+    {
+      "id": "F08_lifestyle_tie_break",
+      "purpose": "Lifestyle 匹配相同时按配置顺序确定",
+      "stable_or_likely": [
+        "NEED_AUTONOMY",
+        "NEED_RESPONSIVENESS",
+        "NEED_CRISIS_RELIABILITY",
+        "NEED_GROWTH"
+      ],
+      "expected_lifestyle_id": "CLOSE_AND_INDEPENDENT"
+    },
+    {
+      "id": "F09_third_round_reversal",
+      "purpose": "强解释在第二轮被明显反证时进入第三轮",
+      "input": {
+        "before_score": 4,
+        "round2_net_delta": -3
+      },
+      "expected_round3": true
+    },
+    {
+      "id": "F10_repeatability",
+      "purpose": "任何实现都必须可重放",
+      "requirement": "同一完整 session input 重放 10 次，候选人、事件回应、evidence、pack、choice map 完全一致"
+    }
+  ]
+}
