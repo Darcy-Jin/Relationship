@@ -1,0 +1,116 @@
+{
+  "version": "0.1.0",
+  "selection_rule": {
+    "top_hypotheses_count": 3,
+    "eligible_status": [
+      "POSSIBLE",
+      "LIKELY"
+    ],
+    "tie_break": [
+      "coverage_desc",
+      "pack_priority_asc"
+    ]
+  },
+  "packs": [
+    {
+      "id": "CAREER_TIME_RELIABILITY",
+      "pack_priority": 10,
+      "tests": [
+        "NEED_DAILY_COMPANIONSHIP",
+        "NEED_RESPONSIVENESS",
+        "NEED_CRISIS_RELIABILITY",
+        "NEED_RELATIONSHIP_PRIORITY"
+      ],
+      "candidate_ids": [
+        "P07",
+        "P06",
+        "P05"
+      ],
+      "event_ids": [
+        "WORKWEEK",
+        "EXPRESS_NEED",
+        "CRISIS"
+      ]
+    },
+    {
+      "id": "TOGETHERNESS_AUTONOMY",
+      "pack_priority": 20,
+      "tests": [
+        "NEED_AUTONOMY",
+        "NEED_FAMILY_INVESTMENT",
+        "NEED_DAILY_COMPANIONSHIP",
+        "NEED_RESPONSIVENESS"
+      ],
+      "candidate_ids": [
+        "P02",
+        "P11",
+        "P04"
+      ],
+      "event_ids": [
+        "WEEKEND",
+        "COHABITATION",
+        "EXPRESS_SPACE"
+      ]
+    },
+    {
+      "id": "SOCIAL_PREDICTABILITY",
+      "pack_priority": 30,
+      "tests": [
+        "NEED_SOCIAL_ENERGY",
+        "NEED_PREDICTABILITY",
+        "NEED_SOCIAL_BOUNDARY",
+        "NEED_AUTONOMY"
+      ],
+      "candidate_ids": [
+        "P09",
+        "P10",
+        "P03"
+      ],
+      "event_ids": [
+        "WEEKEND",
+        "FRIEND_GATHERING",
+        "PLAN_CHANGE"
+      ]
+    },
+    {
+      "id": "MONEY_GROWTH_TIME",
+      "pack_priority": 40,
+      "tests": [
+        "NEED_ECONOMIC_SECURITY",
+        "NEED_GROWTH",
+        "NEED_DAILY_COMPANIONSHIP",
+        "NEED_RELATIONSHIP_PRIORITY"
+      ],
+      "candidate_ids": [
+        "P13",
+        "P14",
+        "P07"
+      ],
+      "event_ids": [
+        "BUDGET",
+        "CAREER_OPPORTUNITY",
+        "WORKWEEK"
+      ]
+    },
+    {
+      "id": "FAMILY_FAIRNESS_SPACE",
+      "pack_priority": 50,
+      "tests": [
+        "NEED_FAMILY_INVESTMENT",
+        "NEED_FAIRNESS",
+        "NEED_AUTONOMY",
+        "NEED_RESPONSIVENESS"
+      ],
+      "candidate_ids": [
+        "P11",
+        "P12",
+        "P04"
+      ],
+      "event_ids": [
+        "COHABITATION",
+        "FAMILY_DUTY",
+        "EXPRESS_SPACE"
+      ]
+    }
+  ]
+}
