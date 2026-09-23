@@ -929,12 +929,25 @@ exposure = LOW
 → UNSUPPORTED
 ```
 
-普通 STABLE：
+普通状态按下面顺序计算：
 
 ```text
-score >= 6
-且 rounds_seen >= 2
+score >= 6 且 rounds_seen >= 2
+→ STABLE
+
+否则 score >= 3
+→ LIKELY
+
+score 1..2
+→ POSSIBLE
+
+score <= 0
+→ UNSUPPORTED
 ```
+
+所以即使同一轮强烈反应让 score 冲到 6 以上：
+
+> **只要还没跨至少两轮验证，仍然只是 LIKELY。**
 
 同一轮重复点同一个原因：
 
