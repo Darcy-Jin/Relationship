@@ -120,6 +120,35 @@
 
 目前**不急着开发，不急着大量写剧情。**
 
+
+## 现在从哪里继续
+
+不要从头翻历史。
+
+默认恢复顺序：
+
+```text
+personal-ai-system/README.md
+↓
+本 README
+↓
+docs/current-state.md
+↓
+docs/current-model.md
+↓
+current-state 指向的当前研究 / 产品文件
+```
+
+当前工作状态：
+
+- [Current State](docs/current-state.md)
+
+本项目怎样持续运行：
+
+- [Working System](docs/WORKING_SYSTEM.md)
+
+完整通用方法不在本仓库重复维护，继续以 `Darcy-Jin/personal-ai-system` 为准。
+
 ## 仓库怎么用
 
 当前保持简单：
