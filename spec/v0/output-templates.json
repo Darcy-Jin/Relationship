@@ -1,0 +1,95 @@
+{
+  "version": "0.1.0",
+  "selection_map_sections": [
+    "must_have",
+    "preferred_not_required",
+    "hard_to_tolerate",
+    "acceptable_imperfections",
+    "tradeoffs",
+    "preferred_lifestyle",
+    "still_uncertain"
+  ],
+  "tradeoff_patterns": [
+    {
+      "id": "LOW_TIME_FOR_RELIABILITY",
+      "conditions": {
+        "accepted_candidate_traits": {
+          "daily_availability": {
+            "max": 4
+          },
+          "crisis_reliability": {
+            "min": 8
+          },
+          "responsiveness": {
+            "min": 7
+          }
+        },
+        "min_accepted_probes": 2
+      },
+      "text": "为了对方的事业或个人发展，你目前可以接受较少的日常陪伴，只要重要时刻可靠，而且你的需要会被认真回应。"
+    },
+    {
+      "id": "TOGETHERNESS_FOR_LESS_SPACE",
+      "conditions": {
+        "accepted_candidate_traits": {
+          "daily_availability": {
+            "min": 8
+          },
+          "family_investment": {
+            "min": 8
+          },
+          "autonomy_need": {
+            "max": 3
+          }
+        },
+        "min_accepted_probes": 2
+      },
+      "text": "为了大量共同生活和家庭投入，你目前愿意让出一部分个人空间。"
+    },
+    {
+      "id": "SOCIAL_ENERGY_WITH_BOUNDARY",
+      "conditions": {
+        "accepted_candidate_traits": {
+          "social_energy": {
+            "min": 8
+          },
+          "boundary_respect": {
+            "min": 8
+          }
+        },
+        "min_accepted_probes": 2
+      },
+      "text": "你可以接受伴侣有很丰富的社交生活，只要双方约定的关系边界被尊重。"
+    },
+    {
+      "id": "LOW_CURRENT_MONEY_FOR_GROWTH",
+      "conditions": {
+        "accepted_candidate_traits": {
+          "economic_stability": {
+            "max": 5
+          },
+          "career_intensity": {
+            "min": 8
+          },
+          "responsiveness": {
+            "min": 7
+          }
+        },
+        "min_accepted_probes": 2
+      },
+      "text": "如果你认可对方的成长方向和合作方式，你目前可以接受一段时间内物质条件没有那么强。"
+    },
+    {
+      "id": "DIFFERENT_HOBBIES_FOR_AUTONOMY",
+      "conditions": {
+        "required_hypotheses": [
+          "NEED_AUTONOMY"
+        ],
+        "min_separate_activity_accepts": 2
+      },
+      "text": "共同兴趣对你未必是必须的；只要关系稳定，你可以接受两个人有明显不同的兴趣和个人生活。"
+    }
+  ],
+  "unresolved_text": "目前证据还不够稳定，这一项先保留为未知，不强行给结论。",
+  "no_lifestyle_match_text": "目前还没有形成稳定的共同生活类型；继续试玩比现在强行给标签更合适。"
+}
