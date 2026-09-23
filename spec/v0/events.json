@@ -1,0 +1,241 @@
+{
+  "version": "0.1.0",
+  "tolerance_levels": [
+    "LIKE",
+    "ACCEPT",
+    "CHANGE_REQUIRED",
+    "CANNOT_CONTINUE"
+  ],
+  "events": [
+    {
+      "id": "WEEKEND",
+      "resolver_id": "resolve_weekend_v0",
+      "probes": [
+        "NEED_DAILY_COMPANIONSHIP",
+        "NEED_AUTONOMY",
+        "NEED_SOCIAL_ENERGY",
+        "NEED_PREDICTABILITY"
+      ],
+      "actions": [
+        "JOIN",
+        "NEGOTIATE",
+        "SEPARATE",
+        "PROTEST"
+      ],
+      "reason_codes": [
+        "LOW_TIME",
+        "TOO_CLOSE",
+        "LOW_VITALITY",
+        "UNPREDICTABLE",
+        "LOW_RESPONSE"
+      ]
+    },
+    {
+      "id": "COHABITATION",
+      "resolver_id": "resolve_cohabitation_v0",
+      "probes": [
+        "NEED_FAIRNESS",
+        "NEED_FAMILY_INVESTMENT",
+        "NEED_RESPONSIVENESS",
+        "NEED_AUTONOMY"
+      ],
+      "actions": [
+        "ACCEPT_SPLIT",
+        "NEGOTIATE_SPLIT",
+        "SET_ROTATION",
+        "WITHDRAW"
+      ],
+      "reason_codes": [
+        "UNFAIR_LOAD",
+        "LOW_FAMILY_INVESTMENT",
+        "LOW_RESPONSE",
+        "TOO_CLOSE"
+      ]
+    },
+    {
+      "id": "CAREER_OPPORTUNITY",
+      "resolver_id": "resolve_career_opportunity_v0",
+      "probes": [
+        "NEED_GROWTH",
+        "NEED_DAILY_COMPANIONSHIP",
+        "NEED_RELATIONSHIP_PRIORITY",
+        "NEED_RESPONSIVENESS",
+        "NEED_PREDICTABILITY"
+      ],
+      "actions": [
+        "SUPPORT",
+        "NEGOTIATE_TERMS",
+        "OPPOSE",
+        "ASK_DELAY"
+      ],
+      "reason_codes": [
+        "LOW_TIME",
+        "LOW_PRIORITY",
+        "LOW_RESPONSE",
+        "UNPREDICTABLE",
+        "RELOCATION_COST",
+        "LOW_GROWTH"
+      ]
+    },
+    {
+      "id": "CRISIS",
+      "resolver_id": "resolve_crisis_v0",
+      "probes": [
+        "NEED_CRISIS_RELIABILITY",
+        "NEED_RESPONSIVENESS",
+        "NEED_RELATIONSHIP_PRIORITY"
+      ],
+      "actions": [
+        "ASK_DIRECTLY",
+        "ASK_PRACTICAL_HELP",
+        "HANDLE_SELF"
+      ],
+      "reason_codes": [
+        "LOW_RELIABILITY",
+        "LOW_RESPONSE",
+        "LOW_PRIORITY"
+      ]
+    },
+    {
+      "id": "WORKWEEK",
+      "resolver_id": "resolve_workweek_v0",
+      "probes": [
+        "NEED_DAILY_COMPANIONSHIP",
+        "NEED_RELATIONSHIP_PRIORITY",
+        "NEED_PREDICTABILITY"
+      ],
+      "actions": [
+        "ACCEPT",
+        "REQUEST_FIXED_TIME",
+        "REQUEST_MORE_TIME",
+        "PROTEST"
+      ],
+      "reason_codes": [
+        "LOW_TIME",
+        "LOW_PRIORITY",
+        "UNPREDICTABLE",
+        "LOW_RESPONSE"
+      ]
+    },
+    {
+      "id": "EXPRESS_NEED",
+      "resolver_id": "resolve_express_need_v0",
+      "probes": [
+        "NEED_RESPONSIVENESS",
+        "NEED_RELATIONSHIP_PRIORITY"
+      ],
+      "actions": [
+        "STATE_NEED",
+        "STATE_BOUNDARY",
+        "ASK_CHANGE"
+      ],
+      "reason_codes": [
+        "LOW_RESPONSE",
+        "LOW_PRIORITY"
+      ]
+    },
+    {
+      "id": "EXPRESS_SPACE",
+      "resolver_id": "resolve_express_space_v0",
+      "probes": [
+        "NEED_AUTONOMY",
+        "NEED_RESPONSIVENESS",
+        "NEED_FAMILY_INVESTMENT"
+      ],
+      "actions": [
+        "ASK_ONE_NIGHT",
+        "ASK_WEEKLY_SPACE",
+        "ASK_SEPARATE_HOBBY"
+      ],
+      "reason_codes": [
+        "TOO_CLOSE",
+        "LOW_RESPONSE",
+        "LOW_FAMILY_INVESTMENT"
+      ]
+    },
+    {
+      "id": "FRIEND_GATHERING",
+      "resolver_id": "resolve_friend_gathering_v0",
+      "probes": [
+        "NEED_SOCIAL_ENERGY",
+        "NEED_SOCIAL_BOUNDARY",
+        "NEED_AUTONOMY"
+      ],
+      "actions": [
+        "JOIN",
+        "SKIP",
+        "DISCUSS_BOUNDARY",
+        "PROTEST"
+      ],
+      "reason_codes": [
+        "SOCIAL_BOUNDARY",
+        "TOO_CLOSE",
+        "LOW_VITALITY",
+        "LOW_RESPONSE"
+      ]
+    },
+    {
+      "id": "PLAN_CHANGE",
+      "resolver_id": "resolve_plan_change_v0",
+      "probes": [
+        "NEED_PREDICTABILITY",
+        "NEED_RESPONSIVENESS",
+        "NEED_RELATIONSHIP_PRIORITY"
+      ],
+      "actions": [
+        "ACCEPT",
+        "NEGOTIATE",
+        "KEEP_ORIGINAL",
+        "PROTEST"
+      ],
+      "reason_codes": [
+        "UNPREDICTABLE",
+        "LOW_RESPONSE",
+        "LOW_PRIORITY"
+      ]
+    },
+    {
+      "id": "BUDGET",
+      "resolver_id": "resolve_budget_v0",
+      "probes": [
+        "NEED_ECONOMIC_SECURITY",
+        "NEED_FAIRNESS",
+        "NEED_GROWTH"
+      ],
+      "actions": [
+        "SAVE_MORE",
+        "KEEP_CURRENT",
+        "SPEND_MORE",
+        "NEGOTIATE_TARGET"
+      ],
+      "reason_codes": [
+        "FINANCIAL_RISK",
+        "UNFAIR_LOAD",
+        "LOW_GROWTH",
+        "LOW_RESPONSE"
+      ]
+    },
+    {
+      "id": "FAMILY_DUTY",
+      "resolver_id": "resolve_family_duty_v0",
+      "probes": [
+        "NEED_FAMILY_INVESTMENT",
+        "NEED_FAIRNESS",
+        "NEED_RESPONSIVENESS",
+        "NEED_AUTONOMY"
+      ],
+      "actions": [
+        "TAKE_MORE",
+        "SPLIT_EQUAL",
+        "NEGOTIATE_BY_CAPACITY",
+        "REFUSE_EXTRA"
+      ],
+      "reason_codes": [
+        "LOW_FAMILY_INVESTMENT",
+        "UNFAIR_LOAD",
+        "LOW_RESPONSE",
+        "TOO_CLOSE"
+      ]
+    }
+  ]
+}
