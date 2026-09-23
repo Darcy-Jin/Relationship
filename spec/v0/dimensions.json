@@ -1,0 +1,130 @@
+{
+  "version": "0.1.0",
+  "scale": {
+    "min": 0,
+    "max": 10,
+    "low_max": 3,
+    "medium_min": 4,
+    "medium_max": 7,
+    "high_min": 8
+  },
+  "stated_preference_levels": {
+    "MUST_HIGH": 2,
+    "PREFER_HIGH": 1,
+    "NORMAL_OK": 0,
+    "LOW_OK": -1,
+    "DONT_CARE": -2
+  },
+  "dimensions": [
+    {
+      "id": "economic_stability",
+      "label": "经济稳定",
+      "description": "当前收入、现金流和生活保障的稳定程度"
+    },
+    {
+      "id": "career_intensity",
+      "label": "事业投入",
+      "description": "把时间、精力和优先级投入事业的强度"
+    },
+    {
+      "id": "daily_availability",
+      "label": "日常可陪伴时间",
+      "description": "日常可用于伴侣和共同生活的时间"
+    },
+    {
+      "id": "responsiveness",
+      "label": "回应",
+      "description": "伴侣表达需要后愿意理解、回应和调整的程度"
+    },
+    {
+      "id": "crisis_reliability",
+      "label": "关键时刻可靠",
+      "description": "重要事件和压力场景中是否能承担责任、靠得住"
+    },
+    {
+      "id": "autonomy_need",
+      "label": "个人空间需要",
+      "description": "对独立时间、独立兴趣和自主安排的需要"
+    },
+    {
+      "id": "family_investment",
+      "label": "家庭投入",
+      "description": "对伴侣、家庭和共同责任长期投入的程度"
+    },
+    {
+      "id": "social_energy",
+      "label": "社交活力",
+      "description": "朋友、聚会、外部社交和新鲜体验的强度"
+    },
+    {
+      "id": "predictability",
+      "label": "可预测性",
+      "description": "作息、计划和承诺是否稳定、可预期"
+    },
+    {
+      "id": "fairness",
+      "label": "公平协商",
+      "description": "家务、钱、责任、机会牺牲等是否愿意公平协商"
+    }
+  ],
+  "player_stated_dimensions": [
+    {
+      "id": "attraction",
+      "hypothesis_id": "NEED_ATTRACTION_GATE"
+    },
+    {
+      "id": "economic_stability",
+      "hypothesis_id": "NEED_ECONOMIC_SECURITY"
+    },
+    {
+      "id": "career_growth",
+      "hypothesis_id": "NEED_GROWTH"
+    },
+    {
+      "id": "companionship",
+      "hypothesis_id": "NEED_DAILY_COMPANIONSHIP"
+    },
+    {
+      "id": "responsiveness",
+      "hypothesis_id": "NEED_RESPONSIVENESS"
+    },
+    {
+      "id": "autonomy",
+      "hypothesis_id": "NEED_AUTONOMY"
+    },
+    {
+      "id": "family_investment",
+      "hypothesis_id": "NEED_FAMILY_INVESTMENT"
+    },
+    {
+      "id": "social_energy",
+      "hypothesis_id": "NEED_SOCIAL_ENERGY"
+    }
+  ],
+  "structured_inputs": {
+    "fear_options": {
+      "no_attraction": "NEED_ATTRACTION_GATE",
+      "financial_insecurity": "NEED_ECONOMIC_SECURITY",
+      "no_growth": "NEED_GROWTH",
+      "loneliness": "NEED_DAILY_COMPANIONSHIP",
+      "not_understood": "NEED_RESPONSIVENESS",
+      "loss_of_freedom": "NEED_AUTONOMY",
+      "unequal_family_load": "NEED_FAIRNESS",
+      "social_boundary": "NEED_SOCIAL_BOUNDARY",
+      "unpredictability": "NEED_PREDICTABILITY",
+      "wrong_life_direction": "NEED_LIFE_DIRECTION_ALIGNMENT"
+    },
+    "desired_feeling_options": {
+      "attraction": "NEED_ATTRACTION_GATE",
+      "security": "NEED_ECONOMIC_SECURITY",
+      "admiration": "NEED_GROWTH",
+      "togetherness": "NEED_DAILY_COMPANIONSHIP",
+      "understood": "NEED_RESPONSIVENESS",
+      "freedom": "NEED_AUTONOMY",
+      "home": "NEED_FAMILY_INVESTMENT",
+      "vitality": "NEED_SOCIAL_ENERGY",
+      "reliability": "NEED_CRISIS_RELIABILITY",
+      "fairness": "NEED_FAIRNESS"
+    }
+  }
+}
