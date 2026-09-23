@@ -65,6 +65,11 @@
       "id": "fairness",
       "label": "公平协商",
       "description": "家务、钱、责任、机会牺牲等是否愿意公平协商"
+    },
+    {
+      "id": "boundary_respect",
+      "label": "边界尊重",
+      "description": "是否尊重双方约定的社交、隐私和亲密关系边界"
     }
   ],
   "player_stated_dimensions": [
