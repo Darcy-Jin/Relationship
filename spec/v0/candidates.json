@@ -1,0 +1,416 @@
+{
+  "version": "0.1.0",
+  "engine_notes": [
+    "presentation 字段只负责显示，不参与规则计算。",
+    "traits 没有总分，禁止求和排序。",
+    "children_intent=open 表示愿意根据关系共同决定，兼容 want/do_not_want/open/unsure。",
+    "first_round_priority 仅用于确定性选取首轮 4 人。"
+  ],
+  "candidates": [
+    {
+      "id": "P01",
+      "design_label": "高速前进_高可靠",
+      "first_round_priority": 10,
+      "presentation": {
+        "name": "林序",
+        "age": 32,
+        "summary": "事业发展很快，生活自律，希望伴侣也有自己的世界。"
+      },
+      "hard": {
+        "children_intent": "open",
+        "long_distance_risk": "medium",
+        "relationship_seriousness": "serious"
+      },
+      "traits": {
+        "economic_stability": 9,
+        "career_intensity": 9,
+        "daily_availability": 3,
+        "responsiveness": 6,
+        "crisis_reliability": 9,
+        "autonomy_need": 8,
+        "family_investment": 6,
+        "social_energy": 4,
+        "predictability": 8,
+        "fairness": 7
+      }
+    },
+    {
+      "id": "P02",
+      "design_label": "高共同生活_低空间",
+      "first_round_priority": 20,
+      "presentation": {
+        "name": "周宁",
+        "age": 31,
+        "summary": "工作稳定，喜欢一起做饭旅行，愿意把很多时间放在共同生活。"
+      },
+      "hard": {
+        "children_intent": "open",
+        "long_distance_risk": "low",
+        "relationship_seriousness": "serious"
+      },
+      "traits": {
+        "economic_stability": 7,
+        "career_intensity": 5,
+        "daily_availability": 9,
+        "responsiveness": 8,
+        "crisis_reliability": 8,
+        "autonomy_need": 3,
+        "family_investment": 9,
+        "social_energy": 4,
+        "predictability": 8,
+        "fairness": 8
+      }
+    },
+    {
+      "id": "P03",
+      "design_label": "高社交_高自由_低可预测",
+      "first_round_priority": 30,
+      "presentation": {
+        "name": "许澈",
+        "age": 30,
+        "summary": "朋友很多，喜欢旅行和新体验，工作灵活，不喜欢生活被排得太死。"
+      },
+      "hard": {
+        "children_intent": "open",
+        "long_distance_risk": "high",
+        "relationship_seriousness": "serious"
+      },
+      "traits": {
+        "economic_stability": 6,
+        "career_intensity": 6,
+        "daily_availability": 5,
+        "responsiveness": 7,
+        "crisis_reliability": 6,
+        "autonomy_need": 9,
+        "family_investment": 4,
+        "social_energy": 9,
+        "predictability": 3,
+        "fairness": 6
+      }
+    },
+    {
+      "id": "P04",
+      "design_label": "安静成长_高回应高公平",
+      "first_round_priority": 40,
+      "presentation": {
+        "name": "沈知",
+        "age": 31,
+        "summary": "当前条件普通但稳定成长，生活规律，慢热，喜欢两个人都有自己的事情。"
+      },
+      "hard": {
+        "children_intent": "open",
+        "long_distance_risk": "low",
+        "relationship_seriousness": "serious"
+      },
+      "traits": {
+        "economic_stability": 5,
+        "career_intensity": 6,
+        "daily_availability": 6,
+        "responsiveness": 9,
+        "crisis_reliability": 8,
+        "autonomy_need": 8,
+        "family_investment": 6,
+        "social_energy": 3,
+        "predictability": 8,
+        "fairness": 9
+      }
+    },
+    {
+      "id": "P05",
+      "design_label": "高事业_低陪伴_低可靠",
+      "first_round_priority": 90,
+      "presentation": {
+        "name": "顾言",
+        "age": 33,
+        "summary": "事业条件很好，时间紧，习惯把工作放在很前面。"
+      },
+      "hard": {
+        "children_intent": "open",
+        "long_distance_risk": "medium",
+        "relationship_seriousness": "serious"
+      },
+      "traits": {
+        "economic_stability": 9,
+        "career_intensity": 9,
+        "daily_availability": 3,
+        "responsiveness": 4,
+        "crisis_reliability": 3,
+        "autonomy_need": 8,
+        "family_investment": 5,
+        "social_energy": 5,
+        "predictability": 7,
+        "fairness": 6
+      }
+    },
+    {
+      "id": "P06",
+      "design_label": "中事业_高陪伴_中回应",
+      "first_round_priority": 80,
+      "presentation": {
+        "name": "陈岸",
+        "age": 32,
+        "summary": "生活稳定，可用时间多，很愿意一起生活，但遇到分歧时不总能真正理解对方。"
+      },
+      "hard": {
+        "children_intent": "open",
+        "long_distance_risk": "low",
+        "relationship_seriousness": "serious"
+      },
+      "traits": {
+        "economic_stability": 7,
+        "career_intensity": 5,
+        "daily_availability": 9,
+        "responsiveness": 5,
+        "crisis_reliability": 6,
+        "autonomy_need": 2,
+        "family_investment": 9,
+        "social_energy": 4,
+        "predictability": 9,
+        "fairness": 7
+      }
+    },
+    {
+      "id": "P07",
+      "design_label": "高事业_低陪伴_高回应高可靠",
+      "first_round_priority": 70,
+      "presentation": {
+        "name": "江屿",
+        "age": 33,
+        "summary": "工作很忙但边界清楚，平时各忙各的，重要事情会主动腾出时间。"
+      },
+      "hard": {
+        "children_intent": "open",
+        "long_distance_risk": "medium",
+        "relationship_seriousness": "serious"
+      },
+      "traits": {
+        "economic_stability": 8,
+        "career_intensity": 9,
+        "daily_availability": 4,
+        "responsiveness": 9,
+        "crisis_reliability": 9,
+        "autonomy_need": 7,
+        "family_investment": 6,
+        "social_energy": 5,
+        "predictability": 8,
+        "fairness": 8
+      }
+    },
+    {
+      "id": "P08",
+      "design_label": "低事业_高可用_高空间",
+      "first_round_priority": 50,
+      "presentation": {
+        "name": "程川",
+        "age": 31,
+        "summary": "工作野心不强，时间比较可控，喜欢稳定生活，也尊重各自兴趣。"
+      },
+      "hard": {
+        "children_intent": "open",
+        "long_distance_risk": "low",
+        "relationship_seriousness": "serious"
+      },
+      "traits": {
+        "economic_stability": 6,
+        "career_intensity": 4,
+        "daily_availability": 8,
+        "responsiveness": 8,
+        "crisis_reliability": 8,
+        "autonomy_need": 7,
+        "family_investment": 7,
+        "social_energy": 3,
+        "predictability": 9,
+        "fairness": 9
+      }
+    },
+    {
+      "id": "P09",
+      "design_label": "高社交_高可预测",
+      "first_round_priority": 60,
+      "presentation": {
+        "name": "苏野",
+        "age": 30,
+        "summary": "社交很多但计划性强，朋友和伴侣的时间都会提前安排清楚。"
+      },
+      "hard": {
+        "children_intent": "open",
+        "long_distance_risk": "low",
+        "relationship_seriousness": "serious"
+      },
+      "traits": {
+        "economic_stability": 7,
+        "career_intensity": 6,
+        "daily_availability": 5,
+        "responsiveness": 7,
+        "crisis_reliability": 7,
+        "autonomy_need": 8,
+        "family_investment": 5,
+        "social_energy": 9,
+        "predictability": 9,
+        "fairness": 7
+      }
+    },
+    {
+      "id": "P10",
+      "design_label": "低社交_低可预测",
+      "first_round_priority": 100,
+      "presentation": {
+        "name": "陆随",
+        "age": 30,
+        "summary": "朋友不多，但生活随性，经常临时起意改变安排。"
+      },
+      "hard": {
+        "children_intent": "open",
+        "long_distance_risk": "medium",
+        "relationship_seriousness": "serious"
+      },
+      "traits": {
+        "economic_stability": 6,
+        "career_intensity": 5,
+        "daily_availability": 6,
+        "responsiveness": 7,
+        "crisis_reliability": 6,
+        "autonomy_need": 8,
+        "family_investment": 5,
+        "social_energy": 3,
+        "predictability": 3,
+        "fairness": 7
+      }
+    },
+    {
+      "id": "P11",
+      "design_label": "高家庭_高公平_高空间",
+      "first_round_priority": 110,
+      "presentation": {
+        "name": "唐和",
+        "age": 32,
+        "summary": "对家庭责任投入很高，但认为亲密关系也应该给彼此完整的个人空间。"
+      },
+      "hard": {
+        "children_intent": "open",
+        "long_distance_risk": "low",
+        "relationship_seriousness": "serious"
+      },
+      "traits": {
+        "economic_stability": 7,
+        "career_intensity": 5,
+        "daily_availability": 8,
+        "responsiveness": 8,
+        "crisis_reliability": 9,
+        "autonomy_need": 7,
+        "family_investment": 9,
+        "social_energy": 4,
+        "predictability": 8,
+        "fairness": 9
+      }
+    },
+    {
+      "id": "P12",
+      "design_label": "高家庭_高共同_低空间",
+      "first_round_priority": 120,
+      "presentation": {
+        "name": "闻舟",
+        "age": 31,
+        "summary": "很重视家庭和共同时间，喜欢重要事情都一起做、一起决定。"
+      },
+      "hard": {
+        "children_intent": "open",
+        "long_distance_risk": "low",
+        "relationship_seriousness": "serious"
+      },
+      "traits": {
+        "economic_stability": 7,
+        "career_intensity": 5,
+        "daily_availability": 9,
+        "responsiveness": 6,
+        "crisis_reliability": 8,
+        "autonomy_need": 2,
+        "family_investment": 9,
+        "social_energy": 3,
+        "predictability": 9,
+        "fairness": 8
+      }
+    },
+    {
+      "id": "P13",
+      "design_label": "高经济_低成长_高时间",
+      "first_round_priority": 130,
+      "presentation": {
+        "name": "季衡",
+        "age": 34,
+        "summary": "经济条件很好，工作压力不大，对继续往上冲没有太大兴趣。"
+      },
+      "hard": {
+        "children_intent": "open",
+        "long_distance_risk": "low",
+        "relationship_seriousness": "serious"
+      },
+      "traits": {
+        "economic_stability": 10,
+        "career_intensity": 3,
+        "daily_availability": 8,
+        "responsiveness": 7,
+        "crisis_reliability": 7,
+        "autonomy_need": 6,
+        "family_investment": 7,
+        "social_energy": 5,
+        "predictability": 9,
+        "fairness": 7
+      }
+    },
+    {
+      "id": "P14",
+      "design_label": "低当前经济_高成长",
+      "first_round_priority": 140,
+      "presentation": {
+        "name": "乔远",
+        "age": 29,
+        "summary": "当前收入普通，但事业和学习投入很高，未来几年会比较拼。"
+      },
+      "hard": {
+        "children_intent": "open",
+        "long_distance_risk": "medium",
+        "relationship_seriousness": "serious"
+      },
+      "traits": {
+        "economic_stability": 4,
+        "career_intensity": 9,
+        "daily_availability": 5,
+        "responsiveness": 8,
+        "crisis_reliability": 8,
+        "autonomy_need": 7,
+        "family_investment": 6,
+        "social_energy": 5,
+        "predictability": 7,
+        "fairness": 8
+      }
+    },
+    {
+      "id": "P15",
+      "design_label": "稳定均衡_对照基线",
+      "first_round_priority": 150,
+      "presentation": {
+        "name": "柏然",
+        "age": 32,
+        "summary": "各方面比较稳定，没有明显极端，生活规律，愿意协商。"
+      },
+      "hard": {
+        "children_intent": "open",
+        "long_distance_risk": "low",
+        "relationship_seriousness": "serious"
+      },
+      "traits": {
+        "economic_stability": 6,
+        "career_intensity": 5,
+        "daily_availability": 7,
+        "responsiveness": 7,
+        "crisis_reliability": 8,
+        "autonomy_need": 6,
+        "family_investment": 7,
+        "social_energy": 5,
+        "predictability": 8,
+        "fairness": 8
+      }
+    }
+  ]
+}
