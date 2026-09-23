@@ -125,6 +125,7 @@
 当前保持简单：
 
 - [当前核心模型](docs/current-model.md)：已经形成、目前正在使用的认识；
+- [重要决定](docs/decisions.md)：已经明确、不应该无意中绕回去的方向；
 - [初步研究记录](docs/research/01-initial-findings.md)：第一轮外部研究带来的修正和线索；
 - [下一阶段研究](docs/research/02-comprehensive-model-plan.md)：接下来怎样建立“大而全 → 再简化”的共同生活模型。
 
