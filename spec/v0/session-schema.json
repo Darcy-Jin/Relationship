@@ -1,0 +1,362 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Darcy-Jin/Relationship/spec/v0/session-schema.json",
+  "title": "Relationship Deterministic Engine v0 Session",
+  "type": "object",
+  "required": [
+    "session_id",
+    "engine_version",
+    "state",
+    "player",
+    "hypotheses",
+    "rounds"
+  ],
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "engine_version": {
+      "const": "0.1.0"
+    },
+    "state": {
+      "enum": [
+        "SETUP",
+        "ROUND_1_SELECT",
+        "ROUND_1_LIFE",
+        "EVIDENCE_REVIEW",
+        "ROUND_2_SELECT",
+        "ROUND_2_LIFE",
+        "ROUND_3_SELECT",
+        "ROUND_3_LIFE",
+        "CHOICE_MAP",
+        "END"
+      ]
+    },
+    "player": {
+      "type": "object",
+      "required": [
+        "hard_constraints",
+        "stated_preferences",
+        "fear_options",
+        "desired_feelings"
+      ],
+      "properties": {
+        "hard_constraints": {
+          "type": "object",
+          "required": [
+            "children_intent",
+            "long_distance"
+          ],
+          "properties": {
+            "children_intent": {
+              "enum": [
+                "want",
+                "do_not_want",
+                "open",
+                "unsure"
+              ]
+            },
+            "long_distance": {
+              "enum": [
+                "accept",
+                "conditional",
+                "reject"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "stated_preferences": {
+          "type": "object",
+          "required": [
+            "attraction",
+            "economic_stability",
+            "career_growth",
+            "companionship",
+            "responsiveness",
+            "autonomy",
+            "family_investment",
+            "social_energy"
+          ],
+          "additionalProperties": {
+            "enum": [
+              "MUST_HIGH",
+              "PREFER_HIGH",
+              "NORMAL_OK",
+              "LOW_OK",
+              "DONT_CARE"
+            ]
+          }
+        },
+        "fear_options": {
+          "type": "array",
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "desired_feelings": {
+          "type": "array",
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "free_note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "attraction_evidence": {
+      "type": "object",
+      "properties": {
+        "low_reject_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pass_consider_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "rounds_seen": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "hypotheses": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "score",
+          "positive_evidence_count",
+          "counter_evidence_count",
+          "rounds_seen",
+          "status"
+        ],
+        "properties": {
+          "score": {
+            "type": "integer"
+          },
+          "positive_evidence_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "counter_evidence_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "rounds_seen": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "status": {
+            "enum": [
+              "STABLE",
+              "LIKELY",
+              "POSSIBLE",
+              "UNSUPPORTED"
+            ]
+          },
+          "evidence_event_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "rounds": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "round",
+          "presented_candidates",
+          "attraction_ratings"
+        ],
+        "properties": {
+          "round": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          },
+          "contrast_pack_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "presented_candidates": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 4,
+            "items": {
+              "type": "string"
+            }
+          },
+          "attraction_ratings": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "required": [
+                "rating",
+                "would_consider"
+              ],
+              "properties": {
+                "rating": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4
+                },
+                "would_consider": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "selected_candidate_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "relationship_state": {
+            "type": "object",
+            "properties": {
+              "connection": {
+                "type": "integer",
+                "minimum": -10,
+                "maximum": 10
+              },
+              "trust": {
+                "type": "integer",
+                "minimum": -10,
+                "maximum": 10
+              },
+              "autonomy_balance": {
+                "type": "integer",
+                "minimum": -10,
+                "maximum": 10
+              },
+              "resentment": {
+                "type": "integer",
+                "minimum": -10,
+                "maximum": 10
+              },
+              "commitment": {
+                "type": "integer",
+                "minimum": -10,
+                "maximum": 10
+              },
+              "exit_constraint": {
+                "type": "integer",
+                "minimum": -10,
+                "maximum": 10
+              }
+            },
+            "required": [
+              "connection",
+              "trust",
+              "autonomy_balance",
+              "resentment",
+              "commitment",
+              "exit_constraint"
+            ],
+            "additionalProperties": false
+          },
+          "event_logs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "event_id",
+                "player_action",
+                "candidate_response_code",
+                "outcome_tags",
+                "tolerance",
+                "evidence_delta"
+              ],
+              "properties": {
+                "event_id": {
+                  "type": "string"
+                },
+                "player_action": {
+                  "type": "string"
+                },
+                "candidate_response_code": {
+                  "type": "string"
+                },
+                "outcome_tags": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "tolerance": {
+                  "enum": [
+                    "LIKE",
+                    "ACCEPT",
+                    "CHANGE_REQUIRED",
+                    "CANNOT_CONTINUE"
+                  ]
+                },
+                "primary_reason_code": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "secondary_reason_code": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "evidence_delta": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "continue_choice": {
+            "enum": [
+              "CONTINUE",
+              "CONTINUE_IF_CHANGE",
+              "UNSURE",
+              "STOP"
+            ]
+          },
+          "single_change_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "choice_map": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
