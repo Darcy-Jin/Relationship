@@ -135,6 +135,7 @@ docs/engine/implementation-result-v0.md
 
 - [实现结果 v0](docs/engine/implementation-result-v0.md)
 - [开发交接](docs/engine/implementation-handoff.md)
+- [开发交付与验证](docs/engine/development-evidence-v0.md)
 
 ### 当前验证
 
