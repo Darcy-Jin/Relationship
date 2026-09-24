@@ -4,176 +4,215 @@
 
 ## 当前阶段
 
-**确定性游戏引擎 v0 已实现并通过自动测试 → 准备第一次正式真人试玩。**
+**确定性 Rule Engine 已实现并通过自动测试 → 发现 Player UI 视角错误 → 游戏体验完成重新建模 → 准备实现 First Life 垂直切片。**
 
-正式试玩必须跑当前程序，不再使用 ChatGPT 临场主持替代引擎。
+当前原 Web 不再作为正式真人试玩 UI。
 
 ---
 
 ## 已经完成
 
-- 完成亲密关系与共同生活系统研究；
-- 形成完整领域模型和简化游戏模型；
-- 完成确定性引擎规格、Rulebook 和机器可读 Spec；
-- 实现纯规则 Web 产品；
-- 实现固定人物、固定事件、Evidence、Hypothesis、Contrast Pack、Choice Map；
-- 实现第二轮和必要时第三轮；
-- 实现 Session JSON 导出；
-- 实现显式 attraction 评分和是否考虑；
-- 第二轮全部不考虑时允许结束，不强迫选择；
-- 完成 25 个自动测试；
-- 完成静态 Web smoke test；
-- GitHub 源码快照与本地测试快照 SHA-256 校验一致。
+- 完整关系领域研究；
+- 简化游戏模型；
+- 纯固定规则引擎；
+- 25/25 自动测试；
+- 游戏模式对标；
+- 明确 Relationship 不是婚恋测评，而是亲密关系模拟人生；
+- 明确不同人生阶段可以使用不同游戏形态；
+- 完成 First 10 Minutes + First Life v0 体验设计；
+- 明确现有 Web 降级为 Engine Debug UI；
+- 明确 Rule Engine 与 Experience Layer 分离。
 
 ---
 
 ## 当前正式入口
 
-### 产品和模型
+### 产品
 
 - `README.md`
 - `docs/current-model.md`
-- `docs/game-model-v0.md`
 - `docs/decisions.md`
+- `docs/game-model-v0.md`
 
-### 确定性引擎
+### 体验设计
+
+- `docs/research/07-gameplay-benchmark-experience-model.md`
+- `docs/product/first-10-minutes-first-life-v0.md`
+
+### 后台规则
 
 - `docs/engine/deterministic-engine-v0.md`
 - `docs/engine/rulebook-v0.md`
-- `spec/v0/README.md`
-- `spec/v0/*.json`
+- `spec/v0/`
 
-### 实现和验证
+### 当前代码
 
-- `docs/engine/implementation-result-v0.md`
-- `docs/engine/spec-validation-v0.md`
-- `docs/validation/playtest-template.md`
+当前确定性 Web 已实现，但定位调整为：
+
+> **Engine Debug UI**
+
+它继续用于：
+
+- 规则测试；
+- Evidence 检查；
+- Session 回放；
+- Contrast Pack 检查；
+- 自动测试。
+
+不用于正式玩家体验验证。
 
 ---
 
-## 怎么运行
-
-仓库根目录：
-
-```bash
-npm start
-```
-
-浏览器打开：
+## 当前玩家体验主线
 
 ```text
-http://127.0.0.1:4173
+开始这一年
+↓
+先后遇见几个人
+↓
+发生很短的自然互动
+↓
+选择最想继续认识的人
+↓
+第一次约会
+↓
+决定是否继续
+↓
+三个月后
+↓
+轻量日常事件
+↓
+半年 / 一年时间推进
+↓
+共同生活开始形成
+↓
+重大事业场景
+↓
+真正需要对方的 Crisis
+↓
+几年后的继续 / 改变 / 离开决定
+↓
+这一段人生的回忆
+↓
+再活一次
 ```
 
-自动测试：
+玩家只面对：
 
-```bash
-npm test
-```
+> 人、生活、选择和后果。
 
-需要查看普通源码文件时：
+后台继续运行：
 
-```bash
-npm run materialize
-```
+> Candidate / State / Evidence / Hypothesis / Contrast Pack。
 
 ---
 
-## 当前实现的核心循环
+## 当前最重要的体验规则
 
-```text
-结构化开局
-↓
-固定 4 个候选人
-↓
-玩家逐个给主观吸引和“是否考虑”
-↓
-选 1 人
-↓
-固定生活事件
-↓
-玩家行动
-↓
-固定规则决定对方回应
-↓
-玩家自己判断能不能接受
-↓
-负面时选择结构化原因
-↓
-Evidence / Hypothesis 更新
-↓
-确定性选择 Contrast Pack
-↓
-第二轮 / 必要时第三轮
-↓
-Choice Map
-↓
-导出 Session JSON
-```
+### 不从测评开始
 
-没有 AI、没有随机数、没有隐藏总分。
+第一分钟不再让玩家填写：
 
----
+- 钱多重要；
+- 陪伴多重要；
+- 最怕选错什么；
+- 理想伴侣是什么。
 
-## 自动验证结果
+第一版只保留真正必要的世界设定。
 
-当前：
+### 不显示人物分数
 
-> **25 / 25 tests passed。**
+人物先成为：
 
-覆盖：
+> 一个具体的人。
 
-- 11 个规则 fixture；
-- 11 类 Event Resolver 的 HIGH / MID / LOW 边界；
-- 确定性重放；
-- Evidence 更新；
-- 固定事件顺序；
-- 完整两轮路径到 Choice Map。
+玩家看到：
 
-静态启动 Smoke Test：
+- 长相 / 形象；
+- 名字；
+- 工作；
+- 生活；
+- 对话；
+- 行为。
 
-> **PASS**
+不是：
 
-源码快照：
+> 事业 9 / 陪伴 3 / 可靠 8。
 
-- 长度：`29896`
-- SHA-256：`ed330f1cdc51d64cba91df0242cef64181c047c8ed561a98d6acae2892d25684`
+### 不显示 Evidence 语言
 
-GitHub 端拼接结果与本地测试快照一致。
+`LIKE / ACCEPT / CHANGE_REQUIRED / CANNOT_CONTINUE`
 
----
+继续保留在后台。
 
-## 当前仍然不知道什么
+前台改成：
 
-自动测试只能证明：
+> 玩家那个时刻自然会说 / 会做的事。
 
-> 程序按我们写的规则稳定运行。
+### 不显示 reason code
 
-还不能证明：
+需要原因时问：
 
-- 人物是否真实；
-- 游戏是否好玩；
-- 玩家会不会觉得像做题；
-- Evidence 权重是否合适；
-- Contrast Pack 是否真的有启发；
-- Choice Map 是否让玩家认识自己；
-- 玩家会不会出现“原来我在乎的不是 X，是 Y”。
+> **“你现在最想跟他说什么？”**
 
-这些只能靠真人试玩。
+选项是自然对白。
+
+后台再映射固定 reason code。
+
+### 第一段人生结束先给 Memory
+
+不立刻输出：
+
+> “你的真实需求是什么。”
+
+先让玩家看：
+
+> 这一段人生里真正发生过什么。
+
+至少两段人生以后，才允许进入可选 Reflection。
 
 ---
 
-## 下一步
+## 当前下一步
 
-**第一次正式真人试玩。**
+实现：
 
-试玩时：
+> **First 10 Minutes + First Life 的 Player Experience 垂直切片。**
 
-1. 直接运行当前程序；
-2. 不向玩家解释后台 Hypothesis；
-3. 完整玩到 Choice Map；
-4. 导出 Session JSON；
-5. 使用 `docs/validation/playtest-template.md` 记录真实反馈；
-6. 根据真实证据局部修改人物、事件、规则或交互。
+只做：
 
-在真人试玩前，不继续扩大功能范围。
+1. 开始人生；
+2. 4 个 Encounter；
+3. 选择继续认识谁；
+4. First Date；
+5. 三个月后的关系；
+6. 3 个轻 Event；
+7. 共同生活 Scene；
+8. Career Opportunity Scene；
+9. Crisis Scene；
+10. Final Decision；
+11. Memory Timeline；
+12. “再活一次”入口。
+
+暂时不做完整第二段人生。
+
+---
+
+## 下一阶段验证问题
+
+垂直切片完成以后，第一个真人测试只看：
+
+> **玩家会不会忘记后台有规则，只觉得自己真的和一个人过了几年。**
+
+主要观察：
+
+- 前十分钟有没有想继续认识某个人；
+- 人物有没有存在感；
+- 选择像不像真实反应；
+- 普通 Event 是否够轻；
+- 大 Scene 是否真的有重量；
+- 时间跳跃是否还能保持关系连续；
+- 第一段人生结束时，玩家能不能说：
+  > “和这个人生活，大概就是这种感觉。”
+
+只有这层成立，再进入第二段人生和多 Run 校准。
