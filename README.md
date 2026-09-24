@@ -1,6 +1,6 @@
 # Relationship
 
-一个关于亲密关系选择的模拟游戏。
+一个用游戏形式做亲密关系选择与自我认知的工具。
 
 它不是“理想对象匹配器”，也不预测婚姻。
 
@@ -64,15 +64,13 @@
 
 ## 当前阶段
 
-**确定性 Rule Engine 和 First Life Player Experience v0 都已经实现。**
+**确定性 Rule Engine、四层信息模型和 Interaction Contract 已正式接入。**
 
-现在进入：
+现在优先验证：
 
-> **第一次真人试玩。**
+> **第一次相亲是不是既高效，又真的能看见不同的人。**
 
-当前正式玩家版只实现：
-
-> **前 10 分钟 + 第一段约四年的关系人生。**
+当前相亲试玩入口是 `/play-v2/`；旧版 `/play/` 保留完整 First Life 作为历史体验参考。
 
 后台固定规则继续保留；玩家不再看到属性分、Evidence、Hypothesis 等调试信息。
 
@@ -86,7 +84,13 @@ cd Relationship
 npm start
 ```
 
-### 玩家版
+### 当前相亲试玩版
+
+```text
+http://127.0.0.1:4173/play-v2/
+```
+
+### 旧版完整 First Life
 
 ```text
 http://127.0.0.1:4173/play/
@@ -98,7 +102,7 @@ http://127.0.0.1:4173/play/
 http://127.0.0.1:4173/
 ```
 
-正式真人试玩只使用 `/play/`。
+当前相亲阶段迭代只使用 `/play-v2/`。
 
 自动测试：
 
@@ -126,7 +130,7 @@ npm start
 
 `Settings -> Pages -> Build and deployment -> Source -> GitHub Actions`
 
-启用后在 Actions 里手动运行 `Deploy Relationship Player`。
+启用后，main 分支更新会自动部署 GitHub Pages；也可以在 Actions 里手动运行 `Deploy Relationship Player`。
 
 详细说明：[手机端测试](docs/product/mobile-testing.md)
 
@@ -154,11 +158,13 @@ docs/engine/implementation-result-v0.md
 
 ### 当前正式模型
 
-- [当前核心模型 v0.3](docs/current-model.md)
+- [当前核心模型 v0.4](docs/current-model.md)
 - [简化游戏模型 v0.1](docs/game-model-v0.md)
 - [确定性引擎 v0](docs/engine/deterministic-engine-v0.md)
 - [确定性规则 Rulebook v0](docs/engine/rulebook-v0.md)
 - [机器可读 Spec v0](spec/v0/README.md)
+- `spec/v0/information-model.json`
+- `spec/v0/interaction-contracts.json`
 
 ### 实现
 
@@ -189,6 +195,7 @@ docs/engine/implementation-result-v0.md
 - [07｜游戏体验对标](docs/research/07-gameplay-benchmark-experience-model.md)
 - [08｜目标用户与认知—体验差距](docs/research/08-target-user-segmentation.md)
 - [09｜未来体验为什么可能帮助重大关系决策](docs/research/09-future-experience-decision-mechanism.md)
+- [10｜相亲信息、择偶判断与交互设计](docs/research/10-mate-selection-decision-factor-and-interaction-design.md)
 
 Research 保存“为什么”。
 
