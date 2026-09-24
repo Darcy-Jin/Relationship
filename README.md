@@ -101,6 +101,23 @@ npm run materialize
 
 - [.source/README.md](.source/README.md)
 
+## 本地试玩
+
+下载仓库后，在根目录执行：
+
+```bash
+npm start
+```
+
+然后打开：
+
+```text
+玩家版：http://127.0.0.1:4173/play/
+调试版：http://127.0.0.1:4173/
+```
+
+当前正式真人试玩只使用玩家版。
+
 ## 现在从哪里继续
 
 默认恢复顺序：
