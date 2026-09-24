@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node scripts/serve.mjs",
-    "test": "node scripts/materialize.mjs && node --test .materialized/tests/*.test.mjs",
+    "test": "node scripts/materialize.mjs && node --test .materialized/tests/*.test.mjs play/tests/*.test.mjs",
     "materialize": "node scripts/materialize.mjs --root"
   }
 }
