@@ -1,8 +1,9 @@
 name: Deploy Relationship Player
 
+# One-time prerequisite:
+# Repository Settings -> Pages -> Build and deployment -> Source: GitHub Actions
+# The ChatGPT GitHub integration cannot enable Pages for the first time.
 on:
-  push:
-    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -26,8 +27,6 @@ jobs:
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
