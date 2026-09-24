@@ -96,6 +96,30 @@ http://127.0.0.1:4173/
 npm test
 ```
 
+## 手机测试
+
+当前已经支持手机和电脑。
+
+### 同一 Wi-Fi：直接测试
+
+电脑执行：
+
+```bash
+npm start
+```
+
+终端会同时打印电脑地址和 `Phone on the same Wi-Fi` 地址。手机和电脑连同一个 Wi-Fi，用手机打开那个局域网地址即可。
+
+### 公网链接：给其他测试玩家
+
+仓库已准备 GitHub Pages 工作流。第一次需要在 GitHub：
+
+`Settings -> Pages -> Build and deployment -> Source -> GitHub Actions`
+
+启用后在 Actions 里手动运行 `Deploy Relationship Player`。
+
+详细说明：[手机端测试](docs/product/mobile-testing.md)
+
 ## 现在从哪里继续
 
 默认恢复顺序：
