@@ -1,0 +1,138 @@
+{
+  "version": "0.2.0",
+  "status": "promoted",
+  "contract_schema": {
+    "required": [
+      "id",
+      "candidate_id",
+      "mode",
+      "purpose",
+      "targets",
+      "candidate_difference",
+      "choices",
+      "response_mapping",
+      "evidence_update"
+    ],
+    "optional": [
+      "skip_if_known",
+      "state_effect",
+      "next_probe"
+    ]
+  },
+  "contracts": [
+    {
+      "id": "P01_WORK_TIME",
+      "candidate_id": "P01",
+      "mode": "SCENE_PROBE",
+      "purpose": [
+        "reveal_candidate",
+        "elicit_player",
+        "observe_response"
+      ],
+      "targets": [
+        "career_intensity",
+        "daily_availability",
+        "responsiveness",
+        "attention_priority"
+      ],
+      "candidate_difference": "林序事业投入高，工作会侵入私人时间，但是否尊重约定与回应需要必须单独观察。",
+      "choices": [
+        "接受临时工作打断",
+        "询问周末是否经常如此",
+        "明确不喜欢约好的时间被工作打断"
+      ],
+      "response_mapping": "固定按玩家选择显示不同回应；不计算相似度。",
+      "evidence_update": "记录玩家对工作侵入私人时间和对方回应方式的反应。",
+      "skip_if_known": false,
+      "next_probe": [
+        "time_allocation",
+        "housing_and_future"
+      ]
+    },
+    {
+      "id": "P02_HOME_FAMILY",
+      "candidate_id": "P02",
+      "mode": "CONVERSATION",
+      "purpose": [
+        "reveal_candidate",
+        "elicit_player",
+        "expose_difference"
+      ],
+      "targets": [
+        "family_investment",
+        "daily_availability",
+        "autonomy_need",
+        "housing"
+      ],
+      "candidate_difference": "周宁把大量周末时间放在稳定生活与家庭，拥有住房但仍有贷款。",
+      "choices": [
+        "喜欢稳定共同生活",
+        "希望保留更多个人时间",
+        "更关心未来住房与家庭安排"
+      ],
+      "response_mapping": "周宁分别回应相似点、差异点或现实安排，不评价哪种更好。",
+      "evidence_update": "记录玩家对高共同生活、高家庭投入与住房现实的反应。",
+      "next_probe": [
+        "family_boundary",
+        "money_style"
+      ]
+    },
+    {
+      "id": "P03_TRAVEL_SPEND_SOCIAL",
+      "candidate_id": "P03",
+      "mode": "CONVERSATION",
+      "purpose": [
+        "reveal_candidate",
+        "elicit_player",
+        "expose_difference",
+        "test_tradeoff"
+      ],
+      "targets": [
+        "predictability",
+        "social_energy",
+        "money_style",
+        "autonomy_need"
+      ],
+      "candidate_difference": "许澈生活随性、社交密度高，愿意把更多钱花在体验上。",
+      "choices": [
+        "同样偏随性体验",
+        "偏计划和预算",
+        "能接受部分随性但需要边界"
+      ],
+      "response_mapping": "许澈明确说出相同或不同，并继续暴露自己的消费和社交方式。",
+      "evidence_update": "记录玩家对计划性、体验消费和社交密度的真实反应。",
+      "next_probe": [
+        "friend_boundary",
+        "money_tradeoff"
+      ]
+    },
+    {
+      "id": "P04_GROWTH_AUTONOMY",
+      "candidate_id": "P04",
+      "mode": "COMPARE",
+      "purpose": [
+        "reveal_candidate",
+        "elicit_player",
+        "test_tradeoff"
+      ],
+      "targets": [
+        "economic_stability",
+        "career_intensity",
+        "autonomy_need",
+        "housing"
+      ],
+      "candidate_difference": "沈知当前条件普通但持续投入成长，更愿意延迟部分物质结果换未来空间。",
+      "choices": [
+        "更看重当前稳定",
+        "更看重未来成长",
+        "可以接受成长但需要现实底线"
+      ],
+      "response_mapping": "固定回应玩家更在意的时间点与现实边界。",
+      "evidence_update": "记录玩家对当前条件与未来成长之间 trade-off 的选择。",
+      "next_probe": [
+        "independent_time",
+        "housing_timing"
+      ]
+    }
+  ]
+}
