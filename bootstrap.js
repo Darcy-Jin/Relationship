@@ -1,5 +1,10 @@
+const PARTS = [1,2,3,4,5].map((n) => `./.source/relationship-v0.part${String(n).padStart(2,'0')}.b64`);
+
 async function loadBundle() {
-  const encoded = (await fetch('./.source/relationship-v0.bundle.gz.b64').then((r) => r.text())).trim();
+  const encoded = (await Promise.all(PARTS.map((url) => fetch(url).then((r) => {
+    if (!r.ok) throw new Error(`source part failed: ${url} (${r.status})`);
+    return r.text();
+  })))).join('').replace(/\s+/g, '');
   const bytes = Uint8Array.from(atob(encoded), (ch) => ch.charCodeAt(0));
   const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
   return JSON.parse(await new Response(stream).text());
