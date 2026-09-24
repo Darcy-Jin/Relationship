@@ -4,46 +4,37 @@
 
 ## 当前阶段
 
-**确定性游戏引擎 v0 规格已完成 → 规格一致性验证通过 → 下一步进入程序实现。**
+**确定性游戏引擎 v0 已实现并通过自动测试 → 准备第一次正式真人试玩。**
 
-当前不再用 ChatGPT 主持的试玩作为正式验证。
+正式试玩必须跑当前程序，不再使用 ChatGPT 临场主持替代引擎。
 
 ---
 
 ## 已经完成
 
 - 完成亲密关系与共同生活系统研究；
-- 形成完整领域模型；
-- 形成简化游戏模型；
-- 完成文本版 First Playable；
-- 完成设计压力测试；
-- 确认第一版正式产品采用纯固定规则，不使用 AI；
-- 形成确定性引擎架构；
-- 定义人物维度、Hypothesis、Evidence Rule；
-- 建立固定人物库；
-- 建立固定事件库；
-- 建立 5 组 Contrast Pack；
-- 定义关系状态和 Event Resolver；
-- 定义 Choice Map 固定生成规则；
-- 定义 Session JSON Schema；
-- 建立固定 Test Fixtures；
-- 做完机器级引用一致性检查；
-- 修复社交边界隐式推断，新增独立 `boundary_respect`；
-- 完成开发交接。
+- 形成完整领域模型和简化游戏模型；
+- 完成确定性引擎规格、Rulebook 和机器可读 Spec；
+- 实现纯规则 Web 产品；
+- 实现固定人物、固定事件、Evidence、Hypothesis、Contrast Pack、Choice Map；
+- 实现第二轮和必要时第三轮；
+- 实现 Session JSON 导出；
+- 实现显式 attraction 评分和是否考虑；
+- 第二轮全部不考虑时允许结束，不强迫选择；
+- 完成 25 个自动测试；
+- 完成静态 Web smoke test；
+- GitHub 源码快照与本地测试快照 SHA-256 校验一致。
 
 ---
 
 ## 当前正式入口
 
-### 项目
+### 产品和模型
 
 - `README.md`
 - `docs/current-model.md`
-- `docs/decisions.md`
-
-### 当前产品
-
 - `docs/game-model-v0.md`
+- `docs/decisions.md`
 
 ### 确定性引擎
 
@@ -52,177 +43,137 @@
 - `spec/v0/README.md`
 - `spec/v0/*.json`
 
-### 开发
+### 实现和验证
 
-- `docs/engine/implementation-handoff.md`
-
-### 规格验证
-
+- `docs/engine/implementation-result-v0.md`
 - `docs/engine/spec-validation-v0.md`
+- `docs/validation/playtest-template.md`
 
 ---
 
-## v0 正式运行原则
+## 怎么运行
 
-```text
-固定人物
-+
-固定事件
-+
-固定规则
-+
-结构化玩家输入
-+
-固定 Evidence 更新
-+
-固定 Contrast Pack 选择
-+
-固定输出模板
+仓库根目录：
+
+```bash
+npm start
 ```
 
-不使用：
+浏览器打开：
 
-- LLM；
-- 随机人物生成；
-- AI 剧情；
-- 自由文本语义分析；
-- 隐藏总分；
-- 动态“猜你真正想要什么”。
+```text
+http://127.0.0.1:4173
+```
+
+自动测试：
+
+```bash
+npm test
+```
+
+需要查看普通源码文件时：
+
+```bash
+npm run materialize
+```
 
 ---
 
-## 当前引擎六块
+## 当前实现的核心循环
 
 ```text
-Player Profile
+结构化开局
 ↓
-Candidate Library
+固定 4 个候选人
 ↓
-Scenario Engine
+玩家逐个给主观吸引和“是否考虑”
 ↓
-Evidence Engine
+选 1 人
 ↓
-Contrast Selector
+固定生活事件
+↓
+玩家行动
+↓
+固定规则决定对方回应
+↓
+玩家自己判断能不能接受
+↓
+负面时选择结构化原因
+↓
+Evidence / Hypothesis 更新
+↓
+确定性选择 Contrast Pack
+↓
+第二轮 / 必要时第三轮
 ↓
 Choice Map
+↓
+导出 Session JSON
 ```
 
-所有判断都要求：
-
-> 能从最终结果追溯到玩家具体做过的选择和具体事件。
+没有 AI、没有随机数、没有隐藏总分。
 
 ---
 
-## 当前已经固定的关键规则
+## 自动验证结果
 
-### 人物没有总分
+当前：
 
-候选人由独立维度构成。
+> **25 / 25 tests passed。**
 
-不能把 trait 相加排序。
+覆盖：
 
-### 玩家自由文本不参与计算
+- 11 个规则 fixture；
+- 11 类 Event Resolver 的 HIGH / MID / LOW 边界；
+- 确定性重放；
+- Evidence 更新；
+- 固定事件顺序；
+- 完整两轮路径到 Choice Map。
 
-可以保存备注。
+静态启动 Smoke Test：
 
-但只有结构化字段影响运行。
+> **PASS**
 
-### 玩家的真实承受反馈是核心证据
+源码快照：
 
-每个事件结束以后由玩家自己选：
+- 长度：`29896`
+- SHA-256：`ed330f1cdc51d64cba91df0242cef64181c047c8ed561a98d6acae2892d25684`
 
-- LIKE；
-- ACCEPT；
-- CHANGE_REQUIRED；
-- CANNOT_CONTINUE。
-
-程序不能替玩家算“你应该痛苦”。
-
-### 负面原因必须结构化
-
-CHANGE_REQUIRED / CANNOT_CONTINUE 后：
-
-> 玩家从当前场景固定 reason code 里选主因 / 次因。
-
-程序不做自然语言理解。
-
-### 第二轮不动态生成人
-
-系统根据当前 Hypothesis：
-
-> 从 5 个固定 Contrast Pack 中确定性选择一组 3 人。
-
-### 最终不是匹配分
-
-输出：
-
-> Choice Map。
-
-包括：
-
-- 必须有；
-- 喜欢但不是必须；
-- 最难承受；
-- 能接受的不完美；
-- 愿意交换；
-- 当前共同生活类型；
-- 仍然未知。
+GitHub 端拼接结果与本地测试快照一致。
 
 ---
 
-## 规格一致性验证
+## 当前仍然不知道什么
 
-当前机器检查：
+自动测试只能证明：
 
-> **0 个引用错误。**
+> 程序按我们写的规则稳定运行。
 
-已经验算：
+还不能证明：
 
-- 首轮硬约束过滤；
-- Career / Time / Reliability Pack；
-- Social / Predictability Pack；
-- reason code 映射；
-- Candidate / Event / Hypothesis / Pack 引用。
+- 人物是否真实；
+- 游戏是否好玩；
+- 玩家会不会觉得像做题；
+- Evidence 权重是否合适；
+- Contrast Pack 是否真的有启发；
+- Choice Map 是否让玩家认识自己；
+- 玩家会不会出现“原来我在乎的不是 X，是 Y”。
 
-详细：
-
-`docs/engine/spec-validation-v0.md`
+这些只能靠真人试玩。
 
 ---
 
 ## 下一步
 
-进入：
+**第一次正式真人试玩。**
 
-> **程序实现。**
+试玩时：
 
-开发依据：
+1. 直接运行当前程序；
+2. 不向玩家解释后台 Hypothesis；
+3. 完整玩到 Choice Map；
+4. 导出 Session JSON；
+5. 使用 `docs/validation/playtest-template.md` 记录真实反馈；
+6. 根据真实证据局部修改人物、事件、规则或交互。
 
-`docs/engine/implementation-handoff.md`
-
-实现完成的最低要求：
-
-1. 本地 Web 可运行；
-2. 不联网、不调用 AI；
-3. 能完整跑 2～3 轮；
-4. 能导出 Session JSON；
-5. `test-fixtures.json` 自动测试全部通过；
-6. 所有 Event Resolver 有 HIGH / MID / LOW 边界测试；
-7. 同一输入重放 10 次结果完全一致。
-
-只有这些完成以后：
-
-> 才开始第一次正式真人试玩。
-
----
-
-## 当前暂不做
-
-- 不继续扩关系论文；
-- 不用 ChatGPT 代替游戏运行；
-- 不加入 AI；
-- 不润色大量剧情；
-- 不做账号系统；
-- 不做云数据库；
-- 不做商业模式；
-- 不重新设计已确认的业务规则。
+在真人试玩前，不继续扩大功能范围。
