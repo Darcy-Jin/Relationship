@@ -1,9 +1,10 @@
 # First 10 Minutes + First Life v0｜玩家不是来分析自己，而是来活一段感情人生
 
-> 状态：第一版正式体验设计候选。  
+> 状态：**已实现为 First Life Player Experience v0。**  
 > 日期：2026-09-24  
 > 上位依据：[游戏体验对标](../research/07-gameplay-benchmark-experience-model.md)  
-> 后台依据：[确定性引擎 v0](../engine/deterministic-engine-v0.md)
+> 后台依据：[确定性引擎 v0](../engine/deterministic-engine-v0.md)  
+> 实现结果：[First Life Player Experience v0](first-life-implementation-v0.md)
 
 ## 概览
 
