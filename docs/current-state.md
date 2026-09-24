@@ -4,21 +4,24 @@
 
 ## 当前阶段
 
-**确定性 Rule Engine + First Life Player Experience 已实现 → 手机 / 电脑双端访问已支持 → 下一步真人试玩。**
+**确定性 Rule Engine + 信息/交互模型 v0.2 已正式晋升 → /play-v2/ 相亲试玩版已按新模型重构 → 下一步继续试玩并迭代第一次相亲。**
 
-现在有两个明确分开的产品入口：
+现在有三个明确分开的入口：
 
 ```text
+/play-v2/
+→ 当前正式相亲开场试玩版
+
 /play/
-→ 给玩家玩的模拟人生体验
+→ 旧版完整 First Life，保留作为历史体验参考
 
 /
 → Engine Debug UI
 ```
 
-正式真人试玩只使用：
+当前迭代相亲开场时只使用：
 
-> **/play/**
+> **/play-v2/**
 
 ---
 
@@ -26,6 +29,10 @@
 
 - 完整关系领域研究；
 - 目标用户 / 认知—体验差距研究；
+- 相亲信息、择偶判断与交互设计研究；
+- 四层 Information Model 正式晋升；
+- 七种信息获取方式正式晋升；
+- Interaction Contract 正式晋升；
 - “未来体验 → 自我校准”机制研究，并已晋升到正式产品定位；
 - 简化游戏模型；
 - 纯固定规则引擎；
@@ -52,7 +59,14 @@
 
 ## 当前正式入口
 
-### 玩家体验
+### 当前玩家体验
+
+- `play-v2/`
+- `docs/product/first-life-v2-blind-date-opening.md`
+- `spec/v0/information-model.json`
+- `spec/v0/interaction-contracts.json`
+
+### 旧版完整 First Life
 
 - `play/README.md`
 - `play/`
@@ -82,7 +96,13 @@ npm start
 
 然后打开：
 
-### 正式玩家版
+### 当前相亲试玩版
+
+```text
+http://127.0.0.1:4173/play-v2/
+```
+
+### 旧版完整 First Life
 
 ```text
 http://127.0.0.1:4173/play/
@@ -167,7 +187,7 @@ npm test
 
 ## 手机端
 
-当前 Player Experience 按手机优先适配，同时兼容电脑。
+当前 /play-v2/ 与 /play/ 都支持手机和电脑。/play-v2/ 桌面优先 4 人并排，手机自动切成 2×2。
 
 ### 同一 Wi-Fi
 
@@ -189,33 +209,52 @@ GitHub Pages 部署工作流已准备好。
 预期公网玩家地址：
 
 ```text
+https://darcy-jin.github.io/Relationship/play-v2/
+```
+
+旧版：
+
+```text
 https://darcy-jin.github.io/Relationship/play/
 ```
 
 详细：`docs/product/mobile-testing.md`
 
 ---
+## 当前新模型
+
+正式区分：
+
+```text
+Candidate Facts
+→ 现实中直接知道
+
+Resource Allocation
+→ 时间 / 钱 / 精力 / 注意力 / 空间 / 计划性
+
+Relationship Process
+→ 回应 / 可靠 / 公平 / 边界 / 冲突 / 修复
+
+Event Domains
+→ 钱 / 房 / 工作 / 家务 / 孩子 / 父母 / 社交 / 健康 / 亲密 / 迁移 / 休闲
+```
+
+信息获取方式：Show / Ask / Compare / Conversation / Scene-Probe / Consequence / Clarify。
+
+凡要求玩家点击的节点必须有 Interaction Contract。
+
 ## 下一步
 
-**第一次真人试玩 Player Experience。**
+**只继续打磨 /play-v2/ 的第一次相亲。**
 
-现在不再继续加功能。
+试玩重点看：
 
-试玩重点只看：
+1. 四个人的现实条件是否一眼看懂；
+2. 钱、房、学历等信息是否够用但不压过人物本身；
+3. 每次点击是否都有明确作用；
+4. 四个人的对话是不是明显不同；
+5. 对方是否真的根据玩家回答接话；
+6. 是否出现真实 trade-off，而不是寻找正确答案；
+7. 最后的“还想不想见”是否有足够依据。
 
-1. 前 10 分钟有没有想继续认识某个人；
-2. 人物有没有存在感；
-3. 选择像不像真实反应；
-4. 日常 Event 是否轻；
-5. Career / Crisis 是否有重量；
-6. 时间跳跃后关系是否仍然连续；
-7. Memory Timeline 是否产生“一段人生”的感觉；
-8. 哪些地方仍然像做题；
-9. 玩家玩完能不能自然说：
-   > “和这个人生活，大概就是这种感觉。”
-10. 有没有自然出现：
-   > “我原来以为我很在乎 / 受不了的是 X，但真的过下来，我发现其实是 Y。”
-
-第 10 条是当前新增的核心机制验证。
-
-有真实证据以后，再局部修改 Experience Layer。
+这一阶段不继续扩三个月后的人生。
