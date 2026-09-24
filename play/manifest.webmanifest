@@ -1,0 +1,10 @@
+{
+  "name": "Relationship · 这一段人生",
+  "short_name": "Relationship",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2efe8",
+  "theme_color": "#f2efe8",
+  "description": "一段亲密关系模拟人生。"
+}
