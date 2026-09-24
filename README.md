@@ -54,24 +54,21 @@
 
 ## 当前阶段
 
-**纯固定规则 v0 已经开发完成。**
+**确定性 Rule Engine 和 First Life Player Experience v0 都已经实现。**
 
 现在进入：
 
-> **第一次正式真人试玩。**
+> **第一次真人试玩。**
 
-当前版本：
+当前正式玩家版只实现：
 
-- 无 AI；
-- 无随机数；
-- 无第三方运行依赖；
-- 支持 2～3 轮模拟；
-- 支持导出完整 Session JSON；
-- 25 / 25 自动测试通过。
+> **前 10 分钟 + 第一段约四年的关系人生。**
+
+后台固定规则继续保留；玩家不再看到属性分、Evidence、Hypothesis 等调试信息。
 
 ## 运行
 
-需要 Node.js。
+需要 Node.js，不需要 `npm install`。
 
 ```bash
 git clone https://github.com/Darcy-Jin/Relationship.git
@@ -79,44 +76,25 @@ cd Relationship
 npm start
 ```
 
-然后打开：
+### 玩家版
 
 ```text
-http://127.0.0.1:4173
+http://127.0.0.1:4173/play/
 ```
 
-运行自动测试：
+### Engine Debug UI
+
+```text
+http://127.0.0.1:4173/
+```
+
+正式真人试玩只使用 `/play/`。
+
+自动测试：
 
 ```bash
 npm test
 ```
-
-如果想把当前已测试源码快照还原成普通 `src/` 和 `tests/` 文件：
-
-```bash
-npm run materialize
-```
-
-源码快照为什么这样保存，见：
-
-- [.source/README.md](.source/README.md)
-
-## 本地试玩
-
-下载仓库后，在根目录执行：
-
-```bash
-npm start
-```
-
-然后打开：
-
-```text
-玩家版：http://127.0.0.1:4173/play/
-调试版：http://127.0.0.1:4173/
-```
-
-当前正式真人试玩只使用玩家版。
 
 ## 现在从哪里继续
 
