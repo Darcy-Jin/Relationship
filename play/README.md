@@ -38,3 +38,35 @@ http://127.0.0.1:4173/play/
 后台仍使用固定规则。
 
 玩家界面不显示后台数值和分析术语。
+
+
+## 手机打开
+
+### 同一个 Wi-Fi
+
+电脑执行：
+
+```bash
+npm start
+```
+
+然后手机打开终端打印的：
+
+```text
+Phone on the same Wi-Fi:
+http://<电脑局域网IP>:4173/play/
+```
+
+### GitHub Pages
+
+第一次在仓库 Settings -> Pages 中把 Source 设为 GitHub Actions，然后运行 Actions 里的 `Deploy Relationship Player`。
+
+预计地址：
+
+```text
+https://darcy-jin.github.io/Relationship/play/
+```
+
+详细见：
+
+`docs/product/mobile-testing.md`
