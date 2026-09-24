@@ -4,7 +4,7 @@
 
 ## 当前阶段
 
-**确定性 Rule Engine 已完成 → Player Experience 已重构 → First 10 Minutes + First Life 垂直切片已实现 → 下一步真人试玩。**
+**确定性 Rule Engine + First Life Player Experience 已实现 → 手机 / 电脑双端访问已支持 → 下一步真人试玩。**
 
 现在有两个明确分开的产品入口：
 
@@ -163,6 +163,36 @@ npm test
 
 ---
 
+## 手机端
+
+当前 Player Experience 按手机优先适配，同时兼容电脑。
+
+### 同一 Wi-Fi
+
+电脑执行 `npm start` 后，终端会直接打印手机可访问的局域网地址：
+
+```text
+Phone on the same Wi-Fi:
+http://<电脑局域网IP>:4173/play/
+```
+
+### 公网测试
+
+GitHub Pages 部署工作流已准备好。
+
+由于 GitHub App 不能替仓库 Owner 第一次开启 Pages，需要用户在 GitHub Settings -> Pages 手动把 Source 设为 GitHub Actions 一次。
+
+之后可以从 Actions 手动运行 `Deploy Relationship Player`。
+
+预期公网玩家地址：
+
+```text
+https://darcy-jin.github.io/Relationship/play/
+```
+
+详细：`docs/product/mobile-testing.md`
+
+---
 ## 下一步
 
 **第一次真人试玩 Player Experience。**
