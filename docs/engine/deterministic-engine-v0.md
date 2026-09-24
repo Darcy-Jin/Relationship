@@ -927,3 +927,76 @@ spec/v0/
 而不是猜：
 
 > 当时是不是 AI 聊得不好。
+
+
+---
+
+# v0.2｜Experience Information Model 正式接入
+
+2026-09-24 起，Rule Engine 与 Experience / Information Model 正式分层。
+
+```text
+spec/v0/information-model.json
+→ 决定应该认识哪些信息、前台怎样获得这些信息
+
+spec/v0/interaction-contracts.json
+→ 决定每个需要玩家操作的节点为什么存在
+
+现有 dimensions / hypotheses / resolvers
+→ 继续决定哪些输入当前真正参与 Evidence / State / Contrast 计算
+```
+
+## Candidate Facts 与 traits 分开
+
+Candidate Facts 保存现实中可以直接知道的信息，例如年龄、城市、学历、工作、收入区间、住房、家庭情况、婚育意图、吸烟饮酒、迁移可能性。
+
+traits 保存后台关系模拟维度，例如事业投入、可陪伴时间、回应、可靠、公平、边界等。
+
+禁止：
+
+> 用某个现实事实自动推断一个关系 trait。
+
+例如不能因为“高收入”自动推出“陪伴少”，也不能因为“有房”自动推出“经济安全需求已满足”。
+
+## 新信息不自动进入最终 Evidence
+
+`information-model.json` 中的 money_style、attention_priority、conflict_style、repair_capacity 等已经进入正式信息模型，但如果尚未进入 dimensions / hypotheses / resolver / fixture：
+
+> 只能用于展示、确定性对话或 Probe，不能影响最终 Choice Map。
+
+要进入计算层，必须补齐：
+
+1. dimension / field definition；
+2. hypothesis / evidence mapping；
+3. deterministic resolver；
+4. test fixture。
+
+## Interaction Contract
+
+凡要求玩家点击 / 选择的节点，必须存在对应 Contract，至少说明：
+
+- purpose；
+- targets；
+- candidate_difference；
+- choices；
+- response_mapping；
+- evidence_update。
+
+纯过渡内容允许存在，但默认自动推进或与有功能的节点合并，不要求玩家为了“继续”而做无意义操作。
+
+## 单段人生也使用区分性 Probe
+
+Contrast Pack 的“用下一轮区分竞争解释”继续保留。
+
+v0.2 进一步允许在同一段人生内：
+
+```text
+当前已知 Evidence
++
+仍未区分的解释
+↓
+从该人物预先配置的 Interaction Contract 中
+选择下一条最有区分力的 Probe
+```
+
+第一版仍是固定、确定性的选择逻辑，不使用 AI 动态生成。
