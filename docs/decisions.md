@@ -455,3 +455,48 @@ Experience Layer
 由自然对白映射到固定 reason code。
 
 自由文字仍然不参与 v0 规则计算。
+
+
+---
+
+## 2026-09-24｜Relationship 是工具，游戏形式服务于工具效果
+
+第一版优先级正式明确为：
+
+```text
+功能有效
+↓
+交互效率
+↓
+体验质量
+```
+
+体验仍然重要，因为 Relationship 依赖玩家进入具体情境以后产生真实反应。正式原则：**不为了更像游戏增加无功能内容，也不为了工具效率退回抽象问卷。** 自然过渡可以存在，但不要求玩家操作；凡要求玩家停下来选择，都必须有明确功能价值。
+
+## 2026-09-24｜正式采用四层信息模型
+
+```text
+现实条件 Candidate Facts
+↓
+资源分配 Resource Allocation
+↓
+关系运作 Relationship Process
+↓
+共同生活领域 Event Domains
+```
+
+安全与红线独立，不进入普通 trade-off。正式机器可读定义：`spec/v0/information-model.json`。
+
+## 2026-09-24｜不同信息使用不同获取方式
+
+正式采用：Show、Ask、Compare、Conversation、Scene / Probe、Consequence、Clarify。
+
+不为了游戏化把现实事实藏成谜题，也不把所有东西做成一份问卷。
+
+## 2026-09-24｜每个玩家操作必须有 Interaction Contract
+
+凡要求玩家点击 / 选择的节点，后台必须说明：目的、目标差异、人物特异性、选择、回应映射、Evidence、状态影响、是否可跳过、下一步还要区分什么。正式入口：`spec/v0/interaction-contracts.json`。
+
+## 2026-09-24｜相似不自动等于匹配
+
+时间使用、旅行方式、消费习惯、社交方式等可以告诉玩家“相同 / 不同”，但后台不得因为更相似自动加匹配分。系统只记录人物怎样生活，以及玩家在具体情境中的真实反应。
