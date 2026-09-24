@@ -2,7 +2,11 @@
 
 一个关于亲密关系选择的模拟游戏。
 
-它不是“理想对象匹配器”。
+它不是“理想对象匹配器”，也不预测婚姻。
+
+它做的是：
+
+> **在真正下注以前，先进入几种可能的共同生活，从自己的选择和反应里发现：我以为自己想要的，是否真的是我想要的。**
 
 它想帮助玩家通过几段不同的共同生活，慢慢看清：
 
@@ -19,6 +23,12 @@
 我们最后选择的不只是一个人。
 
 > **我们是在选择：和这个人在一起以后，我会过什么样的人生。**
+
+当前把核心机制进一步明确为：
+
+> **未来体验 → 自我校准。**
+
+模拟负责把可能未来变得具体，让玩家产生真实反应；它不是对真实婚姻的预测。
 
 所以 v0 不使用：
 
@@ -144,7 +154,7 @@ docs/engine/implementation-result-v0.md
 
 ### 当前正式模型
 
-- [当前核心模型 v0.2](docs/current-model.md)
+- [当前核心模型 v0.3](docs/current-model.md)
 - [简化游戏模型 v0.1](docs/game-model-v0.md)
 - [确定性引擎 v0](docs/engine/deterministic-engine-v0.md)
 - [确定性规则 Rulebook v0](docs/engine/rulebook-v0.md)
@@ -176,6 +186,9 @@ docs/engine/implementation-result-v0.md
 - [04｜完整共同生活模型](docs/research/04-comprehensive-relationship-model.md)
 - [05｜System Impact](docs/research/05-system-impact.md)
 - [06｜自适应选择机制依据](docs/research/06-adaptive-choice-playtest-basis.md)
+- [07｜游戏体验对标](docs/research/07-gameplay-benchmark-experience-model.md)
+- [08｜目标用户与认知—体验差距](docs/research/08-target-user-segmentation.md)
+- [09｜未来体验为什么可能帮助重大关系决策](docs/research/09-future-experience-decision-mechanism.md)
 
 Research 保存“为什么”。
 
