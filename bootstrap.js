@@ -1,4 +1,12 @@
-const PARTS = [1,2,3,4,5].map((n) => `./.source/relationship-v0.part${String(n).padStart(2,'0')}.b64`);
+const PARTS = [
+  './.source/relationship-v0.a01.b64',
+  './.source/relationship-v0.a02.b64',
+  './.source/relationship-v0.a03.b64',
+  './.source/relationship-v0.a04.b64',
+  './.source/relationship-v0.part03.b64',
+  './.source/relationship-v0.part04.b64',
+  './.source/relationship-v0.part05.b64'
+];
 
 async function loadBundle() {
   const encoded = (await Promise.all(PARTS.map((url) => fetch(url).then((r) => {
