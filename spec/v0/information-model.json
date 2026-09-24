@@ -1,0 +1,125 @@
+{
+  "version": "0.2.0",
+  "status": "promoted",
+  "source_research": "docs/research/10-mate-selection-decision-factor-and-interaction-design.md",
+  "principle": "后台信息可以完整，前台只按当前决策需要暴露；不同信息使用不同获取方式。",
+  "layers": [
+    {
+      "id": "candidate_facts",
+      "label": "现实条件",
+      "purpose": "相亲前可以直接知道、无需用剧情猜的信息",
+      "fields": [
+        "age",
+        "attraction",
+        "current_city",
+        "education",
+        "occupation",
+        "income_band",
+        "housing",
+        "family_background",
+        "relationship_seriousness",
+        "children_intent",
+        "smoking",
+        "drinking",
+        "mobility"
+      ]
+    },
+    {
+      "id": "resource_allocation",
+      "label": "资源分配",
+      "purpose": "把人物条件连接到日常生活",
+      "dimensions": [
+        "career_intensity",
+        "daily_availability",
+        "family_investment",
+        "social_energy",
+        "autonomy_need",
+        "predictability",
+        "money_style",
+        "attention_priority"
+      ]
+    },
+    {
+      "id": "relationship_process",
+      "label": "关系运作",
+      "purpose": "两个人在需要、差异和压力出现以后如何互动",
+      "dimensions": [
+        "responsiveness",
+        "crisis_reliability",
+        "fairness",
+        "boundary_respect",
+        "conflict_style",
+        "repair_capacity",
+        "trust",
+        "commitment"
+      ]
+    },
+    {
+      "id": "event_domains",
+      "label": "共同生活领域",
+      "purpose": "把人物和关系机制放进具体生活",
+      "domains": [
+        "money",
+        "housing",
+        "career",
+        "housework",
+        "children",
+        "parents_family",
+        "social",
+        "health_stress",
+        "sex_intimacy",
+        "city_mobility",
+        "leisure_shared_time"
+      ]
+    }
+  ],
+  "safety": {
+    "separate_from_tradeoff": true,
+    "note": "暴力、控制、虐待等安全问题不进入普通取舍。"
+  },
+  "acquisition_modes": [
+    {
+      "id": "SHOW",
+      "label": "直接展示",
+      "use_when": "现实中本来就能直接知道的事实"
+    },
+    {
+      "id": "ASK",
+      "label": "直接询问",
+      "use_when": "玩家自己明确知道的硬约束"
+    },
+    {
+      "id": "COMPARE",
+      "label": "比较取舍",
+      "use_when": "只有放在一起才容易看出偏好或取舍"
+    },
+    {
+      "id": "CONVERSATION",
+      "label": "对话",
+      "use_when": "需要同时暴露对方和玩家的生活方式差异"
+    },
+    {
+      "id": "SCENE_PROBE",
+      "label": "场景暴露",
+      "use_when": "需要看行为才能知道的特点"
+    },
+    {
+      "id": "CONSEQUENCE",
+      "label": "长期后果",
+      "use_when": "只有进入共同生活才能知道的影响"
+    },
+    {
+      "id": "CLARIFY",
+      "label": "澄清",
+      "use_when": "现有行为证据仍无法区分竞争解释"
+    }
+  ],
+  "rules": [
+    "相似不自动等于更好；系统记录差异与玩家反应，不给相似度奖励。",
+    "不为了游戏化把现实事实藏成谜题。",
+    "自然过渡可以存在，但不要求玩家操作。",
+    "凡要求玩家停下来做一次选择，必须有明确功能价值。",
+    "已知信息不重复测量；下一条 Probe 优先减少当前不确定性。",
+    "第一版保持确定性规则，不让 AI 决定人物、Probe 或结果。"
+  ]
+}
