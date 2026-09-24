@@ -1,0 +1,11 @@
+{
+  "name": "relationship-deterministic-v0",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "node scripts/materialize.mjs && node --test .materialized/tests/*.test.mjs",
+    "materialize": "node scripts/materialize.mjs --root"
+  }
+}
