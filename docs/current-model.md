@@ -1,4 +1,4 @@
-# 当前核心模型 v0.3
+# 当前核心模型 v0.4
 
 > 这是 Relationship 项目当前真正使用的模型。  
 > 完整研究和证据见：
@@ -6,6 +6,7 @@
 > - [04｜完整共同生活模型](research/04-comprehensive-relationship-model.md)
 > - [08｜目标用户与认知—体验差距](research/08-target-user-segmentation.md)
 > - [09｜未来体验决策机制](research/09-future-experience-decision-mechanism.md)
+> - [10｜相亲信息、择偶判断与交互设计](research/10-mate-selection-decision-factor-and-interaction-design.md)
 
 ## 1. 核心不是“帮玩家选对”，而是让玩家提前体验选择会变成什么生活
 
@@ -608,3 +609,49 @@ A 属性 + B 属性
 
 > 才说明“未来体验 → 自我校准”开始获得真实证据。
 
+
+
+---
+
+## 20. v0.4 正式增加四层信息模型和交互获取方式
+
+进入相亲与 First Life 时，不再让 Candidate trait 承担全部信息。
+
+```text
+Candidate Facts
+→ 年龄、城市、学历、工作、收入、住房、家庭、婚育等现实条件
+
+Resource Allocation
+→ 时间、钱、精力、注意力、空间、计划性怎样分配
+
+Relationship Process
+→ 回应、可靠、公平、边界、冲突、修复怎样运作
+
+Event Domains
+→ 钱、房、工作、家务、孩子、父母、社交、健康、亲密、迁移、休闲等共同生活
+```
+
+安全与红线继续独立。
+
+不同信息不再统一靠“聊天题”获得，而是正式使用：
+
+- Show；
+- Ask；
+- Compare；
+- Conversation；
+- Scene / Probe；
+- Consequence；
+- Clarify。
+
+只要要求玩家停下来操作，就必须有 Interaction Contract；纯过渡内容不要求玩家点击。
+
+相似本身不自动加分。系统记录差异和玩家真实反应，再通过 Evidence / Contrast 继续校准。
+
+正式机器可读入口：
+
+- `spec/v0/information-model.json`
+- `spec/v0/interaction-contracts.json`
+
+当前相亲试玩入口：
+
+> `/play-v2/`
