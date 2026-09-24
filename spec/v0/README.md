@@ -15,7 +15,9 @@ v0 明确：
 
 ## 文件职责
 
-- `dimensions.json`：人物维度、开局自评映射、结构化输入选项；
+- `information-model.json`：正式四层信息模型（现实条件 / 资源分配 / 关系过程 / 生活领域）与七种信息获取方式；
+- `interaction-contracts.json`：要求玩家操作的交互节点 Contract 与首轮人物差异化 Probe；
+- `dimensions.json`：当前仍参与确定性计算的人物维度、开局自评映射、结构化输入选项；
 - `hypotheses.json`：Hypothesis、证据权重、reason code 映射；
 - `candidates.json`：固定候选人物库；
 - `events.json`：固定事件、action、probe、reason code；
@@ -57,3 +59,22 @@ spec/v0/*.json
 - 已有真实试玩记录是否仍可解释。
 
 不要只改代码。
+
+
+## v0.2 信息层与计算层
+
+从 2026-09-24 起正式区分：
+
+```text
+Information / Experience Model
+→ 决定玩家应该看到什么、怎样得到信息、为什么值得交互
+
+Deterministic Engine
+→ 决定哪些结构化输入当前真的参与 Evidence / State / Contrast 计算
+```
+
+`information-model.json` 中存在、但尚未进入 `dimensions.json` / Resolver 的字段：
+
+> 可以用于展示和确定性 Probe，但暂时不能声称已经参与最终 Evidence 计算。
+
+新增计算规则时必须补：dimensions / hypothesis / resolver / fixture，不能只在前端读一个新字段就影响结论。
