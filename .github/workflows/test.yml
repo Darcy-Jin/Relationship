@@ -30,6 +30,9 @@ jobs:
           for file in play/*.js; do
             node --check "$file"
           done
+          for file in play-v2/*.js; do
+            node --check "$file"
+          done
 
       - name: Run tests
         run: npm test
