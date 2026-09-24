@@ -4,9 +4,21 @@
 
 ## 当前阶段
 
-**确定性 Rule Engine 已实现并通过自动测试 → 发现 Player UI 视角错误 → 游戏体验完成重新建模 → 准备实现 First Life 垂直切片。**
+**确定性 Rule Engine 已完成 → Player Experience 已重构 → First 10 Minutes + First Life 垂直切片已实现 → 下一步真人试玩。**
 
-当前原 Web 不再作为正式真人试玩 UI。
+现在有两个明确分开的产品入口：
+
+```text
+/play/
+→ 给玩家玩的模拟人生体验
+
+/
+→ Engine Debug UI
+```
+
+正式真人试玩只使用：
+
+> **/play/**
 
 ---
 
@@ -15,29 +27,35 @@
 - 完整关系领域研究；
 - 简化游戏模型；
 - 纯固定规则引擎；
-- 25/25 自动测试；
+- Engine Debug UI；
 - 游戏模式对标；
-- 明确 Relationship 不是婚恋测评，而是亲密关系模拟人生；
-- 明确不同人生阶段可以使用不同游戏形态；
-- 完成 First 10 Minutes + First Life v0 体验设计；
-- 明确现有 Web 降级为 Engine Debug UI；
-- 明确 Rule Engine 与 Experience Layer 分离。
+- First 10 Minutes + First Life 体验设计；
+- 4 个初始人物 Encounter；
+- 4 套不同 First Date；
+- 三个月后的关系推进；
+- 3 个轻量日常 Event；
+- 半年时间跳跃；
+- 1 个候选人专属反复问题；
+- 共同生活 / 公平 Scene；
+- Career Opportunity 重大 Scene；
+- Crisis Scene；
+- 四年后的关系决定；
+- Memory Timeline；
+- First Life JSON 导出；
+- Player Experience 12/12 规则适配测试；
+- Player Experience GitHub 源码与本地测试源码 SHA 对齐；
+- 服务入口支持 /play/。
 
 ---
 
 ## 当前正式入口
 
-### 产品
+### 玩家体验
 
-- `README.md`
-- `docs/current-model.md`
-- `docs/decisions.md`
-- `docs/game-model-v0.md`
-
-### 体验设计
-
-- `docs/research/07-gameplay-benchmark-experience-model.md`
+- `play/README.md`
+- `play/`
 - `docs/product/first-10-minutes-first-life-v0.md`
+- `docs/product/first-life-implementation-v0.md`
 
 ### 后台规则
 
@@ -45,32 +63,51 @@
 - `docs/engine/rulebook-v0.md`
 - `spec/v0/`
 
-### 当前代码
+### 调试
 
-当前确定性 Web 已实现，但定位调整为：
-
-> **Engine Debug UI**
-
-它继续用于：
-
-- 规则测试；
-- Evidence 检查；
-- Session 回放；
-- Contrast Pack 检查；
-- 自动测试。
-
-不用于正式玩家体验验证。
+- 根目录 `/`
+- Engine Debug UI
 
 ---
 
-## 当前玩家体验主线
+## 怎么运行
+
+仓库根目录：
+
+```bash
+npm start
+```
+
+然后打开：
+
+### 正式玩家版
+
+```text
+http://127.0.0.1:4173/play/
+```
+
+### 后台调试版
+
+```text
+http://127.0.0.1:4173/
+```
+
+测试：
+
+```bash
+npm test
+```
+
+---
+
+## 玩家当前会经历什么
 
 ```text
 开始这一年
 ↓
-先后遇见几个人
+先后遇见四个人
 ↓
-发生很短的自然互动
+短互动 + 第一感觉
 ↓
 选择最想继续认识的人
 ↓
@@ -80,139 +117,69 @@
 ↓
 三个月后
 ↓
-轻量日常事件
+日常生活
 ↓
-半年 / 一年时间推进
+半年后
 ↓
-共同生活开始形成
+反复出现的小问题
 ↓
-重大事业场景
+真正一起过日子
 ↓
-真正需要对方的 Crisis
+事业机会
 ↓
-几年后的继续 / 改变 / 离开决定
+真正需要对方的时候
+↓
+四年后的继续 / 改变 / 犹豫 / 离开
 ↓
 这一段人生的回忆
-↓
-再活一次
 ```
 
-玩家只面对：
+玩家不会看到：
 
-> 人、生活、选择和后果。
+- trait 数值；
+- Hypothesis；
+- Evidence；
+- reason code；
+- Contrast Pack；
+- Relationship State。
 
-后台继续运行：
-
-> Candidate / State / Evidence / Hypothesis / Contrast Pack。
-
----
-
-## 当前最重要的体验规则
-
-### 不从测评开始
-
-第一分钟不再让玩家填写：
-
-- 钱多重要；
-- 陪伴多重要；
-- 最怕选错什么；
-- 理想伴侣是什么。
-
-第一版只保留真正必要的世界设定。
-
-### 不显示人物分数
-
-人物先成为：
-
-> 一个具体的人。
-
-玩家看到：
-
-- 长相 / 形象；
-- 名字；
-- 工作；
-- 生活；
-- 对话；
-- 行为。
-
-不是：
-
-> 事业 9 / 陪伴 3 / 可靠 8。
-
-### 不显示 Evidence 语言
-
-`LIKE / ACCEPT / CHANGE_REQUIRED / CANNOT_CONTINUE`
-
-继续保留在后台。
-
-前台改成：
-
-> 玩家那个时刻自然会说 / 会做的事。
-
-### 不显示 reason code
-
-需要原因时问：
-
-> **“你现在最想跟他说什么？”**
-
-选项是自然对白。
-
-后台再映射固定 reason code。
-
-### 第一段人生结束先给 Memory
-
-不立刻输出：
-
-> “你的真实需求是什么。”
-
-先让玩家看：
-
-> 这一段人生里真正发生过什么。
-
-至少两段人生以后，才允许进入可选 Reflection。
+这些只在后台。
 
 ---
 
-## 当前下一步
+## 当前还没做
 
-实现：
+- 第二段人生的正式 Contrast Experience；
+- 多段人生后的 Reflection；
+- 正式人物图片 / 立绘；
+- 性别和恋爱对象偏好；
+- 孩子 / 婚姻 / 老年完整系统；
+- AI；
+- 商业化。
 
-> **First 10 Minutes + First Life 的 Player Experience 垂直切片。**
+当前“再活一次”只是重新开始 First Life。
 
-只做：
-
-1. 开始人生；
-2. 4 个 Encounter；
-3. 选择继续认识谁；
-4. First Date；
-5. 三个月后的关系；
-6. 3 个轻 Event；
-7. 共同生活 Scene；
-8. Career Opportunity Scene；
-9. Crisis Scene；
-10. Final Decision；
-11. Memory Timeline；
-12. “再活一次”入口。
-
-暂时不做完整第二段人生。
+这是当前范围，不是 Bug。
 
 ---
 
-## 下一阶段验证问题
+## 下一步
 
-垂直切片完成以后，第一个真人测试只看：
+**第一次真人试玩 Player Experience。**
 
-> **玩家会不会忘记后台有规则，只觉得自己真的和一个人过了几年。**
+现在不再继续加功能。
 
-主要观察：
+试玩重点只看：
 
-- 前十分钟有没有想继续认识某个人；
-- 人物有没有存在感；
-- 选择像不像真实反应；
-- 普通 Event 是否够轻；
-- 大 Scene 是否真的有重量；
-- 时间跳跃是否还能保持关系连续；
-- 第一段人生结束时，玩家能不能说：
-  > “和这个人生活，大概就是这种感觉。”
+1. 前 10 分钟有没有想继续认识某个人；
+2. 人物有没有存在感；
+3. 选择像不像真实反应；
+4. 日常 Event 是否轻；
+5. Career / Crisis 是否有重量；
+6. 时间跳跃后关系是否仍然连续；
+7. Memory Timeline 是否产生“一段人生”的感觉；
+8. 哪些地方仍然像做题；
+9. 玩家玩完能不能自然说：
+   > “和这个人生活，大概就是这种感觉。”
 
-只有这层成立，再进入第二段人生和多 Run 校准。
+有真实证据以后，再局部修改 Experience Layer。
