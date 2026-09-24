@@ -1,87 +1,52 @@
 # Relationship
 
-一个关于亲密关系选择的模拟游戏 / 研究项目。
+一个关于亲密关系选择的模拟游戏。
 
 它不是“理想对象匹配器”。
 
-它想做的是：
+它想帮助玩家通过几段不同的共同生活，慢慢看清：
 
-> **让玩家反复体验不同的人和不同共同生活，逐渐看清自己真正需要什么、最不能承受什么，以及愿意为了什么接受哪些不完美。**
+1. **我真正需要什么？**
+2. **我最不能承受什么？**
+3. **为了得到真正需要的东西，我愿意接受哪些不完美？**
 
 最终问题：
 
 > **什么样的不完美的人，和什么样的不完美生活，对我来说仍然值得选择？**
 
-## 当前最重要的认识
+## 当前核心
 
 我们最后选择的不只是一个人。
 
-我们是在选择：
+> **我们是在选择：和这个人在一起以后，我会过什么样的人生。**
 
-> **和这个人在一起以后，我会过什么样的人生。**
+所以 v0 不使用：
 
-完整研究以后，当前关系模型已经从“人物属性”升级成：
+- 人类价值总分；
+- 固定 100 点人物；
+- 隐藏匹配分；
+- “事业高就一定不顾家”这类机械因果；
+- AI 临场解释。
 
-```text
-两个人
-↓
-双向吸引和选择
-↓
-人生资源怎么分配
-↓
-形成生活方式
-↓
-进入真实共同生活
-↓
-双方怎样互动
-↓
-时间 / 压力 / 重大事件
-↓
-关系状态不断变化
-↓
-留下 / 调整 / 离开
-↓
-最后影响整个人生
-```
-
-因此：
-
-- 不使用统一“人类价值分”；
-- 不把人物做成固定 100 点；
-- 不认为每个优点必须机械对应一个缺点；
-- 不认为相似或互补有一个通用答案；
-- 不把所有偏好都压成一个 1～10 权重。
-
-## 当前游戏方向
-
-第一版游戏的核心不是“大量剧情”。
-
-而是：
+当前核心循环：
 
 ```text
 我以为自己要什么
 ↓
-从 3～4 个差异明显的人里选择
+选择一个人
 ↓
 真的过一段生活
 ↓
 发现哪里舒服、哪里痛苦
 ↓
-系统提出一个“你可能真正介意什么”的假设
+系统按固定证据规则形成多个 Hypothesis
 ↓
-下一轮给有目的的对照人物
+下一轮加载固定对照人物
 ↓
-继续模拟
+继续体验
 ↓
-逐渐形成自己的选择地图
+形成自己的 Choice Map
 ```
-
-允许：
-
-- 选错；
-- 矫枉过正；
-- 再选错；
-- 最后发现真正需要的不是最开始那个表面属性。
 
 目标不是把玩家调成所有属性都中等。
 
@@ -89,17 +54,54 @@
 
 ## 当前阶段
 
-**完整领域研究、简化游戏模型和确定性游戏引擎 v0 规格已经形成。**
+**纯固定规则 v0 已经开发完成。**
 
 现在进入：
 
-> **纯规则程序实现。**
+> **第一次正式真人试玩。**
 
-正式真人试玩要等程序跑起来以后再开始。
+当前版本：
+
+- 无 AI；
+- 无随机数；
+- 无第三方运行依赖；
+- 支持 2～3 轮模拟；
+- 支持导出完整 Session JSON；
+- 25 / 25 自动测试通过。
+
+## 运行
+
+需要 Node.js。
+
+```bash
+git clone https://github.com/Darcy-Jin/Relationship.git
+cd Relationship
+npm start
+```
+
+然后打开：
+
+```text
+http://127.0.0.1:4173
+```
+
+运行自动测试：
+
+```bash
+npm test
+```
+
+如果想把当前已测试源码快照还原成普通 `src/` 和 `tests/` 文件：
+
+```bash
+npm run materialize
+```
+
+源码快照为什么这样保存，见：
+
+- [.source/README.md](.source/README.md)
 
 ## 现在从哪里继续
-
-不要从头翻历史。
 
 默认恢复顺序：
 
@@ -114,7 +116,7 @@ docs/current-model.md
 ↓
 docs/game-model-v0.md
 ↓
-当前任务真正需要的 Research / Product 文件
+docs/engine/implementation-result-v0.md
 ```
 
 ### 当前工作状态
@@ -125,42 +127,37 @@ docs/game-model-v0.md
 
 - [当前核心模型 v0.2](docs/current-model.md)
 - [简化游戏模型 v0.1](docs/game-model-v0.md)
-- [First Playable v0.1（历史文本原型）](docs/first-playable-v0.md)
 - [确定性引擎 v0](docs/engine/deterministic-engine-v0.md)
 - [确定性规则 Rulebook v0](docs/engine/rulebook-v0.md)
 - [机器可读 Spec v0](spec/v0/README.md)
+
+### 实现
+
+- [实现结果 v0](docs/engine/implementation-result-v0.md)
 - [开发交接](docs/engine/implementation-handoff.md)
 
 ### 当前验证
 
-- [First Playable 设计压力测试](docs/validation/01-first-playable-design-stress-test.md)
 - [Engine Spec Validation](docs/engine/spec-validation-v0.md)
 - [真人试玩记录模板](docs/validation/playtest-template.md)
+- [First Playable 设计压力测试](docs/validation/01-first-playable-design-stress-test.md)
 
-### 重要决定
+### 历史原型
 
-- [Decisions](docs/decisions.md)
+- [First Playable v0.1（ChatGPT / 人工主持原型）](docs/first-playable-v0.md)
 
-### 工作方式
-
-- [Working System](docs/WORKING_SYSTEM.md)
+它只保留设计历史，不再作为正式真人验证方式。
 
 ## 研究档案
 
-### 前序
-
 - [01｜第一轮研究](docs/research/01-initial-findings.md)
 - [02｜完整共同生活模型研究计划](docs/research/02-comprehensive-model-plan.md)
-
-### 本轮完整研究
-
 - [03｜证据地图](docs/research/03-evidence-map.md)
 - [04｜完整共同生活模型](docs/research/04-comprehensive-relationship-model.md)
 - [05｜System Impact](docs/research/05-system-impact.md)
+- [06｜自适应选择机制依据](docs/research/06-adaptive-choice-playtest-basis.md)
 
-研究档案保存：
-
-> **为什么形成现在的判断。**
+Research 保存“为什么”。
 
 日常继续工作优先读：
 
@@ -168,12 +165,8 @@ docs/game-model-v0.md
 
 ## 和 personal-ai-system 的关系
 
-`Darcy-Jin/personal-ai-system` 保存通用的研究、建模、人机协作和系统演化方法。
+`Darcy-Jin/personal-ai-system` 保存通用的研究、建模、开发和系统演化方法。
 
-Relationship 只保存这个具体领域 / 产品的长期上下文。
-
-原则：
+Relationship 只保存这个具体产品的长期上下文和实现。
 
 > **通用方法不复制，具体成果留在这里。**
-
-> **聊天负责探索，GitHub 保存以后还要继续用的东西。**
