@@ -4,7 +4,15 @@ import zlib from 'node:zlib';
 
 const root = process.cwd();
 const out = process.argv.includes('--root') ? root : path.join(root, '.materialized');
-const partNames = [1,2,3,4,5].map((n) => `relationship-v0.part${String(n).padStart(2,'0')}.b64`);
+const partNames = [
+  'relationship-v0.a01.b64',
+  'relationship-v0.a02.b64',
+  'relationship-v0.a03.b64',
+  'relationship-v0.a04.b64',
+  'relationship-v0.part03.b64',
+  'relationship-v0.part04.b64',
+  'relationship-v0.part05.b64'
+];
 const partTexts = await Promise.all(partNames.map((name) => fs.readFile(path.join(root, '.source', name), 'utf8')));
 const encoded = partTexts.join('').replace(/\s+/g, '');
 const bundle = JSON.parse(zlib.gunzipSync(Buffer.from(encoded, 'base64')).toString('utf8'));
