@@ -1,10 +1,11 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "engine_notes": [
     "presentation 字段只负责显示，不参与规则计算。",
     "traits 没有总分，禁止求和排序。",
     "children_intent=open 表示愿意根据关系共同决定，兼容 want/do_not_want/open/unsure。",
-    "first_round_priority 仅用于确定性选取首轮 4 人。"
+    "first_round_priority 仅用于确定性选取首轮 4 人。",
+    "facts 保存现实可直接知道的信息；traits 保存后台关系模拟维度，两者不混为同一层。"
   ],
   "candidates": [
     {
@@ -33,6 +34,19 @@
         "predictability": 8,
         "fairness": 7,
         "boundary_respect": 8
+      },
+      "facts": {
+        "current_city": "深圳",
+        "education": "硕士",
+        "occupation": "互联网公司业务负责人",
+        "income_band": "50–70 万/年",
+        "housing": "租房，暂无自有住房",
+        "family_background": "父母在外地，经济独立",
+        "relationship_seriousness": "serious",
+        "children_intent": "open",
+        "smoking": "no",
+        "drinking": "social",
+        "mobility": "medium"
       }
     },
     {
@@ -61,6 +75,19 @@
         "predictability": 8,
         "fairness": 8,
         "boundary_respect": 8
+      },
+      "facts": {
+        "current_city": "深圳",
+        "education": "本科",
+        "occupation": "国企项目经理",
+        "income_band": "25–35 万/年",
+        "housing": "自有一套小户型，有房贷",
+        "family_background": "父母同城，来往较多",
+        "relationship_seriousness": "serious",
+        "children_intent": "open",
+        "smoking": "no",
+        "drinking": "rare",
+        "mobility": "low"
       }
     },
     {
@@ -89,6 +116,19 @@
         "predictability": 3,
         "fairness": 6,
         "boundary_respect": 7
+      },
+      "facts": {
+        "current_city": "深圳",
+        "education": "本科",
+        "occupation": "创业公司联合创始人",
+        "income_band": "收入波动较大",
+        "housing": "租房，短期不打算买房",
+        "family_background": "父母在外地，生活独立",
+        "relationship_seriousness": "serious",
+        "children_intent": "open",
+        "smoking": "no",
+        "drinking": "social",
+        "mobility": "high"
       }
     },
     {
@@ -117,6 +157,19 @@
         "predictability": 8,
         "fairness": 9,
         "boundary_respect": 9
+      },
+      "facts": {
+        "current_city": "深圳",
+        "education": "本科",
+        "occupation": "软件工程师",
+        "income_band": "30–40 万/年",
+        "housing": "暂无自有住房，有稳定储蓄",
+        "family_background": "父母在外地，不依赖家庭支持",
+        "relationship_seriousness": "serious",
+        "children_intent": "open",
+        "smoking": "no",
+        "drinking": "rare",
+        "mobility": "low"
       }
     },
     {
