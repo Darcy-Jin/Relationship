@@ -1,7 +1,7 @@
 # AI Comic｜真人身份还原与漫画角色一致性研究
 
 > 日期：2026-09-25
-> 状态：Research-only / 待实测
+> 状态：Promoted / Routed / 待正式 Skill 独立任务验证
 > 当前问题：如何根据真人照片生成“像本人”的长期男性 IP；如果写实很难，至少在漫画化以后仍能稳定认出本人。
 
 ## 1. 当前 Baseline
@@ -441,29 +441,53 @@ FLUX.2          1             1              1
 
 ---
 
-## 9. System Impact
+## 9. Promotion / System Impact
 
-当前研究先不修改正式视觉规则。
+这轮研究已经不再停留在 Research-only。
 
-建议只改变下一步执行顺序：
+2026-09-26，结合男性 IP 和女性老婆脸版两轮真实校准经验，通用方法已经正式晋升到：
 
-原计划：
+- `Darcy-Jin/personal-ai-system/skills/character-identity-preservation/SKILL.md`
+
+正式 Skill 现在统一维护：
+
+- AI 主导执行 + Human Recognition Gate；
+- Identity Core / Dynamics / Appearance State / Role & Scene / Rendering 五层分离；
+- 主参考 / 辅助参考 / 弱参考分级；
+- Identity Master 冻结与从 Master 分叉生成；
+- “不像但说不清”时的主动差异定位；
+- 头脸包络、颧骨、苹果肌、下巴、眼神、笑容、眼镜、胖瘦、年龄、角度等观察维度库；
+- 模板脸、尖脸、标准笑、眼镜模板、链式编辑、合集二次生成等失败模式；
+- 个体 Profile / 通用 Pattern 分流与持续学习机制；
+- 非生成式对比拼图脚本。
+
+Relationship 继续保存：
+
+- 男性 IP 和女性老婆脸版各自的 Identity Profile / 项目特有结论；
+- AI Comic 里的角色、叙事和视觉使用规则。
+
+不再在 Relationship 内复制一套通用身份校准方法。
+
+### 当前验证状态
+
+方法来源已经有两个真实人物、多轮人工校准和明确失败案例作为 Evidence。
+
+但按照 personal-ai-system 的验证规则：
+
+> **正式 Skill 文件写好并接入路由，不等于已经完成正式 Skill 级验证。**
+
+下一次独立真人身份任务需要从：
 
 ```text
-真人照片
-→ 男性角色板
-→ 画风测试
-```
-
-建议改为：
-
-```text
-真人照片
-→ Identity Fidelity 测试
+参考图分级
+→ Human Calibration
+→ Approved Positive Sample
 → Identity Master
-→ 漫画风格测试
-→ 男性角色板
-→ 连续漫画
+→ 生产变体
+→ 漂移检查 / 回退
+→ 经验回灌
 ```
 
-待真实 A/B 实验确认后，再把这一流程晋升到 AI Comic 正式生产规范。
+完整跑一遍，再把状态升级为 Validated。
+
+原先“研究先不修改正式视觉规则、等待以后再晋升”的判断已经被本次 Promotion 替代。
