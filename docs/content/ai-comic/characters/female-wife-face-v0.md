@@ -1,7 +1,7 @@
 # 女性代入角色｜老婆脸版 Current Definition v1
 
 > 状态：Current Source of Truth  
-> 当前阶段：Current Identity Calibration / Approved Positive Samples｜当前身份校准 / 已有通过样本  
+> 当前阶段：Female Current Identity Master v1｜已冻结第一版身份母版  
 > 目标：**先把“现在的她”画准，再调胖瘦，最后才进入画风。**  
 > 历史探索：`docs/history/2026-09-26-wife-face-identity-calibration-v0.1-v0.10.md`  
 > 通用方法：`Darcy-Jin/personal-ai-system/skills/character-identity-preservation/SKILL.md`
@@ -259,21 +259,107 @@ AI 只负责生成右侧角色图。
 
 ---
 
-## 9. 当前已确认正样本
+## 9. Female Current Identity Master v1
 
 此前有一版校准图，用户明确反馈：
 
 > **“整体很像。”**
 
-这版作为 Positive Sample 保留。
+这版继续作为历史 Positive Sample 保留。
 
 2026-09-26 新一轮正脸、轻侧、微笑、露齿、说话和戴眼镜测试中，用户明确反馈：
 
 > **“这一轮可以了。”**
 
-这一组升级为 **Approved Positive Sample Set**。它证明当前身份结构在多种表情 / 角度 / 眼镜状态下已经明显稳定，但尚未指定哪几张作为最终 Frozen Identity Master，因此当前状态仍是“已有通过样本，Master 待冻结”。
+随后用户授权：
 
-随后重新生成的多格合集再次出现脸变尖、嘴角 / 酒窝感异常、第一排即不像的问题。该合集不进入 Positive Sample。当前已确认原因不是身份规则本身失效，而是“为了做合集又重新生成全部人物”，导致已确认身份被再次合成。
+> **把这一组正式整理成 Female Identity Master v1，并开始生产测试。**
+
+因此这一组现在正式冻结为第一版 **Master Bank**。
+
+### 9.1 Root Master
+
+**Root Master｜正脸自然**
+
+- 浅蓝 T 恤；
+- 正脸；
+- 自然 / 中性表情；
+- 无眼镜；
+- 灰色中性背景；
+- 低风格干扰。
+
+用途：
+
+> **以后需要重新出发、换发型、换穿搭、换场景或做其他受控编辑时，优先从这张开始。**
+
+### 9.2 Support Masters
+
+**Support｜正脸轻微微笑**
+
+- 用于验证轻微表情变化时身份是否稳定。
+
+**Support｜正脸说话状态**
+
+- 用于验证张嘴 / 说话时嘴部与下半脸不会换型。
+
+**Support｜正脸露齿笑**
+
+- 用于验证更明显笑容下的动态身份。
+
+**Support｜轻 3/4**
+
+- 用于验证轻侧转时颧骨、中脸、下颌和下巴仍然是同一个人。
+
+**Support｜戴眼镜轻 3/4**
+
+- 眼镜只作为 Appearance State；
+- 继续由 Root Master 提供 Identity Core；
+- 不允许“戴眼镜”重新定义成一张知性模板脸。
+
+### 9.3 当前 Master 的使用原则
+
+以后优先：
+
+~~~text
+Root Master
+├─ 发型变体
+├─ 胖瘦变体
+├─ 穿搭 / 职业
+├─ 场景
+└─ 画风
+~~~
+
+必要时带 1 张 Support Master 补角度 / 表情 / 眼镜。
+
+不要默认：
+
+~~~text
+Root → 未验证 A → 未验证 B → 未验证 C
+~~~
+
+只有中间结果通过：
+
+- Identity Fidelity；
+- Target Change Fidelity；
+- Non-target Preservation；
+
+才可以升级成 Validated Branch Master。
+
+### 9.4 已确认失败样本
+
+随后重新生成的多格合集出现：
+
+- 脸变尖；
+- 嘴角 / 酒窝感异常；
+- 第一排即不像。
+
+该合集不进入 Master Bank。
+
+当前已确认原因：
+
+> **为了做合集又重新生成全部人物，导致已经确认的身份被再次合成。**
+
+以后合集 / 对比板只允许确定性排版，不重新生成已确认人物。
 
 它的用途是提醒后续生成不要丢掉：
 
@@ -344,22 +430,29 @@ AI 只生成同角度 / 同表情的角色图
 
 ---
 
-## 11. 什么时候冻结
+## 11. Identity Master v1 已冻结，下一步进入受控 Production Test
 
-只有当用户明确确认某一组具体母版可以作为后续 Source of Truth，例如：
-
-> **“这组就作为以后固定参考。”**
-
-才冻结：
+当前已经冻结：
 
 > **Female Current Identity Master v1**
 
-然后：
+下一步不再重新设计“她长什么样”。
 
-1. 微调胖瘦与软组织；
-2. 验证戴眼镜 / 不戴眼镜；
-3. 验证正脸 / 3/4；
-4. 最后才进入多画风。
+后续每一轮都按 `character-identity-preservation` Skill 建立 Generation / Edit Contract，只允许修改目标变量。
+
+第一轮 Production Test：
+
+> **只换发型，不换脸。**
+
+验收：
+
+1. Identity Fidelity：还是不是她；
+2. Target Change Fidelity：发型是否真正发生了目标变化；
+3. Non-target Preservation：脸、骨相、五官、年龄感、胖瘦、表情是否被误伤。
+
+如果不通过：
+
+> 回 Root Master，而不是在漂掉的结果上继续改。
 
 ---
 
