@@ -28,6 +28,7 @@ AI Comic 已经并入 Relationship，并作为三个正式层之一的 **AI 漫�
 漫画自己的表达规则再读：
 
 - [AI 漫画内容模型](content-model.md)
+- [角色与视角呈现规范 v0.1](character-and-viewpoint-v0.md)
 
 ## 3. 当前最重要的内容母题
 
