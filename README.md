@@ -1,46 +1,63 @@
 # Relationship
 
-一个用游戏形式做亲密关系选择与自我认知的工具。
+Relationship 现在不是“一个关系游戏”或者“一个 AI 漫画项目”。
 
-它不是“理想对象匹配器”，也不预测婚姻。
+它长期要做的是：
 
-它做的是：
+> **理解人、关系、选择和共同生活，并把这些理解变成可以真正使用的体验和内容。**
 
-> **在真正下注以前，先进入几种可能的共同生活，从自己的选择和反应里发现：我以为自己想要的，是否真的是我想要的。**
+当前有一个共享底座，两个主要出口：
 
-它想帮助玩家通过几段不同的共同生活，慢慢看清：
+~~~text
+共享底座
+├─ 人：这个具体的人在不同场景里会怎么表现、怎样变化
+├─ 关系：两个人怎样互动、分配资源、形成共同生活
+└─ 选择：我真正需要什么、愿意承担什么、哪些东西不能交换
+        ↓
+   两种使用方式
+   ├─ 游戏：让玩家提前进入几种可能生活
+   └─ 内容：用漫画等形式让人快速看见一个真实问题
+~~~
 
-1. **我真正需要什么？**
-2. **我最不能承受什么？**
-3. **为了得到真正需要的东西，我愿意接受哪些不完美？**
+所以以后不会再为“游戏”“漫画”“公众号”分别维护一套关于人的理论。
 
-最终问题：
+---
 
-> **什么样的不完美的人，和什么样的不完美生活，对我来说仍然值得选择？**
+## 现在最重要的两个认识
 
-## 当前核心
+### 1. 选择的不是标签，而是一个具体的人和一种生活
 
-我们最后选择的不只是一个人。
+标签可以作为入口。
 
-> **我们是在选择：和这个人在一起以后，我会过什么样的人生。**
+但真正要继续看：
 
-当前把核心机制进一步明确为：
+~~~text
+标签 / 第一印象
+↓
+具体场景
+↓
+具体行为
+↓
+反复出现的条件性模式
+↓
+这个人当前是什么样
+↓
+他可能怎样变化
+↓
+和他共同生活会是什么样
+~~~
 
-> **未来体验 → 自我校准。**
+正式入口：
 
-模拟负责把可能未来变得具体，让玩家产生真实反应；它不是对真实婚姻的预测。
+- [人物模型 v0.1](docs/models/person-model.md)
 
-所以 v0 不使用：
+### 2. 游戏仍然是“未来体验 → 自我校准”
 
-- 人类价值总分；
-- 固定 100 点人物；
-- 隐藏匹配分；
-- “事业高就一定不顾家”这类机械因果；
-- AI 临场解释。
+Relationship 不替玩家算出“最适合谁”。
 
-当前核心循环：
+它让玩家：
 
-```text
+~~~text
 我以为自己要什么
 ↓
 选择一个人
@@ -49,164 +66,148 @@
 ↓
 发现哪里舒服、哪里痛苦
 ↓
-系统按固定证据规则形成多个 Hypothesis
+重新理解自己在意的东西
 ↓
-下一轮加载固定对照人物
-↓
-继续体验
-↓
-形成自己的 Choice Map
-```
+下一轮继续用对照和反例校准
+~~~
 
-目标不是把玩家调成所有属性都中等。
+最终不是得到理想型标签。
 
-> **可以很挑，但要知道自己到底在挑什么。**
+而是逐渐知道：
 
-## 当前阶段
+> **什么样的不完美的人，和什么样的不完美生活，对我来说仍然值得选择。**
 
-**确定性 Rule Engine、四层信息模型和 Interaction Contract 已正式接入。**
+---
 
-现在优先验证：
+## 仓库现在怎么分
 
-> **第一次相亲是不是既高效，又真的能看见不同的人。**
+### 共享底座
 
-当前相亲试玩入口是 `/play-v2/`；旧版 `/play/` 保留完整 First Life 作为历史体验参考。
+- [当前核心模型](docs/current-model.md)：现在整体怎么理解人、关系和共同生活
+- [人物模型](docs/models/person-model.md)：怎样从标签走向具体的人，以及怎样看变化方向
+- [重要决定](docs/decisions.md)：已经明确、不应该无意中改回去的方向
+- [研究](docs/research/)：为什么会形成现在这些认识
 
-后台固定规则继续保留；玩家不再看到属性分、Evidence、Hypothesis 等调试信息。
+### 游戏
 
-## 运行
+- [简化游戏模型](docs/game-model-v0.md)
+- [当前相亲试玩设计](docs/product/first-life-v2-blind-date-opening.md)
+- [确定性规则引擎](docs/engine/deterministic-engine-v0.md)
+- [机器可读 Spec](spec/v0/README.md)
+- 当前试玩：/play-v2/
 
-需要 Node.js，不需要 `npm install`。
+### 内容
 
-```bash
-git clone https://github.com/Darcy-Jin/Relationship.git
-cd Relationship
-npm start
-```
+- [Content 总入口](docs/content/README.md)
+- [AI Comic](docs/content/ai-comic/README.md)
+- [AI 漫画内容模型](docs/content/ai-comic/content-model.md)
 
-### 当前相亲试玩版
+原 Darcy-Jin/ai-comic 的研究资料已经完整迁入：
 
-```text
-http://127.0.0.1:4173/play-v2/
-```
+- [AI Comic 研究归档](docs/research/ai-comic/README.md)
 
-### 旧版完整 First Life
+---
 
-```text
-http://127.0.0.1:4173/play/
-```
+## 当前状态
 
-### Engine Debug UI
+先读：
 
-```text
-http://127.0.0.1:4173/
-```
+- [Current State](docs/current-state.md)
 
-当前相亲阶段迭代只使用 `/play-v2/`。
+它会告诉你：
 
-自动测试：
+> **整个项目现在做到哪里，游戏和内容分别在验证什么。**
 
-```bash
-npm test
-```
+---
 
-## 手机测试
+## 怎么恢复工作
 
-当前已经支持手机和电脑。
+默认不要重读整个仓库。
 
-### 同一 Wi-Fi：直接测试
-
-电脑执行：
-
-```bash
-npm start
-```
-
-终端会同时打印电脑地址和 `Phone on the same Wi-Fi` 地址。手机和电脑连同一个 Wi-Fi，用手机打开那个局域网地址即可。
-
-### 公网链接：给其他测试玩家
-
-仓库已准备 GitHub Pages 工作流。第一次需要在 GitHub：
-
-`Settings -> Pages -> Build and deployment -> Source -> GitHub Actions`
-
-启用后，main 分支更新会自动部署 GitHub Pages；也可以在 Actions 里手动运行 `Deploy Relationship Player`。
-
-详细说明：[手机端测试](docs/product/mobile-testing.md)
-
-## 现在从哪里继续
-
-默认恢复顺序：
-
-```text
+~~~text
 personal-ai-system/README.md
 ↓
-本 README
+Relationship/README.md
 ↓
 docs/current-state.md
 ↓
 docs/current-model.md
 ↓
-docs/game-model-v0.md
-↓
-docs/engine/implementation-result-v0.md
-```
+根据当前任务进入对应分支
+~~~
 
-### 当前工作状态
+如果当前任务是：
 
-- [Current State](docs/current-state.md)
+- 理解一个人 → docs/models/person-model.md
+- 做关系游戏 → docs/game-model-v0.md + docs/product/ + spec/
+- 做 AI 漫画 → docs/content/ai-comic/
+- 追溯为什么 → docs/research/
+- 继续开发 → 当前产品文档 + docs/engine/ + spec/
 
-### 当前正式模型
+项目自己的工作方式：
 
-- [当前核心模型 v0.4](docs/current-model.md)
-- [简化游戏模型 v0.1](docs/game-model-v0.md)
-- [确定性引擎 v0](docs/engine/deterministic-engine-v0.md)
-- [确定性规则 Rulebook v0](docs/engine/rulebook-v0.md)
-- [机器可读 Spec v0](spec/v0/README.md)
-- `spec/v0/information-model.json`
-- `spec/v0/interaction-contracts.json`
+- [Relationship 工作方式](docs/WORKING_SYSTEM.md)
 
-### 实现
+---
 
-- [实现结果 v0](docs/engine/implementation-result-v0.md)
-- [开发交接](docs/engine/implementation-handoff.md)
-- [开发交付与验证](docs/engine/development-evidence-v0.md)
+## 游戏怎么运行
 
-### 当前验证
+需要 Node.js，不需要 npm install。
 
-- [Engine Spec Validation](docs/engine/spec-validation-v0.md)
-- [真人试玩记录模板](docs/validation/playtest-template.md)
-- [First Playable 设计压力测试](docs/validation/01-first-playable-design-stress-test.md)
+~~~bash
+git clone https://github.com/Darcy-Jin/Relationship.git
+cd Relationship
+npm start
+~~~
 
-### 历史原型
+当前相亲试玩：
 
-- [First Playable v0.1（ChatGPT / 人工主持原型）](docs/first-playable-v0.md)
+~~~text
+http://127.0.0.1:4173/play-v2/
+~~~
 
-它只保留设计历史，不再作为正式真人验证方式。
+旧版完整 First Life：
 
-## 研究档案
+~~~text
+http://127.0.0.1:4173/play/
+~~~
 
-- [01｜第一轮研究](docs/research/01-initial-findings.md)
-- [02｜完整共同生活模型研究计划](docs/research/02-comprehensive-model-plan.md)
-- [03｜证据地图](docs/research/03-evidence-map.md)
-- [04｜完整共同生活模型](docs/research/04-comprehensive-relationship-model.md)
-- [05｜System Impact](docs/research/05-system-impact.md)
-- [06｜自适应选择机制依据](docs/research/06-adaptive-choice-playtest-basis.md)
-- [07｜游戏体验对标](docs/research/07-gameplay-benchmark-experience-model.md)
-- [08｜目标用户与认知—体验差距](docs/research/08-target-user-segmentation.md)
-- [09｜未来体验为什么可能帮助重大关系决策](docs/research/09-future-experience-decision-mechanism.md)
-- [10｜相亲信息、择偶判断与交互设计](docs/research/10-mate-selection-decision-factor-and-interaction-design.md)
+Engine Debug UI：
 
-Research 保存“为什么”。
+~~~text
+http://127.0.0.1:4173/
+~~~
 
-日常继续工作优先读：
+测试：
 
-> `current-state` + `current-model` + `game-model-v0`。
+~~~bash
+npm test
+~~~
+
+手机测试见：
+
+- [手机端测试](docs/product/mobile-testing.md)
+
+---
 
 ## 和 personal-ai-system 的关系
 
-`Darcy-Jin/personal-ai-system` 保存通用的研究、建模、开发和系统演化方法。
+Darcy-Jin/personal-ai-system 保存通用的：
 
-Relationship 只保存这个具体产品的长期上下文和实现。
+- 研究方法；
+- 建模方法；
+- 系统演化方法；
+- AI / 人协作方式；
+- 长期资产治理方法。
+
+Relationship 保存：
+
+> **这个具体领域自己的模型、研究、产品、内容、代码和真实验证。**
+
+继续遵守：
 
 > **通用方法不复制，具体成果留在这里。**
+
+以及：
+
+> **同一份正式定义只维护一处。**
