@@ -27,6 +27,7 @@
 - “标签 → 场景 → 行为 → 条件性模式 → 变化方向 → 共同生活”已进入正式 Current Model；
 - 游戏模型已接入人物模型作为上位约束；
 - 原 ai-comic 仓库降级为历史入口。
+- [本次重构记录](history/2026-09-25-relationship-ai-comic-consolidation.md) 已保存，记录旧资产去向和新路由。
 
 ### 当前真实验证状态
 
