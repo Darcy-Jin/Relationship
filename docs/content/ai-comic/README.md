@@ -1,8 +1,8 @@
-# AI Comic｜Relationship 的漫画内容线
+# AI Comic｜Relationship 的 AI 漫画层
 
-AI Comic 已经并入 Relationship。
+AI Comic 已经并入 Relationship，并作为三个正式层之一的 **AI 漫画层**。
 
-它不是另一套“关于人的理论”。
+它不是另一套“关于人的理论”，而是共享底层的一种独立应用。
 
 它的工作是：
 
@@ -75,4 +75,4 @@ AI Comic 已经并入 Relationship。
 
 - [研究归档](../../research/ai-comic/README.md)
 
-旧仓库只保留历史追溯，不再作为当前 Source of Truth。
+原 `Darcy-Jin/ai-comic` 仓库已删除，不再作为任何入口。当前 Source of Truth 只在 Relationship。
