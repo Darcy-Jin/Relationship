@@ -6,27 +6,33 @@
 
 **Relationship 与 AI Comic 的知识体系已经合并。**
 
-现在项目统一成：
+现在项目正式按三层理解：
 
 ~~~text
-共享底座
-├─ 人物模型
-├─ 关系 / 共同生活模型
-└─ 选择 / 时间 / 取舍
-        ↓
-   ├─ 游戏
-   └─ 内容
-      └─ AI Comic
+Relationship
+│
+├─ 底层
+│  ├─ 人物模型
+│  ├─ 关系 / 共同生活模型
+│  └─ 选择 / 时间 / 取舍
+│
+├─ 游戏层
+│  └─ 把底层模型变成可体验的可能人生
+│
+└─ AI 漫画层
+   └─ 把底层模型变成可快速理解和传播的漫画内容
 ~~~
+
+游戏层和 AI 漫画层是两个平级应用层，共享同一个底层。
 
 本轮已经完成：
 
 - 原 ai-comic 的 5 份研究资料完整迁入 Relationship；
-- AI Comic 改成 Relationship 的 Content 分支，不再维护平行人物知识；
+- AI Comic 已成为 Relationship 的正式 AI 漫画层，不再维护平行人物知识；
 - 新增 [人物模型 v0.1](models/person-model.md)；
 - “标签 → 场景 → 行为 → 条件性模式 → 变化方向 → 共同生活”已进入正式 Current Model；
 - 游戏模型已接入人物模型作为上位约束；
-- 原 ai-comic 仓库降级为历史入口。
+- 原 ai-comic 仓库已删除；它的正式资产和研究资料已并入 Relationship。
 - [本次重构记录](history/2026-09-25-relationship-ai-comic-consolidation.md) 已保存，记录旧资产去向和新路由。
 
 ### 当前真实验证状态
