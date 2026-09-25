@@ -39,6 +39,9 @@ Research 不是当前运行入口。
 
 ### 内容 / AI Comic
 
+- [真人身份还原与漫画角色一致性研究](2026-09-25-ai-comic-character-identity-preservation.md)
+  - 已晋升到 `Darcy-Jin/personal-ai-system/skills/character-identity-preservation/SKILL.md`；
+  - 当前为 Promoted / Routed，等待下一次独立真人任务完成正式 Skill 级验证。
 - [AI Comic 研究归档](ai-comic/README.md)
   - 原 Darcy-Jin/ai-comic 的研究完整迁移；
   - 当前正式内容模型见 [AI Comic](../content/ai-comic/README.md)。
