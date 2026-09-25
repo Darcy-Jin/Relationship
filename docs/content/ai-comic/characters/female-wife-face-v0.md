@@ -12,8 +12,8 @@
 
 - 原“普通、真实、会收拾”的女性角色基线继续保留；
 - 老婆脸版不覆盖原版本；
-- 当前只解决“现在这张脸是不是她”；
-- 尚未冻结为最终 Female Identity Master。
+- “现在这张脸是不是她”的第一版已经通过人工确认；
+- Female Current Identity Master v1 已冻结，当前进入受控 Production Test。
 
 当前验收优先级：
 
@@ -374,59 +374,40 @@ Root → 未验证 A → 未验证 B → 未验证 C
 
 ---
 
-## 10. 当前唯一验证流程
+## 10. 当前运行必须直接使用通用 Skill
 
-通用流程、Human Recognition Gate、观察维度与漂移回退统一按 `character-identity-preservation` Skill 执行。本文件只记录这个人的专属身份结论。
+从现在开始，本人物不再维护一套平行流程。
 
-现在不要做 Character Sheet，不要做六种画风。
+每一次：
 
-一轮只做一个小实验：
+- 换发型；
+- 调胖瘦；
+- 戴 / 摘眼镜；
+- 换穿搭；
+- 换职业；
+- 换场景；
+- 换画风；
 
-~~~text
-选 1 张“现在”的真人原图
-↓
-原图保持原文件不变
-↓
-AI 只生成同角度 / 同表情的角色图
-↓
-用非生成方式并排
-↓
-逐项比较
-↓
-只修改一个或少数几个问题
-↓
-再生成
-~~~
+都直接按：
 
-### 当前建议顺序
+> `Darcy-Jin/personal-ai-system/skills/character-identity-preservation/SKILL.md`
 
-**第 1 轮**
-- 灰 T 抱娃近正脸；
-- 只验证自然正脸。
+执行。
 
-**第 2 轮**
-- 红毛衣戴眼镜；
-- 验证戴眼镜以后身份是否保持。
+每次真实执行本身同时承担两件事：
 
-**第 3 轮**
-- 熊猫馆 / 蛋糕照；
-- 验证习惯性笑容和开心笑。
+1. 完成当前人物工作；
+2. 验证并改进通用 Skill。
 
-**第 4 轮**
-- 再选一张当前轻 3/4；
-- 验证颧骨、中脸、下颊和圆下巴。
+如果出现失败，先分清：
 
-### 每轮只问
+- Identity Profile 问题；
+- Skill 方法问题；
+- Execution Protocol 问题；
+- Model / Tool Capability 问题；
+- 当前人物特有问题。
 
-1. 第一眼像不像？
-2. 头脸包络对不对？
-3. 五官位置对不对？
-4. 眼神对不对？
-5. 颧骨 / 苹果肌对不对？
-6. 下颌 / 下巴 / 下颊软组织对不对？
-7. 当前表情像不像她？
-
-通过以后，再进入胖瘦微调。
+不能因为执行器没有按 Skill 绑定正确 Master，就反过来修改已经确认正确的脸。
 
 ---
 
@@ -444,15 +425,53 @@ AI 只生成同角度 / 同表情的角色图
 
 > **只换发型，不换脸。**
 
-验收：
+### 11.1 第一次发型 Production Run 已判定为无效执行
 
-1. Identity Fidelity：还是不是她；
-2. Target Change Fidelity：发型是否真正发生了目标变化；
-3. Non-target Preservation：脸、骨相、五官、年龄感、胖瘦、表情是否被误伤。
+实际发生：
+
+- 应该从 Exact Root Master 做单张受控编辑；
+- 实际却再次调用生成模型重画了一整组发型合集；
+- 第一次输出已经出现脸部漂移；
+- 随后又继续尝试生成第二个合集；
+- 因此这两组发型合集全部判定为 **Rejected**，不进入任何 Positive Sample / Master / Branch Master。
+
+本次失败分类：
+
+> **Execution Protocol Failure**
+
+具体是：
+
+1. 没有先绑定 Exact Root Master；
+2. Tool Route 错误，把“单张受控编辑”跑成“重新生成合集”；
+3. Expected Output Shape = single，但实际输出 grid / poster；
+4. 第一次形态失败后没有立刻 Reject + 回 Master，而是继续用同类生成路径尝试。
+
+这次失败**不证明“换发型会导致身份漂移”**。
+
+它证明：
+
+> **Skill 的方法已经写对，但执行控制还不够强，导致运行时绕开了 Skill。**
+
+这个 Case 已经回灌到通用 Skill：
+
+- `references/execution-control-and-provenance.md`
+- `references/regression-cases.md`
+- `assets/run-record-template.md`
+
+### 11.2 下一次真正的发型测试
+
+必须满足：
+
+1. 当前会话里实际找到并绑定那张已经确认的 Root Master 原文件；
+2. Expected Output Shape = single；
+3. Change Set = 发型；
+4. Preserve Set = 脸、骨相、五官关系、年龄感、胖瘦、表情、衣服、背景、镜头；
+5. 如果工具不能可靠绑定这张 Exact Master，就先停止，不用文字重新生成替代；
+6. 输出后先过三轴验收，再决定是否继续。
 
 如果不通过：
 
-> 回 Root Master，而不是在漂掉的结果上继续改。
+> 回 Exact Root Master，而不是在漂掉的结果上继续改。
 
 ---
 
