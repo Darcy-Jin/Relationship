@@ -449,6 +449,10 @@ FLUX.2          1             1              1
 
 - `Darcy-Jin/personal-ai-system/skills/character-identity-preservation/SKILL.md`
 
+后续又在 personal-ai-system 完成一轮跨产品 / 研究对标，详细见：
+
+- `Darcy-Jin/personal-ai-system/docs/research/2026-09-26-character-identity-preservation-benchmark-and-improvement.md`
+
 正式 Skill 现在统一维护：
 
 - AI 主导执行 + Human Recognition Gate；
