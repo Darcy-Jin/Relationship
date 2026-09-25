@@ -129,6 +129,8 @@
 
 以后可以单独测试，但不作为第一版默认。
 
+固定真人脸的通用工作方法已经上提到 `Darcy-Jin/personal-ai-system/skills/character-identity-preservation/SKILL.md`。这里不再重复维护参考图分级、人工身份校准、Identity Master、跨角度 / 表情 / 眼镜 / 胖瘦 / 画风的一致性流程和漂移回退规则；本文件只维护 Relationship 自己的角色与叙事约束。
+
 
 ---
 
