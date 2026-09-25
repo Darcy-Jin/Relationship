@@ -1,9 +1,10 @@
 # 女性代入角色｜老婆脸版 Current Definition v1
 
 > 状态：Current Source of Truth  
-> 当前阶段：Current Identity Calibration｜当前身份校准  
+> 当前阶段：Current Identity Calibration / Approved Positive Samples｜当前身份校准 / 已有通过样本  
 > 目标：**先把“现在的她”画准，再调胖瘦，最后才进入画风。**  
-> 历史探索：`docs/history/2026-09-26-wife-face-identity-calibration-v0.1-v0.10.md`
+> 历史探索：`docs/history/2026-09-26-wife-face-identity-calibration-v0.1-v0.10.md`  
+> 通用方法：`Darcy-Jin/personal-ai-system/skills/character-identity-preservation/SKILL.md`
 
 ## 1. 版本关系
 
@@ -266,6 +267,14 @@ AI 只负责生成右侧角色图。
 
 这版作为 Positive Sample 保留。
 
+2026-09-26 新一轮正脸、轻侧、微笑、露齿、说话和戴眼镜测试中，用户明确反馈：
+
+> **“这一轮可以了。”**
+
+这一组升级为 **Approved Positive Sample Set**。它证明当前身份结构在多种表情 / 角度 / 眼镜状态下已经明显稳定，但尚未指定哪几张作为最终 Frozen Identity Master，因此当前状态仍是“已有通过样本，Master 待冻结”。
+
+随后重新生成的多格合集再次出现脸变尖、嘴角 / 酒窝感异常、第一排即不像的问题。该合集不进入 Positive Sample。当前已确认原因不是身份规则本身失效，而是“为了做合集又重新生成全部人物”，导致已确认身份被再次合成。
+
 它的用途是提醒后续生成不要丢掉：
 
 - 小而紧凑的头脸感；
@@ -280,6 +289,8 @@ AI 只负责生成右侧角色图。
 ---
 
 ## 10. 当前唯一验证流程
+
+通用流程、Human Recognition Gate、观察维度与漂移回退统一按 `character-identity-preservation` Skill 执行。本文件只记录这个人的专属身份结论。
 
 现在不要做 Character Sheet，不要做六种画风。
 
@@ -335,9 +346,9 @@ AI 只生成同角度 / 同表情的角色图
 
 ## 11. 什么时候冻结
 
-只有当用户明确确认：
+只有当用户明确确认某一组具体母版可以作为后续 Source of Truth，例如：
 
-> **“这张脸基本就是她。”**
+> **“这组就作为以后固定参考。”**
 
 才冻结：
 
