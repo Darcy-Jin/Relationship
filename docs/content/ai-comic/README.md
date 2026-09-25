@@ -31,7 +31,7 @@ AI Comic 已经并入 Relationship，并作为三个正式层之一的 **AI 漫�
 - [角色与视角呈现规范 v0.1](character-and-viewpoint-v0.md)
 - [视觉风格组合空间 v0.1](visual-style-space-v0.md)
 - [人物画风模型 v0.1](character-style-model-v0.md)
-- [老婆脸版女性外貌锚点 v0.1](characters/female-wife-face-v0.md)
+- [老婆脸版 Current Definition v1](characters/female-wife-face-v0.md)
 
 当前第一篇试稿：
 
