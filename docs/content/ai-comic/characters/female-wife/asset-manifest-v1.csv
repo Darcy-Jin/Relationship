@@ -1,3 +1,4 @@
+# Historical snapshot: initial Identity Case v1 asset manifest. Current structured asset Source of Truth is Supabase personal-ai-data; this CSV is not updated for every later run.
 asset_id,category,platform_ref,name,quality,role,status,parent,notes
 SRC-001,source,file_00000000cb348206945e04ea8f939e07,1000035881.jpg,main,Identity / Current Life,active,,近期灰衣抱娃家庭照；脸较清楚；当前真人证据
 SRC-002,source,file_00000000c0588209bb782797822f0cd7,1000035876.jpg,aux,Appearance State / Glasses / Full Body,active,,红色上衣全身；戴眼镜；脸较小
