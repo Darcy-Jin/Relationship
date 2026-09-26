@@ -1,8 +1,55 @@
 # Run｜2026-09-26 Side-face Perception-to-Structure Diagnosis v1
 
 > Case: Female Wife Identity Case v1  
-> Stage: Robustness Validation / Side-face Recovery  
+> Stage: Closed / `profile_subject_left` Validated  
 > Generic Skill: `Darcy-Jin/personal-ai-system/skills/character-identity-preservation/SKILL.md`
+
+## Current Status｜已收口
+
+当前正式结论：
+
+~~~text
+Target
+= profile_subject_left
+
+Final Asset
+= MASTER-SUP-06
+
+Selected Variant
+= A
+
+Status
+= Validated / Support Master
+
+Human Decision
+= D-008
+
+Further Edit
+= No
+~~~
+
+用户最终确认：
+
+> **“A 不再改了，就是这版；ABC 已经看不太出来有什么区别了。”**
+
+这意味着当前 Target 已经达到：
+
+> **继续微调的收益很低，可以停止迭代。**
+
+注意：
+
+> “A / B / C 已经很接近”只证明这个 Case 在当前 Target 上已经收敛，不自动证明某一个解剖假设是真因。
+
+当前 Coverage 已更新：
+
+- `profile_subject_left` → Validated / high confidence；
+- 其他未知 Target 以后仍按 Evidence Pool → Target → Candidate → Validation → Coverage 的通用方法继续。
+
+旧的：
+
+- `SIDE-CANDIDATE-02` → superseded candidate；
+- 早期 `SIDE-DIAG-A/B/C` → historical diagnostic evidence；
+- 之前的 View Alignment / Imaging Drift / Output Shape Failure → 继续保留为历史学习证据，不再代表当前状态。
 
 ## 1. Exact Assets
 
@@ -482,3 +529,119 @@ Comparison Candidates
 另外：
 
 > 不允许为了统一方向，把真人 Evidence 镜像后当作真实几何证据。
+
+
+## Final Closure｜2026-09-26
+
+### 本轮最终采用的 Evidence Pack
+
+这次不是固定要求“正脸 + 3/4”。
+
+而是根据当前 `profile_subject_left` Target，从现有 Evidence Pool 中选择了：
+
+1. `MASTER-ROOT-01`
+   - 高置信身份锚点；
+2. `MASTER-SUP-04`
+   - 当前已验证资产中最有价值的几何参考；
+3. `SRC-003`
+   - 真人现实校验，避免只在生成图之间自我强化。
+
+### 最终 Target View
+
+~~~text
+view_key
+= profile_subject_left
+
+visible side
+= subject_left
+
+yaw
+= pure profile / approximately 90°
+
+pitch
+= neutral
+
+roll
+= neutral
+
+expression
+= relaxed / natural
+~~~
+
+最终比较时，A / B / C 使用同一观察坐标系。
+
+### 最终选择
+
+用户选择：
+
+> **A**
+
+正式资产：
+
+> `MASTER-SUP-06`
+
+Library：
+
+> `/personal-ai-data/identities/wife/masters/support-profile-subject-left-v1.png`
+
+最终确定性比较板：
+
+> `BOARD-PROFILE-LEFT-FINAL-01`
+
+Library：
+
+> `/personal-ai-data/identities/wife/comparisons/profile-subject-left-final-selection-board-v1.png`
+
+B / C 保留为未选候选，不进入 Master Bank。
+
+### 为什么停止继续调
+
+最终 A / B / C 的差异已经很小。
+
+用户明确：
+
+> 不再修改 A。
+
+所以本轮不是因为“已经找到唯一正确的人脸参数”而结束。
+
+而是因为：
+
+~~~text
+Human Recognition
++
+Cross-evidence Consistency
++
+View Alignment
++
+当前比较已收敛
+↓
+继续迭代的边际价值很低
+↓
+Stop
+~~~
+
+### Coverage 更新
+
+~~~text
+front
+→ validated
+
+light_3q
+→ validated
+
+profile_subject_left
+→ validated / MASTER-SUP-06
+~~~
+
+本轮到此关闭。
+
+下一次只有出现新的真实 Target，例如：
+
+- 另一侧 profile；
+- 新表情；
+- 新 Rendering；
+- 婚纱照 / 漫画 / 视频场景；
+
+才重新从 Coverage 判断是否需要扩展。
+
+不继续为了“把所有角度补齐”而机械生成。
