@@ -4,7 +4,9 @@
 > 当前阶段：Female Current Identity Master v1｜已冻结第一版身份母版  
 > 目标：**先把“现在的她”画准，再调胖瘦，最后才进入画风。**  
 > 历史探索：`docs/history/2026-09-26-wife-face-identity-calibration-v0.1-v0.10.md`  
-> 通用方法：`Darcy-Jin/personal-ai-system/skills/character-identity-preservation/SKILL.md`
+> 通用方法：`Darcy-Jin/personal-ai-system/skills/character-identity-preservation/SKILL.md`  
+> 人物 Case：[`female-wife/README.md`](female-wife/README.md)  
+> 资产清单：[`female-wife/asset-manifest-v1.csv`](female-wife/asset-manifest-v1.csv)
 
 ## 1. 版本关系
 
