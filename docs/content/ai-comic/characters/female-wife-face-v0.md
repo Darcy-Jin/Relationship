@@ -251,6 +251,17 @@ AI 只负责生成右侧角色图。
 
 > **Cross-view Structural Consistency｜跨视角结构一致性。**
 
+### 6.2 当前 View Coverage
+
+| 视图 | 当前状态 | 说明 |
+|---|---|---|
+| 正脸 | Validated | Root + 多张 Support / 真人证据 |
+| 轻 3/4 | Validated | 已进入 Support Master |
+| 对侧 3/4 | Candidate | 尚未人工确认 |
+| 纯侧脸 | Under Rework | B / C 方向更好，但尚未通过 Cross-view Gate |
+
+当前纯侧脸不能作为结构 Source of Truth。
+
 ## 7. 胖瘦：下一阶段再调
 
 当前先按现在照片里的自然状态画：
