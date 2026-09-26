@@ -32,10 +32,12 @@ AI Comic 已经并入 Relationship，并作为三个正式层之一的 **AI 漫�
 2. [Visual System v1](visual-system-v1.md)  
    当前正式视觉设计底座：人物画风、场景、构图、色彩、文字、页面怎么管理。
 3. [AI 漫画内容模型](content-model.md)  
-   这一篇到底想让读者看见什么。
-4. [角色与叙事视角](character-and-viewpoint-v0.md)  
+   一篇内容从哪里来、标题怎么形成、正文怎么组成。
+4. [AI 漫画内容地图](content-map-v0.1.md)  
+   人物 / 特点 × 生活场景 / 人生阶段 × 伴侣需要，怎样形成 Topic Candidate。
+5. [角色与叙事视角](character-and-viewpoint-v0.md)  
    一格画谁、站谁的处境、谁可以缺席。
-5. [老婆脸版 Current Definition v1](characters/female-wife-face-v0.md)  
+6. [老婆脸版 Current Definition v1](characters/female-wife-face-v0.md)  
    仅作为当前具体人物 Case 的人类可读说明。
 
 通用能力不在 Relationship 重复维护：
@@ -153,6 +155,9 @@ Relationship Visual System
 
 内容结构
 → content-model.md
+
+内容规划空间
+→ content-map-v0.1.md
 
 角色 / 叙事视角
 → character-and-viewpoint-v0.md
