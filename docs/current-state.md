@@ -878,19 +878,113 @@ Episode Script
 
 ### 内容规划下一步
 
-当前不继续扩 Research / Topic Pool。
+用户已明确把内容生产从“全局散题 → 单篇 Storyboard”改为 **Series-first 批量化**。
 
-下一步从 002～005 中选 1～2 篇进入 **文字 / Layout Storyboard**，验证：
+当前新增正式 Series Layer：
 
-1. 一页真正能承载多少信息；
-2. 文案和画面怎样分工；
-3. 哪些内容能画就不要写；
-4. 5 页结构在真实版面里是否过密 / 过松；
-5. 是否需要调整 Episode Length / Page Layout。
+- `docs/content/ai-comic/series-map-v0.1.md`
+- `docs/content/ai-comic/series-entry-registry-v0.1.csv`
+- `docs/content/ai-comic/series-topic-pool-v0.2.csv`
+- `docs/content/ai-comic/secondary-collection-registry-v0.1.csv`
+- `docs/content/ai-comic/series-priority-mapping-v0.1.csv`
+- `docs/content/ai-comic/series-batch-production-v0.1.md`
 
-这个 Storyboard 验证仍可在 Character Style 未完成时推进，不要求先正式出人物图。
+当前规模：
 
-这条内容规划线不依赖 Character Style 先完成。
+~~~text
+9 个 Main Series
+127 个 Series Entry
+458 个 Topic Seed
+
+S01 工作岗位 / 工作方式
+15 Entry
+75 Topic Seed
+15 Priority Topic（首轮 Review 已完成）
+
+S02 性格 / 气质
+15 Entry
+60 Topic Seed
+
+S03 生活方式 / 习惯
+16 Entry
+64 Topic Seed
+
+S04 相处 / 关系方式
+16 Entry
+64 Topic Seed
+
+S05 钱 / 现实条件
+14 Entry
+42 Topic Seed
+
+S06 家庭 / 原生家庭
+15 Entry
+45 Topic Seed
+
+S07 人生目标 / 价值选择
+14 Entry
+42 Topic Seed
+
+S08 能力 / 成熟度
+12 Entry
+36 Topic Seed
+
+S09 外貌 / 身体 / 吸引
+10 Entry
+30 Topic Seed
+~~~
+
+同时建立 6 个 Cross-cutting Collection：
+
+- 同居以后；
+- 生孩子以后；
+- 真正需要对方的时候；
+- 钱进入关系以后；
+- 上有老下有小；
+- 那些反复出现的小事。
+
+旧 30 个 Priority Topic 和 5 篇 Validation Script 已全部映射回 Series，不另起平行体系。
+
+当前 S01 已完成首轮 Series Priority Review：
+
+- `docs/content/ai-comic/series/s01-job-work-priority-v0.1.md`
+
+15 个 Priority Topic 覆盖：
+
+- 大厂 / 高强度白领；
+- 程序员 / 技术岗；
+- 产品 / 项目 / 管理岗；
+- 公务员 / 体制内；
+- 国企 / 稳定组织；
+- 教师；
+- 医生 / 轮班岗位；
+- 销售 / 商务；
+- 金融；
+- 创业者；
+- 自由职业；
+- 高频出差；
+- 工作清闲；
+- 双城 / 异地等。
+
+下一步不进入 Storyboard，也不继续生成更多 Topic Seed。
+
+正式下一步：
+
+~~~text
+S02 性格系列 Priority Review
+↓
+S09 外貌 / 吸引系列 Priority Review
+↓
+S05 / S06 / S07 补当前 Coverage
+↓
+每个 Series 形成自己的 Priority Set
+↓
+从不同 Series 分批进入 Content Brief / Episode
+~~~
+
+系列化的目标是：
+
+> **让每个系列都能稳定拥有几个、十几个或几十个候选题，并持续批量生产，而不是每次重新想一篇。**
 
 当前仍不做：
 
