@@ -1,7 +1,7 @@
 # Relationship AI Comic｜单人 Character Style 实验 v1
 
 > Date: 2026-09-26  
-> Status: Provider Blocked  
+> Status: Self-use Exact-Asset Handoff Blocked  
 > Goal: 先用两个单人 Baseline 做 Character Style Screening，再用代表性 Identity Coverage 做压力测试，通过后才锁 Relationship Character Style v1。
 
 ## 1. 这次只回答什么
@@ -423,7 +423,7 @@ Relationship Character Style v1
 
 ## 14. 当前执行状态｜2026-09-26
 
-本实验已经完成第一条合法真实执行验证：
+本实验已经验证过一条合法的 Exact Edit 路线，但那只是 **OpenAI Direct Adapter**：
 
 ~~~text
 Darcy
@@ -431,49 +431,65 @@ DARCY-SRC-005
 ↓
 Asset Resolver READY
 ↓
-Exact Asset Binding
+Exact Target Binding
 ↓
-Visual Identity Runtime
+OpenAI Direct Adapter
 ↓
-OpenAI Image Edit Provider
+HTTP 429 / credit_balance_exhausted
 ~~~
 
 正式 Run：
 
 - `relationship-single-style-darcy-A-v1`
 
-结果：
+这条 Run 的意义：
 
-- Runtime / Resolver / Exact Binding：通过；
-- 请求已真实到达 OpenAI Image API；
-- Provider 返回 HTTP 429 / `credit_balance_exhausted`；
-- 没有生成 Candidate；
-- 本轮不得回退到普通 `image_gen` 或自由生成。
+- 证明 Darcy Exact Baseline、Resolver 和 Exact Binding 没有问题；
+- 证明 OpenAI Direct Adapter 的调用链成立；
+- 只证明该 Adapter 当前 Provider Quota Blocked；
+- **不代表本实验必须使用 OpenAI API。**
 
-因此当前状态不是 Runtime Capability Blocked，而是：
+当前开发 / 自用的优先 Surface 是 ChatGPT Web。
 
-> **Provider Blocked**
+但本实验属于 Exact A/B/C，不能把普通 Web Generation 当成受控编辑。当前必须先补齐并验证：
 
-当前唯一恢复条件：
+~~~text
+Supabase Exact Baseline
+↓
+ChatGPT Web Current Image Context
+↓
+Exact Target Binding Evidence
+↓
+Controlled Style Candidate
+~~~
 
-> **Provider credits 恢复后，原样重试 Darcy A；A 通过 Gate 后再执行 Darcy B/C，再执行 Wife A/B/C。**
+当前准确停点：
 
-不因本次 Provider Blocked 修改：
+> **blocked_surface_handoff**
 
-- Exact Baseline；
+也就是说：
+
+> **不是缺照片，不是 Identity 不成熟，不是 Style Contract 有问题，也不是整个 Matter 被 OpenAI credits 锁住；缺的是当前自用 ChatGPT Web 的 Exact Asset Handoff / Binding 证据。**
+
+OpenAI Direct 继续保留为可选 Adapter；它的 `credit_balance_exhausted` 只保留为组件状态。
+
+本轮继续冻结：
+
+- Darcy Exact Baseline = `DARCY-SRC-005`；
+- Wife Exact Baseline = `MASTER-ROOT-01`；
 - A / B / C Style Candidate；
 - Identity Preserve；
 - Control Variable Gate；
 - Single-person Scope。
 
 ---
-
-
 ## 15. 下一步
 
-当前 Provider Blocked 解除后：
+先完成当前自用执行缺口，而不是先处理某个可选 Provider 的额度：
 
 ~~~text
+Self-use Exact Asset Handoff validated
+↓
 Phase 1｜Single-person A/B/C Screening
 ↓
 Shortlist
