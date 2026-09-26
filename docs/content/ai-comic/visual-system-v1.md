@@ -362,7 +362,7 @@ Output Ratio
 
 ## 8.2 第一次试画不用 Story Role
 
-为了先把“人物怎么画”单独测清楚，第一次建议直接走 Identity Asset Line：
+为了先把“人物怎么画”单独测清楚，第一次直接走 Identity Asset Line：
 
 ~~~text
 Darcy / Wife 当前真人 Identity
@@ -372,11 +372,144 @@ L1 本人出演
 同一中性生活场景
 +
 同一构图
++
+同一服装 / 表情 / 姿势
++
+同一 3:4
 ↓
-A / B / C Character Style
+Character Style Experiment
 ~~~
 
 这样不会把“大厂员工”“约会状态”等 Story Role 条件混进画风选择。
+
+## 8.3 先做唯一 Pair Comparison Baseline，不直接生成 A / B / C
+
+第一次实验还要再分成两个阶段。
+
+### Phase 1｜Baseline Creation
+
+~~~text
+Darcy Exact Identity Anchor(s)
++
+Wife Exact Identity Anchor(s)
++
+L1 本人出演
++
+普通衣服
++
+同一表情
++
+同一姿势
++
+简单生活场景
++
+同一双人构图
++
+3:4
+↓
+Pair Baseline Candidate
+↓
+Human Gate
+“这两个人对不对？”
++
+Control Variable Gate
+↓
+Approved Pair Comparison Baseline
+↓
+Freeze Exact Pixels
+~~~
+
+这一步只解决：
+
+> **A / B / C 到底从哪一张完全相同的图开始。**
+
+Pair Comparison Baseline 是：
+
+> **本次实验 Artifact。**
+
+它不是：
+
+- Darcy Identity Master；
+- Wife Identity Master；
+- Story Role Master；
+- Character Style Master。
+
+没有通过 Baseline Human Gate：
+
+> **不进入 A / B / C。**
+
+## 8.4 A / B / C 必须从同一个 Exact Baseline 分叉
+
+Baseline Approved 以后才进入：
+
+~~~text
+Exact Pair Comparison Baseline
+├─ Exact Style Edit → A
+├─ Exact Style Edit → B
+└─ Exact Style Edit → C
+~~~
+
+三个 Candidate：
+
+- Parent 必须完全相同；
+- 每次单独输出一张；
+- 不允许 A → B → C 链式派生；
+- 不允许三次各自重新生成一对夫妻；
+- 不允许生成模型自己补一张“Reference”。
+
+如果任何一个版本同时漂了：
+
+- 人脸；
+- 年龄 / 胖瘦；
+- 发型 / 衣服；
+- 表情 / 姿势；
+- 场景；
+- 镜头 / 构图；
+
+该 Candidate 先 Reject，不进入画风偏好判断。
+
+## 8.5 Runtime Readiness｜执行器不支持就停
+
+正式执行读取：
+
+- `Darcy-Jin/personal-ai-system/skills/visual-style-design/SKILL.md`
+- `Darcy-Jin/personal-ai-system/skills/visual-style-design/assets/style-comparison-run-contract.md`
+
+多人画风实验至少要求：
+
+~~~text
+Exact Target Binding
++
+Multi-subject Identity Binding
++
+Project / Composite Baseline Binding
++
+single Candidate Output
++
+Deterministic Comparison Board
+~~~
+
+如果当前 Runtime 不能证明这些能力：
+
+> **实验状态 = Blocked。**
+
+不能自动降级成 ChatGPT Web 自由生成。
+
+最终比较板只允许：
+
+~~~text
+Exact Baseline
++
+A 原输出
++
+B 原输出
++
+C 原输出
+↓
+Deterministic Composition
+~~~
+
+生成模型不负责 Reference / Comparison Board。
 
 ---
 
