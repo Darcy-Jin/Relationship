@@ -823,23 +823,40 @@ Episode Script
 
 当前不继续扩大标签数量，也不继续把 2733 个组合自动写成标题。
 
-当前已经从首批 15 中挑出 5 个差异足够大的 Topic，并形成 Content Brief：
+当前已经从首批 15 中挑出 5 个差异足够大的 Topic，全部完成 Content Brief + Episode Script v0.1：
 
-- `briefs/001-big-tech-boyfriend-brief-v0.1.md`
-- `briefs/002-family-oriented-boyfriend-brief-v0.1.md`
-- `briefs/003-frugal-boyfriend-brief-v0.1.md`
-- `briefs/004-emotionally-stable-boyfriend-brief-v0.1.md`
-- `briefs/005-mental-load-boyfriend-brief-v0.1.md`
+- 001｜互联网大厂男友：高薪，但没时间
+- 002｜很顾家的男友：他顾的是你们的小家，还是整个大家庭？
+- 003｜很节俭的男友：钱是存下来了，日子呢？
+- 004｜情绪稳定的男友：他不发火，但你难受时能接住你吗？
+- 005｜很会过日子的男友：会做饭，不等于会承担一个家
 
-当前验证覆盖：事业 / 时间、父母边界、钱、情绪回应、家务 / Mental Load。
+横向验证记录：
 
-下一步不再扩研究空间，直接把 002～005 写成 Episode Script v0.1，并和已有 001 对照，验证：
+- `docs/content/ai-comic/runs/2026-09-26-content-model-validation-001-005-v0.1.md`
 
-1. 两页一个小章节是否适用于不同题型；
-2. 每篇更适合 2 个还是 3 个小章节；
-3. Reframe 是否自然，不是为了反转而反转；
-4. Scene 是否具体、能画；
-5. 哪些后台研究维度在真正写脚本时仍然有缺口。
+当前验证结果：
+
+- 两页一个小章节在五个不同题型中都能成立，暂时继续保留；
+- “第 2 页必须换一种 Need”被证明过窄；
+- Reframe 已正式扩成 Conditional Reframe，可由 Need / Lifestyle、Fit / Coordination、Relationship Process、Responsibility / Resource Structure、Time / Context 等关键条件触发；
+- “收益 + 代价”不再是每章硬模板，标签拆解型 / 机制型内容也可以进入同一框架；
+- Content Model 已升级为 v0.3；
+- 默认仍为 2 个小章节 + 1 页收口，不为了完整机械加第三章。
+
+### 内容规划下一步
+
+当前不继续扩 Research / Topic Pool。
+
+下一步从 002～005 中选 1～2 篇进入 **文字 / Layout Storyboard**，验证：
+
+1. 一页真正能承载多少信息；
+2. 文案和画面怎样分工；
+3. 哪些内容能画就不要写；
+4. 5 页结构在真实版面里是否过密 / 过松；
+5. 是否需要调整 Episode Length / Page Layout。
+
+这个 Storyboard 验证仍可在 Character Style 未完成时推进，不要求先正式出人物图。
 
 这条内容规划线不依赖 Character Style 先完成。
 
