@@ -269,16 +269,37 @@ Project / Composite Experiment Target
 
 因此“多人绑定能力缺失”已经解决。
 
+Direct Binary Transfer 这条缺口也已经继续补齐：
+
+~~~text
+ChatGPT Library Exact Asset
+↓
+ChatGPT Plugin file param
+↓
+visual-identity-mcp
+↓
+Supabase Storage
+~~~
+
+已创建：
+
+- Supabase Edge Function：`visual-identity-mcp`；
+- Private Personal Plugin：`personal-ai-visual-identity v0.1.0`；
+- `prepare_identity_asset_ingest`；
+- `ingest_identity_asset`。
+
+这条正式路线**不再经过 Google Drive**。
+
 当前剩余 Blocker：
 
-1. **Darcy 当前可用 Identity Anchor 仍主要在 ChatGPT Library，尚未迁到 Cloud Runtime 可直接读取的 Supabase Storage；**
-2. **当前 OpenAI Image API 运行状态仍记录为 `credit_balance_exhausted`，Provider 侧不能完成真实图片调用。**
+1. Private Plugin 已创建，但当前 Chat 会话尚未由用户显式安装 / 启用，所以本轮还不能调用它把 Darcy Exact Library 文件送进 Supabase；
+2. 当前 OpenAI Image API 运行状态仍记录为 `credit_balance_exhausted`，Provider 侧不能完成真实图片生成 / 编辑。
 
-所以现在停点已经前移到：
+所以现在停点是：
 
-> **Runtime Route Ready → 等 Exact Darcy Asset Server Binding + Provider 可执行 → 再建立 Pair Comparison Baseline。**
+> **Direct Transfer Adapter Ready → Plugin Binding → Darcy Exact Asset Ingest → Provider Ready → Pair Comparison Baseline。**
 
-仍然不允许用普通 image generation 代替。
+仍然不允许用普通 image generation 或 Google Drive 代替。
 
 ---
 
@@ -288,7 +309,7 @@ Project / Composite Experiment Target
 |---|---|
 | 平台 / 3:4 竖图 | Locked |
 | 真人 Identity 边界 | Locked |
-| Character Style | Open / Blocked：等待 Darcy Exact Asset Server Binding + Provider |
+| Character Style | Open / Blocked：等待 Direct Transfer Plugin Binding + Provider |
 | Scene Style | Default |
 | Composition | Episode |
 | Color / Lighting | Default |
@@ -306,7 +327,11 @@ Style Comparison Runtime Readiness
 ↓
 Runtime v0.3.0 Route Ready
 ↓
-迁移 / 绑定 Darcy Exact Current Identity Asset
+Direct Transfer MCP / Plugin Ready
+↓
+Plugin Binding
+↓
+Darcy Exact Current Identity Asset → Supabase
 ↓
 Provider 可执行
 ↓
