@@ -78,6 +78,40 @@ Relationship Visual System
 
 - [AI 漫画资产架构 v1](asset-architecture-v1.md)
 
+## 2.2 当前资产盘点与生产就绪度
+
+按 [AI 漫画资产架构 v1](asset-architecture-v1.md) 盘点，当前不是“什么都没准备”，而是已经完成了一部分底座，剩下的是少量生产前缺口。
+
+| 层 | 当前状态 | 现有资产 | 还缺什么 |
+|---|---|---|---|
+| Person Identity｜男主真人 | 基本建立 / 待正式资产化 | 用户近期 + 年轻照片；当前正面 / 3Q / 侧面候选；侧面额头修正版已人工认可 | 把当前真人身份资产正式登记进共享 Identity Runtime，明确哪些是 Validated / Candidate |
+| Person Identity｜女主真人 | 已建立 | Root Master、Support Masters、真人 Evidence；`profile_subject_left` 已验证为 `MASTER-SUP-06` | 只剩底层资产迁移等后台尾项，不阻塞漫画 |
+| Character Style｜人物画风 | 候选已明确，未最终锁定 | 方案 F：轻手绘少女漫画 / 清新简笔插画，为当前第一优先 | 用男女主同一内容做一次受控试画，确认正式生产画风 |
+| Visual System｜场景 / 构图 / 色彩 / 文字 / 页面 | 部分已有方向，未全部冻结 | 小红书 3:4、少文字、生活场景、轻松女性向；已有 visual-style-space | 第一篇按真实页面确定最小规则，不提前做完整 Design System |
+| Story Role｜001 男主 | 已有 | `characters/001-big-tech-boyfriend-v0.md` | 明确 Role Transformation 等级 |
+| Story Role｜001 女主 | 脚本里已有功能，但未独立资产化 | 作为伴侣 / 女性代入者参与 001 | 明确她由 wife Identity 扮演，以及本篇 Role Transformation / Appearance State |
+| Story Role Master｜男女主 | 未建立 | — | 在正式 Character Style + 001 Story Role 下各做 1 个标准角色版本 |
+| Character Sheet｜男女主 | 未建立 | 有旧样例可参考 | 等 Story Role Master 通过后，用已确认资产确定性组装 |
+| Episode 001 Script | 已有 | 《互联网大厂男友：高薪，但没时间》5 页脚本 | 进入 storyboard / page production |
+| Scene / Prop Library | 不要求先建 | 零散规则已有 | 第一篇需要什么就建什么；重复出现以后再升长期资产 |
+
+### 当前真正的最小缺口
+
+现在不要继续补“更多角度 / 更多表情 / 更多场景”。
+
+进入第一篇漫画前只剩：
+
+~~~text
+1. 把男主当前真人 Identity 正式资产化
+2. 锁定 Relationship 第一版 Character Style
+3. 明确 Episode 001 的男女 Story Role + Role Transformation
+4. 建两个 Story Role Master
+5. 用已确认资产做 Character Sheet
+6. 直接进入 001 的 storyboard / 5 页生产
+~~~
+
+其中第 4～5 步服务生产，不再重新定义真人是谁。
+
 ## 3. 当前最重要的内容母题
 
 ### 标签 → 具体的人
