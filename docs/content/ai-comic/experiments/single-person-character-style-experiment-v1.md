@@ -1,7 +1,7 @@
 # Relationship AI Comic｜单人 Character Style 实验 v1
 
 > Date: 2026-09-26  
-> Status: Ready for Execution  
+> Status: Provider Blocked  
 > Goal: 先用两个单人样本选出 Relationship Character Style v1，再进入双人验证。
 
 ## 1. 这次只回答什么
@@ -367,7 +367,54 @@ Relationship Character Style v1
 
 ---
 
-## 13. 下一步
+## 13. 当前执行状态｜2026-09-26
+
+本实验已经完成第一条合法真实执行验证：
+
+~~~text
+Darcy
+DARCY-SRC-005
+↓
+Asset Resolver READY
+↓
+Exact Asset Binding
+↓
+Visual Identity Runtime
+↓
+OpenAI Image Edit Provider
+~~~
+
+正式 Run：
+
+- `relationship-single-style-darcy-A-v1`
+
+结果：
+
+- Runtime / Resolver / Exact Binding：通过；
+- 请求已真实到达 OpenAI Image API；
+- Provider 返回 HTTP 429 / `credit_balance_exhausted`；
+- 没有生成 Candidate；
+- 本轮不得回退到普通 `image_gen` 或自由生成。
+
+因此当前状态不是 Runtime Capability Blocked，而是：
+
+> **Provider Blocked**
+
+当前唯一恢复条件：
+
+> **Provider credits 恢复后，原样重试 Darcy A；A 通过 Gate 后再执行 Darcy B/C，再执行 Wife A/B/C。**
+
+不因本次 Provider Blocked 修改：
+
+- Exact Baseline；
+- A / B / C Style Candidate；
+- Identity Preserve；
+- Control Variable Gate；
+- Single-person Scope。
+
+---
+
+## 14. 下一步
 
 本轮完成后才进入：
 
