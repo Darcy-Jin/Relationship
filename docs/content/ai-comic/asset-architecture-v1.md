@@ -275,109 +275,43 @@ Appearance State 常见维度：
 
 # 4. Relationship Visual System｜共享视觉系统
 
-Visual System 是 Identity Asset Line 和 Story Role Line 都会调用的共享资产。
+Visual System 是 Identity Asset Line 和 Story Role Line 都会调用的共享设计底座。
 
-它不等于“画风”。
+当前正式 Source of Truth：
+
+- [Visual System v1](visual-system-v1.md)
+
+它统一维护：
 
 ~~~text
-Relationship Visual System
-├─ Character Style
-├─ Scene Style
-├─ Composition
-├─ Color / Lighting
-├─ Text System
-└─ Page Layout
+Character Style
+Scene Style
+Composition
+Color / Lighting
+Text System
+Page Layout
 ~~~
 
-## 4.1 Character Style｜人物怎么画
+这里不再重复维护具体画风维度、候选 Style Pack 或页面视觉规则。
 
-回答：
+资产架构只保留关系：
 
-> **人的视觉语言是什么？**
+~~~text
+Person Identity
++
+Story Role / Role Transformation
++
+Relationship Visual System
+↓
+Comic Character / Comic Episode Assets
+~~~
 
-当前通用拆解继续读取：
+其中：
 
-- `Darcy-Jin/personal-ai-system/skills/visual-style-design/SKILL.md`
+- Character Style 回答“人物怎么画”；
+- 其他模块回答“场景、镜头、色彩、文字、页面怎么呈现”。
 
-Relationship 当前选择继续维护：
-
-- [人物画风当前配置](character-style-model-v0.md)
-
-包括：
-
-- 风格家族；
-- 写实 / 抽象程度；
-- 人体比例；
-- 形状语言；
-- 脸部语言；
-- 表情语言；
-- 线条；
-- 上色；
-- 明暗；
-- 材质；
-- 细节密度。
-
-## 4.2 Scene Style｜环境怎么画
-
-回答：
-
-- 背景多详细；
-- 真实生活空间保留多少；
-- 办公室 / 家 / 街道 / 咖啡馆怎样简化；
-- 道具画到什么程度；
-- 留白多少。
-
-## 4.3 Composition｜镜头和信息怎么摆
-
-例如：
-
-- 大特写；
-- 半身；
-- 双人关系构图；
-- 人物 + 环境；
-- 远景；
-- 上下对照；
-- 左右对照；
-- 隐喻构图。
-
-Composition 不是画风。
-
-## 4.4 Color / Lighting｜色彩与光
-
-包括：
-
-- 色彩系统；
-- 饱和度；
-- 冷暖；
-- 日夜状态；
-- 光照气质；
-- 页面间是否需要统一。
-
-## 4.5 Text System｜文字怎样进入画面
-
-包括：
-
-- 对话气泡；
-- 旁白；
-- 手机消息；
-- 页标题；
-- 极短字幕；
-- 字体 / 层级 / 位置。
-
-## 4.6 Page Layout｜整页怎样组织
-
-当前 Relationship 第一版主要面向：
-
-> **小红书 3:4 竖图。**
-
-包括：
-
-- 一页一场景还是上下两格；
-- 页间节奏；
-- 最后一页互动怎么组织；
-- 人物与文字的安全区。
-
----
+> **Visual System 不负责重新定义真人 Identity，也不负责决定 Story Role。**
 
 # 5. Comic Character Assets｜真正用于生产漫画的角色资产
 
@@ -649,8 +583,8 @@ Relationship 只引用：
 1. 两位主角的 Person Identity
    → 已有可信身份资产
 
-2. Relationship Character Style
-   → 选定当前生产用方向
+2. Relationship Visual System
+   → 先锁定 Character Style v1；其他模块按 Visual System 当前 Locked / Default / Episode 状态执行
 
 3. 第一篇 Story Role
    → 谁演谁
