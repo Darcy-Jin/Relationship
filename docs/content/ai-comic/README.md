@@ -120,6 +120,26 @@ Relationship Visual System
 
 其中第 4～5 步服务生产，不再重新定义真人是谁。
 
+这里的“最小缺口”只指 **Episode 001 进入正式视觉生产前的 Production Readiness**。
+
+它不阻塞上游内容规划。当前正式允许并行：
+
+~~~text
+内容规划线
+→ 人物 / 标签 / 特点
+→ 生活场景 / 人生阶段
+→ 不同伴侣需要 / 生活方式
+→ Topic / Content Brief / 标题 / Episode Script
+
+视觉生产线
+→ Character Style
+→ Story Role Master
+→ Character Sheet
+→ Storyboard / Page Production
+~~~
+
+两条线在正式 Storyboard / Page Production 前汇合。
+
 ## 2.3 当前 Source of Truth
 
 当前生产阶段只认下面这些正式入口：
