@@ -685,54 +685,107 @@ Character Sheet
 
 #### B｜内容规划线
 
-`docs/content/ai-comic/content-model.md` 已整理为完整两层模型：
-
-~~~text
-第一层｜Content Generation
-这个人 × 这个特点 × 这段生活 × 我的需要
-↓
-形成真正值得讨论的问题
-↓
-形成标题与 Content Brief
-
-第二层｜Content Composition
-标题
-↓
-若干两页小章节
-↓
-每个小章节：特点进入生活 → 换一种需要重新看
-↓
-最后一页收口 / 互动
-~~~
-
-当前内容规划已经新增：
-
-- `docs/content/ai-comic/content-map-v0.1.md`
+内容规划已经完成一轮 **Coverage-first Research → Multi-view Modeling → Combination Space → Priority Set**，不再从少量标签直接向下展开。
 
 当前正式内容空间：
 
+- `docs/content/ai-comic/content-map-v0.2.md`
+
+研究底座：
+
 ~~~text
-人物 / 标签 / 特点
-×
-生活场景
-  = 人生阶段 × 共同生活领域 × 事件 / 压力
-×
-伴侣需要 / 生活方式
-↓
-Topic Candidate
-↓
-Content Brief / 标题 / Episode Script
+Person Space
+20 sources
+290 Raw Items
+47 Canonical Concepts
+
+Scene Space
+20 sources
+364 Raw Items
+50 Canonical Coordinates
+
+Need / Fit Space
+20 sources
+212 Raw Items
+47 Canonical Concepts
 ~~~
 
-首轮已用 `docs/content/ai-comic/topic-pool-v0.1.md` 的 9 个不同候选题验证三维结构。当前没有发现必须新增第四个平级内容维度；“关系过程”继续作为跨维机制，“时间”继续放在生活场景的人生 / 关系阶段中。
+当前内容生成主线：
 
-人物 / 标签 / 特点库 v0.1 已建立：`docs/content/ai-comic/person-label-feature-library-v0.1.md`。
+~~~text
+Person
+×
+Scene
+×
+Need / Fit
+↓
+Constrained Combination Space
+↓
+Topic Gate
+↓
+Priority Set
+↓
+Content Brief
+↓
+Episode Script
+~~~
 
-当前先保留七组用户语言入口：现实条件 / 身份、工作 / 事业 / 经济、性格 / 气质、关系表现、生活方式 / 习惯、家庭 / 婚育 / 边界、负面警示。标签只作为入口，每个标签继续还原成 Possible Meanings、Do Not Infer、Observable Handles 和 High-value Scenes。
+重要修正：
 
-第一批优先深化 15 个高价值标签，包括大厂 / 高收入、事业心强、工作稳定、老实、脾气好、情绪稳定、强势、顾家、靠谱、独立、自律、节俭、爱社交、孝顺、家庭观念强。
+- Person 不再是一棵“七类标签树”，而是 Profile / Context / Lay Labels / Values / Capabilities / Lifestyle / Relationship Process 等多个 View；
+- Scene 不再只是“人生阶段 × 生活领域 × 事件”，而是继续加入 Task / Resource Reallocation、Concrete Scene 和 Pattern / Time Dynamics；
+- Need 不再只是“陪伴 / 空间 / 安全”等清单，而是继续区分 Need Content、Need Shape、Fulfillment Mechanism、Fit Mode、Trade-off 和 Safety Boundary；
+- 旧 15 个标签已降级为 Seed / Regression Set，不再作为研究前确定的 Priority；
+- `candidate-combinations-v0.1.csv` 保留第一轮弱组合作为失败证据；
+- `candidate-combinations-v0.2.csv` 已收紧阶段 / Trigger / Feature 语义约束，共 2733 个候选组合；
+- `topic-priority-audit-v0.1.csv` 已形成 30 个 Priority Candidate；
+- `docs/content/ai-comic/topic-priority-set-v0.1.md` 已形成首批 15 + 后备 15。
 
-下一步建设 **生活场景库 v0.1**：沿“人生 / 关系阶段 × 共同生活领域 × 事件 / 压力”展开，避免把场景做成一张扁平清单。
+当前首批 15 不是“最重要的 15 种人”。
+
+它们是为了用较少真实内容覆盖：
+
+- 事业 / 工作；
+- 钱 / 房；
+- 父母 / 家庭边界；
+- 自主 / 社交；
+- 生活习惯；
+- 情绪 / 沟通；
+- 可靠 / 修复；
+- 婚育方向；
+- 家务 / Mental Load；
+
+以及恋爱、同居、婚后、育儿、中年、Crisis 等不同阶段 / 场景。
+
+### 内容规划下一步
+
+当前不继续扩大标签数量，也不继续把 2733 个组合自动写成标题。
+
+下一步从首批 15 里挑 **3～5 个差异足够大的 Topic**，正式进入：
+
+~~~text
+Topic
+↓
+Content Brief
+↓
+标题
+↓
+2 页小章节 × N
+↓
+收口
+↓
+Episode Script
+~~~
+
+用真实内容验证：
+
+1. 这套大内容空间能不能稳定产生好内容；
+2. Scene 是否具体、自然、能画；
+3. Need / Fit 的 Reframe 是否真实；
+4. 当前两页小章节结构是否够用；
+5. 哪些后台研究维度在真正生产时仍有缺口。
+
+这条内容规划线不依赖 Character Style 先完成。
 
 当前仍不做：
 
