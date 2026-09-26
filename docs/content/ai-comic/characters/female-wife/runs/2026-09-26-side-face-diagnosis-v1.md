@@ -178,3 +178,49 @@ Actions:
 - B / C not executed on top of this failure;
 - return to Exact Master + SIDE-CANDIDATE-02;
 - next execution must first solve the runtime's explicit image-target binding / edit-shape problem rather than continuing to tweak facial structure.
+
+
+## Second exact-asset runtime test
+
+2026-09-26 再次执行 A 前，先按新的数据链路真实取数：
+
+~~~text
+Supabase assets
+→ MASTER-ROOT-01 / SIDE-CANDIDATE-02
+→ library_file_id
+→ ChatGPT Library
+→ 精确读取并展示两张正确图片
+~~~
+
+这一步通过。
+
+随后明确要求：
+
+- 第二张侧脸为 edit target；
+- 第一张 Root Master 只做 identity anchor；
+- 只做 A：轻微柔化颧区前侧到面颊过渡；
+- 下颌 / 下巴完全不动；
+- 单张写实侧脸；
+- 禁止 infographic / collage / text。
+
+实际结果再次是 infographic。
+
+执行元数据：
+
+- `edit_op = null`
+- `parent_gen_id = null`
+
+因此当前判断进一步收敛：
+
+> **Identity / Asset Retrieval 已通过；失败不在 Supabase、Library、人物模型或 A 方案本身，而在当前 ChatGPT image_gen Runtime 没有把精确图片资产绑定为 edit target。**
+
+失败资产：
+
+- `SIDE-DIAG-FAIL-02`
+- 已保存到 ChatGPT Library；
+- 已回写 Supabase；
+- 状态：Rejected。
+
+当前停止点：
+
+> 不继续 B/C，不再通过重复改 Prompt 试图解决。先找到真正支持 explicit image edit / asset binding 的执行通道。
