@@ -394,12 +394,19 @@ Darcy DARCY-SRC-005
 当前剩余 Blocker：
 
 1. **Darcy 的历史 Library Source 还需要一次 Legacy Canonicalization；**
-2. **当前 personal ChatGPT Web surface 还没有已验证可用的 Library Source Adapter；**
-3. **当前 OpenAI Image API 运行状态仍记录为 `credit_balance_exhausted`。**
+2. **Legacy Migration Adapter 的后端已经实现：`visual-identity-import-page`；**
+3. **当前 personal ChatGPT Chat 本身还不能直接把 Library binary 送进该后端；当前正式迁移 Adapter 改由 ChatGPT Work 执行并待首轮端到端验证；**
+4. **当前 OpenAI Image API 运行状态仍记录为 `credit_balance_exhausted`。**
 
 所以现在准确停点是：
 
-> **Asset Resolver Ready → Darcy Legacy Canonicalization Adapter Missing → Provider Blocked → 单人 A/B/C 尚未合法开始。**
+> **Asset Resolver Ready → Work Migration Adapter Backend Ready → 等首轮 Work Canonicalization Validation → Provider Blocked → 单人 A/B/C。**
+
+注意：
+
+> **这里不要求用户手工找图 / 下载 / 再上传。**
+
+Work Adapter 的职责就是自动完成历史 Library 资产迁移。
 
 仍然不允许用普通 image generation、Google Drive、Desktop-only Plugin 或重新生成“差不多的人”代替。
 
