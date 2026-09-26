@@ -295,3 +295,43 @@ Supabase assets
 > **B / C = preferred diagnostic direction，不等于已确认结构原因，不等于 Approved Master。**
 
 下一轮仍需要通过 Explicit Edit Runtime 重做受控验证。
+
+
+## Current formal delivery plan
+
+后续云端 Runtime 跑通以后，本 Case 不只重跑 B / C。
+
+正式诊断包保持原实验设计：
+
+~~~text
+Exact Baseline
+= SIDE-CANDIDATE-02
+
+A
+= 只调颧区 / 面颊过渡
+
+B
+= 只调下颌 → 下巴收束
+
+C
+= A + B 的轻度组合
+~~~
+
+Human Gate 默认直接比较：
+
+> **SIDE-CANDIDATE-02 + A + B + C**
+
+同时 Root Master + Validated 3/4 继续作为：
+
+> **Identity / Cross-view Reference**
+
+它们负责约束“是不是同一个三维人脸”，但不替代 SIDE-CANDIDATE-02 作为本轮修改前后的 Comparison Baseline。
+
+交付要求：
+
+- A / B / C 分开生成；
+- 每张都从 Exact Baseline / 已验证 Identity References 出发，不链式沿用未验证结果；
+- 最终比较板只做确定性排版；
+- 用户直接看到 Baseline + A + B + C；
+- 不要求用户靠记忆比较；
+- 没有 Human + Cross-view Gate 通过之前，A / B / C 都只是 Candidate。
