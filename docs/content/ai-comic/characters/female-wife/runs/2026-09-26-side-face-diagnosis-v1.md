@@ -221,9 +221,11 @@ Supabase assets
 - 已回写 Supabase；
 - 状态：Rejected。
 
-当前停止点：
+当时停止点（已被后续实验推进）：
 
-> 不继续 B/C，不再通过重复改 Prompt 试图解决。先找到真正支持 explicit image edit / asset binding 的执行通道。
+> 第二次 infographic 失败后曾停止 B/C，先处理 Asset Binding。
+
+后续为了继续验证诊断假设，又生成了 A / B / C 三个候选；这些结果仍来自未能证明 explicit edit binding 的执行路径，因此只作为 **Diagnostic Candidates**，不能作为 Runtime 成功证据。
 
 
 ## Cross-view structural insight
@@ -268,3 +270,28 @@ Supabase assets
 它只是：
 
 > **在缺少真实纯侧脸强证据时，侧脸候选不能与已经确认的整体三维结构互相冲突。**
+
+
+## A / B / C latest result
+
+后续三方案已产生：
+
+- A：颧区 / 面颊过渡；
+- B：下半脸收束；
+- C：轻度组合。
+
+用户判断：
+
+> **“二三好一点。”**
+
+当前解释：
+
+- A 单独颧区方向暂未显示优势；
+- B / C 说明 lower-face taper 很可能参与了“尖 / 硬 / 少可爱感”；
+- 但当前三个生成结果都有非目标结构轻微变化，不能把它们当成干净的单变量实验。
+
+因此：
+
+> **B / C = preferred diagnostic direction，不等于已确认结构原因，不等于 Approved Master。**
+
+下一轮仍需要通过 Explicit Edit Runtime 重做受控验证。
