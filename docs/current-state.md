@@ -324,17 +324,84 @@ ChatGPT Web → Supabase 的 Direct Binary Handoff
 
 所以它也不能被当成当前个人 ChatGPT Web + Mobile 的通用解法。
 
+随后单人 Style A 又做了一次真实执行，仍然暴露同一个根因：
+
+~~~text
+系统正确找到并显示 DARCY-SRC-005
+↓
+但 image_gen 实际运行：
+edit_op = null
+parent_gen_id = null
+↓
+自由生成陌生人物 + A/B/C 海报
+~~~
+
+因此该输出再次：
+
+> **Rejected / 不进入 Style Preference 证据。**
+
+这次以后不再把问题描述成“ChatGPT Web Direct Binary Handoff”这么窄。
+
+personal-ai-system 已把正式架构改为：
+
+~~~text
+identity_id / asset_key
+↓
+Asset Resolver
+↓
+READY / NEEDS_CANONICALIZATION / BLOCKED
+↓
+Executable Asset Handle
+↓
+Provider Adapter
+~~~
+
+并明确分工：
+
+- Skill：只定义 Exact Asset / Preserve / Gate；
+- Visual Identity Agent：选择 asset_key、调用 Resolver、编排执行；
+- Asset Resolver / Runtime：真正找到 Binary、canonicalize、生成 Executable Handle；
+- Plugin / App / Work / Web UI：只是 Source / Surface Adapter；
+- Provider Adapter：真正把 Exact Handle 送进图片模型。
+
+正式入口：
+
+- `Darcy-Jin/personal-ai-system/runtime/visual-identity/asset-resolution-and-handoff.md`
+
+当前真实资产状态：
+
+~~~text
+Wife MASTER-ROOT-01
+→ canonical_ready
+→ Supabase Storage
+
+Darcy DARCY-SRC-005
+→ registered_source
+→ ChatGPT Library
+→ needs_canonicalization
+~~~
+
+当前 Cloud Runtime v0.3.2 已增加：
+
+> **resolve_asset**
+
+因此以后正式出图前，不再以“AI 看到了图片”为准，而以：
+
+> **Asset Resolver 是否返回 READY + Executable Asset Handle**
+
+为准。
+
 当前剩余 Blocker：
 
-1. **ChatGPT Web Direct Binary Handoff 未打通；**
-2. **Darcy Exact Identity Anchor 因此仍不能合法进入当前 Cloud Image Runtime；**
+1. **Darcy 的历史 Library Source 还需要一次 Legacy Canonicalization；**
+2. **当前 personal ChatGPT Web surface 还没有已验证可用的 Library Source Adapter；**
 3. **当前 OpenAI Image API 运行状态仍记录为 `credit_balance_exhausted`。**
 
 所以现在准确停点是：
 
-> **Cloud Runtime Ready → Binary Handoff Missing → Provider Blocked → Pair Comparison Baseline 尚未建立。**
+> **Asset Resolver Ready → Darcy Legacy Canonicalization Adapter Missing → Provider Blocked → 单人 A/B/C 尚未合法开始。**
 
-仍然不允许用普通 image generation、Google Drive 或 Desktop-only Plugin 代替。
+仍然不允许用普通 image generation、Google Drive、Desktop-only Plugin 或重新生成“差不多的人”代替。
 
 ---
 
