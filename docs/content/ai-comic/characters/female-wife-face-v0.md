@@ -258,9 +258,9 @@ AI 只负责生成右侧角色图。
 | 正脸 | Validated | Root + 多张 Support / 真人证据 |
 | 轻 3/4 | Validated | 已进入 Support Master |
 | 对侧 3/4 | Candidate | 尚未人工确认 |
-| 纯侧脸 | Under Rework | B / C 方向更好，但尚未通过 Cross-view Gate |
+| 纯侧脸 / subject_left | Validated | 已通过 Human Gate，最终 A 固化为 `MASTER-SUP-06` |
 
-当前纯侧脸不能作为结构 Source of Truth。
+当前已验证的 `profile_subject_left` 可以作为该 Target 的高置信 Support Evidence；其他 profile 方向仍需单独验证。
 
 ## 7. 胖瘦：下一阶段再调
 
@@ -362,6 +362,14 @@ AI 只负责生成右侧角色图。
 - 眼镜只作为 Appearance State；
 - 继续由 Root Master 提供 Identity Core；
 - 不允许“戴眼镜”重新定义成一张知性模板脸。
+
+**Support｜profile_subject_left（MASTER-SUP-06）**
+
+- 纯侧脸；
+- 通过最终 Human Gate；
+- 用户明确选择 A，并要求不再修改；
+- 当前作为该侧面 Target 的高置信 Support Master；
+- 不代表另一侧 profile 自动通过。
 
 ### 9.3 当前 Master 的使用原则
 
