@@ -409,3 +409,76 @@ Coverage Expansion
 都应直接使用那个 Case 实际拥有的可信 Evidence。
 
 不要为了套本 Run 而人为凑“正脸 + 3/4 + 侧脸”。
+
+
+## View Alignment Correction
+
+最新一轮 A / B / C 对比暴露出新的执行问题：
+
+> 候选并不处于同一个观察坐标系。
+
+其中至少存在：
+
+- 左右侧脸方向不一致；
+- 画面朝向混用；
+- 不能排除 yaw / pitch / framing 的细微差异。
+
+因此这轮不能用来判断：
+
+> “A / B / C 哪个结构更像本人。”
+
+正式定性：
+
+> **View Alignment Failure。**
+
+本轮比较产生的任何“哪个更像”的结论都不进入 Identity Representation。
+
+### 下一轮 Target View
+
+为了消除歧义，下一轮统一采用：
+
+~~~text
+Target View
+= profile_subject_left
+
+定义
+= 看见人物自己的左侧脸
+= 不使用“鼻子朝左 / 朝右”作为正式命名
+
+Yaw
+= pure profile / approximately 90°
+
+Pitch
+= neutral
+
+Roll
+= neutral
+
+Expression
+= relaxed / natural
+~~~
+
+所有 Candidate A / B / C 必须继承同一 Target View Specification。
+
+Evidence / Reference 仍然允许多视角，因为它们负责提供身份信息，不参与同条件 A/B/C 比较。
+
+### 硬规则
+
+~~~text
+Evidence
+→ 可以正脸 / 3Q / 生活照 / 其他可信角度
+
+Comparison Candidates
+→ 必须同 Visible Side
+→ 必须同 Yaw / Pitch / Roll
+→ 必须同 Camera / Crop / Expression
+→ 再检查 Imaging State
+~~~
+
+如果任何 Candidate 不满足：
+
+> Reject comparison，不进入 Human Recognition Gate。
+
+另外：
+
+> 不允许为了统一方向，把真人 Evidence 镜像后当作真实几何证据。
