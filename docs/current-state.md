@@ -589,42 +589,104 @@ Darcy `DARCY-SRC-005` 回归结果：
 
 > `personal-ai-visual-identity v0.2.0`
 
-当前剩下的是**ChatGPT Surface 最后一跳**：
+当前剩下的是 **ChatGPT Surface → Image Executor 的 Exact Binding**：
 
 ~~~text
-Plugin tool 在当前 Surface 可发现？
+Exact Binary 已存在
 ↓
-MCP 返回的 exact image 真正进入 Current Image Context？
+Current Surface 能读取 / 显示
 ↓
-Image Executor 能证明 Exact Target Binding？
+Image Executor 是否真的绑定为 edit target？
+↓
+Edit Semantics 是否可证明？
 ~~~
 
-当前控制面出现不一致：
+当前已经有两类真实证据：
 
-- Plugin suggestion 报 `already_installed`；
-- App permission 检查报 `not_installed`；
-- 当前聊天 Tool Discovery 没有发现 v0.2 工具。
+### 1. Private Plugin Route
 
-因此当前自用路线的准确停点进一步收窄为：
+- Plugin Creator：`personal-ai-visual-identity v0.2.0` 存在；
+- Plugin suggestion：`already_installed`；
+- App permission：`not_installed`；
+- 当前聊天 Tool Registry：没有 `get_exact_identity_asset`。
 
-> **blocked_surface_plugin_discovery**
+因此该子路线当前是：
 
-执行前现在必须读取：
+> `blocked_surface_tool_discovery`
 
-- `Darcy-Jin/personal-ai-system/runtime/visual-identity/execution-routing.json`
+### 2. Existing Library Exact Binary Route
 
-并形成唯一 `Execution Route Snapshot`；历史 Run 只作为 Evidence，不能重新决定 Adapter。
+`DARCY-SRC-005` 的 Exact Source `current-02.jpg` 仍在 ChatGPT Library：
 
-而不是：
+- size = `181576` bytes；
+- 迁移时 Source / Canonical fingerprint 已验证一致；
+- 当前聊天可以真实读取并内联显示该 Exact Binary。
 
-> `Provider credits` 或 `Backend Handoff`。
+但连续两次最小回归均出现：
 
-`credit_balance_exhausted` 继续只保留为 OpenAI Direct Adapter 的组件状态；如果未来主动选择该 Adapter，再处理它的额度即可。
+~~~text
+Exact image visible
+↓
+image_gen
+↓
+edit_op = null
+parent_gen_id = null
+↓
+重新自由生成
+~~~
 
-当前不允许的 fallback 继续不变：
+并且第二次仍错误扩成双人 / A-B-C 比较板。
+
+因此新的正式结论是：
+
+> **“图片在 Surface 里可见”仍然不能证明“Image Executor 绑定了 Exact Target”。**
+
+当前 self-use 路线的准确停点是：
+
+> **blocked_surface_exact_image_binding**
+
+这不是：
+
+- Provider credits；
+- Exact Asset 缺失；
+- Resolver 缺失；
+- Backend Handoff 缺失；
+- 单纯 Plugin 安装问题。
+
+同时，这次连续错误暴露了通用执行控制缺口：Router 选对以后，Tool Call 仍可能发生 Matter Drift / Route Bypass，并在 Gate Fail 后继续“再试一次”。
+
+`personal-ai-system` 已新增正式：
+
+- `architecture/EXECUTION_GUARD.md`
+
+现在每次关键执行都必须经过：
+
+~~~text
+Active Matter Pin
+↓
+Route Contract
+↓
+Pre-call Guard
+↓
+Tool Call
+↓
+Post-call Verification
+├─ PASS
+├─ FAIL_RETRYABLE
+└─ FAIL_LOCKED → Stop / Re-route
+~~~
+
+Visual Identity 的机器可读实例继续使用：
+
+- `runtime/visual-identity/execution-routing.json`
+
+OpenAI Direct 的 `credit_balance_exhausted` 只保留为该 Adapter 的组件状态。
+
+当前继续禁止：
 
 - 普通自由 `image_gen` 冒充 Exact Edit；
-- 根据文字重建一个“像的人”；
+- Gate 已 Fail 后只改 Prompt 再试一次；
+- 因为图片已经显示就假设已绑定；
 - 让用户重新上传系统已经持有的资产；
 - 因某个 Provider 不可用就改变 A/B/C 实验语义。
 
@@ -652,9 +714,9 @@ Image Executor 能证明 Exact Target Binding？
 #### A｜视觉生产线
 
 ~~~text
-确认 v0.2 Plugin 在当前 ChatGPT Surface 的安装 / Tool Discovery
+解决 / 验证 Self-use Surface → Image Executor Exact Binding
 ↓
-验证 MCP Exact Image → Current Image Context → Exact Target Binding
+形成可证明 Exact Target Binding + Edit Semantics 的执行路线
 ↓
 Darcy Exact Baseline → A / B / C
 ↓
