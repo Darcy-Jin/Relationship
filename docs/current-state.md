@@ -321,9 +321,41 @@ Runtime 已同步本 Plan 的核心 Coverage Slot 和 P0/P1/P2 状态。
 - 对应 Runtime Coverage：Front / Light 3Q = Validated / high confidence；
 - 两张新 Support Master 当前仍是 Library Binary，后续正式 Controlled Runtime 使用前需要 canonicalize。
 
+当前执行停点（2026-09-26）：
+
+Darcy Front / Light 3Q 已通过 Human Recognition Gate，但两张 Support Master 的 Binary 仍在 ChatGPT Library。
+
+已完成：
+
+- planned canonical path 已登记；
+- Runtime Canonicalization Run 已建立；
+- 当前 Chat Surface 已验证可以读取 / materialize Exact Bytes；
+- `visual-identity-ingest-file-id` 探测失败：Library `file_...` 不是 OpenAI Files API File object，返回 `OPENAI_FILE_CONTENT_ERROR / HTTP 404`；
+- private plugin `personal-ai-visual-identity v0.2.0` 当前负责 canonical→ChatGPT 出站，不解决本次 Library→Canonical Store 入站；当前 Tool Registry 也没有可调用工具。
+
+因此当前准确状态：
+
+> **Front / 3Q Canonicalization = blocked_surface_capability on this Chat surface**
+
+正式恢复入口：
+
+- `Darcy-Jin/personal-ai-system/docs/work-items/darcy-front-3q-canonicalization-work-handoff-v1.md`
+
+必须通过已验证的 **ChatGPT Work Legacy Migration Adapter** 完成两个 Exact Binary 的 Canonicalization，并确认 Asset Resolver = READY。
+
+用户明确要求顺序：
+
+> **先 Canonicalization，再补 opposite_3q / profile_subject_right。**
+
+因此在两张资产 READY 前，不允许越过 Gate 用自由生成补右侧视角。
+
 当前下一步：
 
 ~~~text
+Work Runtime
+→ Canonicalize Darcy Front / 3Q
+→ Resolver READY
+↓
 Darcy + Wife P1
 补关键 View / Dynamics / Whole-person Production Asset
 ↓
