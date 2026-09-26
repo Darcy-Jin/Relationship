@@ -364,3 +364,48 @@ C
   - A / B / C 的改动说明；
 - 没有 Human + Cross-view Gate 通过之前，任何 profile Generated Candidate 都只是 Hypothesis；
 - 通过以后才允许把该 profile 资产升级为 Validated View / Support Master / View Baseline。
+
+
+## Abstraction Note｜本 Case 不是“侧脸生成流程”
+
+本 Run 只是 Human Visual Identity 的一个实例。
+
+当前妻子这个 Case 恰好拥有：
+
+- 正脸 Root；
+- 已验证 3/4；
+- 一个未验证 profile Working Candidate。
+
+所以本轮会使用这些资产。
+
+但它们不是通用固定模板。
+
+通用规则已经上提为：
+
+~~~text
+Evidence Pool
+↓
+Identity Representation
+↓
+Target Specification
+↓
+按 Target + 当前未知项动态选择 Reference
+↓
+Working Candidate
+↓
+Human / Control Variable / Cross-evidence Validation
+↓
+Coverage Expansion
+~~~
+
+因此以后遇到另一个人：
+
+- 有真实侧脸；
+- 没有 3/4；
+- 有视频；
+- 有多张生活照；
+- 或证据结构完全不同；
+
+都应直接使用那个 Case 实际拥有的可信 Evidence。
+
+不要为了套本 Run 而人为凑“正脸 + 3/4 + 侧脸”。
