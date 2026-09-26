@@ -14,23 +14,61 @@
 
 ## 1. 开始一项实际工作时怎么进入
 
+ChatGPT Project 的正式入口先读：
+
+- `docs/chatgpt-project-bootstrap.md`
+
 默认顺序：
 
 ```text
-1. 先读 personal-ai-system/README.md
+用户输入
 ↓
-2. 判断当前任务是什么类型、处于什么阶段
+Project Bootstrap
 ↓
-3. 只读取这次真正需要的 Agent / Skill / Architecture / Reference
+personal-ai-system/README.md
 ↓
-4. 再读 Relationship/README.md
+Relationship/README.md
++
+docs/current-state.md
 ↓
-5. 读取当前任务需要的 Relationship 资产
+识别当前 Intent / Matter
 ↓
-6. 执行
+personal-ai-system/architecture/WORK_ROUTING.md
 ↓
-7. 重要成果回写 Relationship
+确定唯一主路由：
+Agent / Work Framework
+→ Skill
+→ Tool / Plugin
+→ Runtime
+↓
+只读取这条路真正需要的资产
+↓
+执行
+↓
+重要成果回写 Relationship / Runtime
 ```
+
+关键规则：
+
+> **先路由，再选工具。**
+
+不要：
+
+```text
+看到当前有某个 Tool
+↓
+直接调用
+↓
+事后再去找 Skill / Agent 解释
+```
+
+`do / 执行 / 继续` 只表示继续当前已经对齐的事项。
+
+它不表示：
+
+- 跳过 Router；
+- 改变已确认 Scope；
+- 用更方便但语义不同的 Tool 代替正式 Route。
 
 不要每次把两个仓库全部读一遍。
 
