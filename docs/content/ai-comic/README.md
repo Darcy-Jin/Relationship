@@ -37,9 +37,11 @@ AI Comic 已经并入 Relationship，并作为三个正式层之一的 **AI 漫�
    当前正式内容空间：Person × Scene × Need/Fit，以及受约束组合和 Topic Gate。
 5. [Priority Set v0.1](topic-priority-set-v0.1.md)  
    从 2733 个受约束候选组合中形成的 30 个 Priority Candidate、首批 15 + 后备 15。
-6. [角色与叙事视角](character-and-viewpoint-v0.md)  
+6. [Content Briefs](briefs/README.md)  
+   当前 5 个跨类型 Validation Brief，用来验证 Content Map v0.2 和 Content Model 真正落到单篇时是否稳定。
+7. [角色与叙事视角](character-and-viewpoint-v0.md)  
    一格画谁、站谁的处境、谁可以缺席。
-7. [老婆脸版 Current Definition v1](characters/female-wife-face-v0.md)  
+8. [老婆脸版 Current Definition v1](characters/female-wife-face-v0.md)  
    仅作为当前具体人物 Case 的人类可读说明。
 
 通用能力不在 Relationship 重复维护：
@@ -163,6 +165,9 @@ Relationship Visual System
 
 当前 Priority Set
 → topic-priority-set-v0.1.md
+
+当前 Content Brief Validation Set
+→ briefs/README.md
 
 研究依据 / Raw Corpus / Combination Space
 → ../../research/ai-comic/
