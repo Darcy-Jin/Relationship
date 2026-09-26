@@ -127,22 +127,48 @@ Control Variable Gate
 Deterministic Board
 ~~~
 
-## 6. Current Blocker
+## 6. Recovery Progress / Current Blocker
 
-当前 Visual Identity Cloud Runtime v0.2.4：
+第一轮复盘后，Runtime 已继续升级到 v0.3.0：
 
 ~~~text
 exact_target_binding = true
 single_identity_asset_binding = true
-multi_subject_binding = false
-project_composite_target = false
+multi_subject_binding = true
+cross_identity_reference_binding = true
+project_composite_target = true
 ~~~
 
-所以当前任务：
+新增：
+
+> `action = experiment_edit`
+
+它可以：
+
+- 从不同 Identity 读取 Exact Reference；
+- 使用一个 Exact Target；
+- 保存 Project / Experiment Artifact；
+- 为输出写 `.run.json` Provenance Sidecar。
+
+所以：
+
+> **Multi-subject Runtime Capability Gap 已关闭。**
+
+当前剩余 Blocker：
+
+1. Darcy 当前主要 Identity Anchor 尚未迁移到 server-readable Supabase Storage；
+2. 当前 Provider Run 仍记录 `credit_balance_exhausted`；
+3. 因此前 Pair Comparison Baseline 还没有合法生成。
+
+当前任务仍然：
 
 > **Blocked before Baseline Creation。**
 
-不允许回退到 ChatGPT Web 普通生成。
+但 Block 原因已经从“没有多人 Runtime”变成：
+
+> **Exact Asset Placement + Provider Execution Readiness。**
+
+仍然不允许回退到 ChatGPT Web 普通生成。
 
 ## 7. System Changes Triggered
 
@@ -161,10 +187,21 @@ Cloud Function 已部署 v0.2.4，并显式暴露 / 检查 Runtime Capability。
 
 ## 8. Next
 
-只做一个下一步：
+按顺序只做：
 
-> **补齐 Multi-subject Identity Binding + Project / Composite Baseline Target。**
+~~~text
+Darcy Current Identity Exact Asset
+→ 迁移到 Cloud Runtime 可读 Storage
+↓
+Provider Readiness
+→ 补充 credits 或切换合适 Adapter
+↓
+experiment_edit
+→ Pair Comparison Baseline Candidate
+↓
+Human Gate
+↓
+再进入 A / B / C
+~~~
 
-完成后重新从 Baseline Creation 开始。
-
-不继续画 A / B / C。
+不继续用 ChatGPT Web 普通生成画 A / B / C。
