@@ -488,6 +488,12 @@ MCP image content
 
 > **blocked_surface_plugin_discovery**
 
+执行前现在必须读取：
+
+- `Darcy-Jin/personal-ai-system/runtime/visual-identity/execution-routing.json`
+
+并形成唯一 `Execution Route Snapshot`；历史 Run 只作为 Evidence，不能重新决定 Adapter。
+
 当前 ChatGPT 控制面状态互相矛盾：
 
 - suggestion control：`already_installed`；
