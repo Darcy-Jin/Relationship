@@ -25,15 +25,24 @@ AI Comic 已经并入 Relationship，并作为三个正式层之一的 **AI 漫�
 - [人物模型](../../models/person-model.md)
 - [当前核心模型](../../current-model.md)
 
-漫画自己的资产与表达规则再读：
+漫画自己的正式设计底座按这个顺序读：
 
-- [AI 漫画资产架构 v1](asset-architecture-v1.md)
-- [AI 漫画内容模型](content-model.md)
-- [角色与视角呈现规范 v0.1](character-and-viewpoint-v0.md)
-- [视觉风格组合空间 v0.1](visual-style-space-v0.md)
-- [人物画风当前配置](character-style-model-v0.md)
-- 通用画风方法：`Darcy-Jin/personal-ai-system/skills/visual-style-design/SKILL.md`
-- [老婆脸版 Current Definition v1](characters/female-wife-face-v0.md)
+1. [AI 漫画资产架构 v1](asset-architecture-v1.md)  
+   先看 Identity、Story Role、Visual System、Character Sheet、Episode 之间是什么关系。
+2. [Visual System v1](visual-system-v1.md)  
+   当前正式视觉设计底座：人物画风、场景、构图、色彩、文字、页面怎么管理。
+3. [AI 漫画内容模型](content-model.md)  
+   这一篇到底想让读者看见什么。
+4. [角色与叙事视角](character-and-viewpoint-v0.md)  
+   一格画谁、站谁的处境、谁可以缺席。
+5. [老婆脸版 Current Definition v1](characters/female-wife-face-v0.md)  
+   仅作为当前具体人物 Case 的人类可读说明。
+
+通用能力不在 Relationship 重复维护：
+
+- 人物画风方法：`Darcy-Jin/personal-ai-system/skills/visual-style-design/SKILL.md`
+- 人物画风 13 维：`Darcy-Jin/personal-ai-system/skills/visual-style-design/references/character-style-dimensions.md`
+- 真人身份：`Darcy-Jin/personal-ai-system/skills/character-identity-preservation/SKILL.md`
 
 真人固定 IP 的通用身份校准、Human Recognition Gate、Identity Master、身份漂移诊断与确定性对比拼图，不在 Relationship 重复维护。
 
@@ -86,8 +95,8 @@ Relationship Visual System
 |---|---|---|---|
 | Person Identity｜男主真人 | 已正式资产化 / Live Validation | 5 张真人 Evidence 已进入共享 Identity 资产；当前 Front / 3Q 为 Candidate；`profile_subject_left` 已人工通过为 `DARCY-SUP-PROFILE-LEFT-01` | Front / 3Q 暂不机械补确认；真正生产需要时再过 Human Gate |
 | Person Identity｜女主真人 | 已建立 | Root Master、Support Masters、真人 Evidence；`profile_subject_left` 已验证为 `MASTER-SUP-06` | 只剩底层资产迁移等后台尾项，不阻塞漫画 |
-| Character Style｜人物画风 | 候选已明确，未最终锁定 | 方案 F：轻手绘少女漫画 / 清新简笔插画，为当前第一优先 | 用男女主同一内容做一次受控试画，确认正式生产画风 |
-| Visual System｜场景 / 构图 / 色彩 / 文字 / 页面 | 部分已有方向，未全部冻结 | 小红书 3:4、少文字、生活场景、轻松女性向；已有 visual-style-space | 第一篇按真实页面确定最小规则，不提前做完整 Design System |
+| Character Style｜人物画风 | Open / 已收敛到 3 个候选 | A 轻手绘都市漫画；B 清爽都市线稿平涂；C 轻半写实生活插画 | 做一次严格受控试画，选出 Character Style v1 |
+| Visual System｜场景 / 构图 / 色彩 / 文字 / 页面 | Design Foundation 已建立 | 3:4 已 Locked；Scene / Color / Text 有 Default；Composition 按 Episode | 第一篇按 Visual System v1 直接生产，不再回到大范围视觉探索 |
 | Story Role｜001 男主 | 已有 | `characters/001-big-tech-boyfriend-v0.md` | 明确 Role Transformation 等级 |
 | Story Role｜001 女主 | 脚本里已有功能，但未独立资产化 | 作为伴侣 / 女性代入者参与 001 | 明确她由 wife Identity 扮演，以及本篇 Role Transformation / Appearance State |
 | Story Role Master｜男女主 | 未建立 | — | 在正式 Character Style + 001 Story Role 下各做 1 个标准角色版本 |
@@ -102,7 +111,7 @@ Relationship Visual System
 进入第一篇漫画前只剩：
 
 ~~~text
-1. 锁定 Relationship 第一版 Character Style
+1. 做 A / B / C 受控试画，锁定 Character Style v1
 2. 明确 Episode 001 的男女 Story Role + Role Transformation
 3. 建两个 Story Role Master
 4. 用已确认资产做 Character Sheet
@@ -110,6 +119,34 @@ Relationship Visual System
 ~~~
 
 其中第 4～5 步服务生产，不再重新定义真人是谁。
+
+## 2.3 当前 Source of Truth
+
+当前生产阶段只认下面这些正式入口：
+
+~~~text
+资产关系
+→ asset-architecture-v1.md
+
+视觉设计
+→ visual-system-v1.md
+
+内容结构
+→ content-model.md
+
+角色 / 叙事视角
+→ character-and-viewpoint-v0.md
+
+Episode 001
+→ scripts/001-big-tech-boyfriend-v0.md
+~~~
+
+历史探索统一去：
+
+- `docs/history/`
+- `docs/research/ai-comic/`
+
+历史文件保留证据价值，但**不再参与当前 Runtime Routing**。
 
 ## 3. 当前最重要的内容母题
 
