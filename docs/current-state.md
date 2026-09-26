@@ -206,6 +206,64 @@ L1 本人出演
 
 而不是把画风、角色职业和场景一起混着试。
 
+### 2026-09-26 实际执行反馈：第一轮 A/B/C 被判 Invalid
+
+本轮真实执行暴露了 Runtime 问题，不是画风候选本身的问题。
+
+连续出现两次错误路径：
+
+1. 没有把 Darcy / Wife Exact Identity 真正绑定进图像执行器，结果重画成陌生夫妻；
+2. 后续虽然系统先检索并查看了正确 Identity 资产，但图像调用仍是自由生成，模型自己画了假的 Reference + A/B/C 比较海报。
+
+因此两次结果全部：
+
+> **Rejected / 不进入任何 Style Preference 证据。**
+
+失败分类：
+
+~~~text
+Execution Protocol Failure
++
+Runtime Capability Gap
+~~~
+
+不是：
+
+~~~text
+Identity Profile Failure
+Style Candidate Failure
+~~~
+
+当前已经回灌到 `personal-ai-system`：
+
+- Visual Style Design 新增 Style Comparison Execution Gate；
+- 新增 Style Comparison Run Contract；
+- Character Identity Regression 增加“不能伪造 Reference / Comparison Board”；
+- Work Routing 增加 Exact Asset / Multi-subject Runtime Gate；
+- Visual Identity Cloud Runtime v0.2.4 增加 Capability Preflight。
+
+当前 Cloud Runtime 能力：
+
+~~~text
+Exact Target Binding
+→ Supported
+
+Single Identity Asset Binding
+→ Supported
+
+Multi-subject Binding
+→ Unsupported
+
+Project / Composite Target
+→ Unsupported
+~~~
+
+所以这次真正停点是：
+
+> **Pair Comparison Baseline 尚未建立；当前 Runtime 还不能合法执行双真人受控 Style Comparison。**
+
+在能力补齐前，不再用普通 image generation 代替。
+
 ---
 
 ### 当前 Visual System 状态
@@ -214,7 +272,7 @@ L1 本人出演
 |---|---|
 | 平台 / 3:4 竖图 | Locked |
 | 真人 Identity 边界 | Locked |
-| Character Style | Open / A-B-C 待试画 |
+| Character Style | Open / Blocked：等待 Multi-subject Exact Binding |
 | Scene Style | Default |
 | Composition | Episode |
 | Color / Lighting | Default |
@@ -228,7 +286,21 @@ L1 本人出演
 现在只推进这一条：
 
 ~~~text
-A / B / C Character Style 受控试画
+Style Comparison Runtime Readiness
+↓
+补齐 Multi-subject + Composite Baseline Binding
+↓
+建立 Pair Comparison Baseline
+↓
+Human Gate：先确认“人对不对”
+↓
+Freeze Exact Baseline
+↓
+Exact Baseline 分叉 A / B / C
+↓
+Control Variable Gate
+↓
+Deterministic Comparison Board
 ↓
 Human Comparison
 ↓
