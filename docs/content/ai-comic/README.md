@@ -30,7 +30,8 @@ AI Comic 已经并入 Relationship，并作为三个正式层之一的 **AI 漫�
 - [AI 漫画内容模型](content-model.md)
 - [角色与视角呈现规范 v0.1](character-and-viewpoint-v0.md)
 - [视觉风格组合空间 v0.1](visual-style-space-v0.md)
-- [人物画风模型 v0.1](character-style-model-v0.md)
+- [人物画风当前配置](character-style-model-v0.md)
+- 通用画风方法：`Darcy-Jin/personal-ai-system/skills/visual-style-design/SKILL.md`
 - [老婆脸版 Current Definition v1](characters/female-wife-face-v0.md)
 
 真人固定 IP 的通用身份校准、Human Recognition Gate、Identity Master、身份漂移诊断与确定性对比拼图，不在 Relationship 重复维护。
