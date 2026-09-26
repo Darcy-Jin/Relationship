@@ -1,6 +1,7 @@
 # AI 漫画 Topic Pool v0.1｜内容地图验证样本
 
-> 状态：Validation Sample  
+> 状态：Historical Validation Sample / Superseded by Priority Set  
+> 当前优先入口：[Priority Set v0.1](topic-priority-set-v0.1.md)  
 > 作用：用少量不同类型的真实候选题验证 [内容地图 v0.1](content-map-v0.1.md) 是否够用。  
 > 这不是正式发布排期，也不是一次性选题大全。
 
