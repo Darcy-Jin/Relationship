@@ -313,6 +313,42 @@ Comic Character / Comic Episode Assets
 
 > **Visual System 不负责重新定义真人 Identity，也不负责决定 Story Role。**
 
+## 4.1 Style Comparison Baseline｜只属于画风实验的临时 Artifact
+
+当 Character Style 还没有锁定、又需要用真人做 A / B / C 受控比较时，可以建立：
+
+> **Style Comparison Baseline。**
+
+它的关系是：
+
+~~~text
+Exact Person Identity Anchors
++
+L1 本人出演
++
+固定 Appearance / Pose / Scene / Composition
+↓
+Baseline Candidate
+↓
+Human Identity Gate
+↓
+Approved Exact Comparison Baseline
+~~~
+
+它只回答：
+
+> **这一轮 A / B / C 从哪一张完全相同的图开始。**
+
+它不是新的 Master 类型。
+
+明确禁止把它误当成：
+
+- Root / Support Master；
+- Identity Style Master；
+- Story Role Master。
+
+画风实验结束后，它可以作为 Run / Provenance Artifact 保留，但不反向覆盖真人 Identity。
+
 # 5. Comic Character Assets｜真正用于生产漫画的角色资产
 
 当 Identity / Story Role / Visual System 足够清楚以后，开始形成生产资产。
