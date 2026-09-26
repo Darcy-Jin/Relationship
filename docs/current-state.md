@@ -1,6 +1,6 @@
 # Current State｜当前工作状态
 
-更新时间：2026-09-25
+更新时间：2026-09-26
 
 ## 项目级状态
 
@@ -52,111 +52,215 @@ Relationship
 
 ## AI 漫画当前阶段
 
-**第一版内容结构和第一篇选题已经确认。当前正在完成正式出图前的角色 / 视觉基线，完成后直接生成第一篇并发布验证。**
+**当前已经从“身份校准 / 大范围画风探索”进入“正式设计底座 + 第一版 Character Style 选择”阶段。**
 
-2026-09-25 本轮已经完成一项新的视觉验证：
+### 已完成
 
-- 明确区分“角色设定”和“画风”：先固定人，再比较画风；
-- 女性代入角色不采用理想化“大美女”路线；
-- 当前视觉基线为：普通、真实、有少量不完美，靠妆容 / 发型 / 穿搭 / 状态变得更好看；
-- 已完成“素颜 / 居家 → 上班 / 淡妆 → 约会 / 认真打扮”的同一人物三状态试画；
-- 用户已确认这一版人物方向可以继续使用；
-- 该试画只确认**人物基线**，不代表最终画风已经确定。
-- 女性代入角色新增一个**并行的“老婆脸版”**；原普通女性角色基线继续保留，不删除、不覆盖。
-- 老婆脸版正式 Source of Truth：`docs/content/ai-comic/characters/female-wife-face-v0.md`，已重构为 **Current Definition v1**。
-- 此前 v0.1–v0.10 的试画、纠偏、比例假设和参考策略已完整归档到 `docs/history/2026-09-26-wife-face-identity-calibration-v0.1-v0.10.md`，不再作为当前运行入口。
-- 当前阶段：**Current Identity Calibration｜当前身份校准**。
-- 当前只使用最开始上传的近期扎发生活照作为主生成参考；年轻时期披发 / 短发照片只在漂移时用于历史身份纠偏。
-- 当前已确认的核心方向：**视觉上小而紧凑、偏窄长椭圆的头脸；五官相对集中；头顶圆润；颧骨 / 苹果肌有体积；柔和下颌；圆润下巴；下颊 / 下巴两侧保留少量软组织；眼神软、松、略朦胧；习惯性微笑有一点努嘴角和略僵的本人特点。**
-- “真实物理头围是否明显更小”、粗测比例等继续保留为**工作假设 / 辅助观察**，不作为生成硬规则。
-- 胖瘦和软组织多少全部后置：先让用户确认“这张脸基本就是她”，再微调胖瘦。
-- 当前验证方式改为**单张真人原图 → 单张 AI 生成 → 非生成式并排比较**。原真人照片必须保持原文件，禁止让图像模型重画“原图”。
-- 下一轮只验证第一张近期正脸；通过后再逐张验证戴眼镜、笑容和轻 3/4。全部通过后才冻结 **Female Current Identity Master v1**，之后再进入多画风。
+#### 1. 两位长期 Actor Identity 已进入可用状态
 
-- 男性角色正式采用“固定 IP 脸 + 可变故事角色”：以后使用用户本人作为男性 IP 原型，同一张脸可以进入不同职业、条件、生活方式和关系故事；未来切换男性视角时，同一 IP 从“对方”转为“我”。
-- 用户已提供正脸、左右侧脸、不同笑容、穿衣近景和全身照，第一版男性 IP 参考已经足够；
-- 《男性 IP 外貌与形象约束》已更新为 V2：采用“轻优化还原”，保留本人真实五官身份，但默认取更瘦一点、更精神一点、更适合长期内容呈现的状态；头发 / 发型不作为身份锚点；
-- 证件类照片不进入后续主要生成参考，普通生活照片已经足够。
-- 用户补充了较年轻、较瘦、精神状态更好的历史生活照；这些照片已提升为男性 IP 状态主参考，当前浴室裸上身近景降级为结构辅助参考，不再代表长期 IP 的默认状态。
-- 第一版男性角色设定板实测后，用户判断“脸不太像本人”；当前问题已从“继续调提示词”上提为 **Identity Fidelity（身份相似度）+ Character Consistency（角色一致性）**。
-- 已完成一轮外部研究并保存到 `docs/research/2026-09-25-ai-comic-character-identity-preservation.md`。当前研究结论：先建立 Identity Master，再测试漫画化，不应直接用真人参考去一次性生成复杂角色板。
-- 这轮仍是 **Research-only / 待实测**，尚未修改正式生产规范。
-- 男性 IP 当前视觉目标进一步明确为：**本人真实身份 + 合理的最佳日常状态**。验收优先级：像本人 > 状态好 > 好看 > 画风。
-- 男性 IP 的笑容机制已进一步锁定：笑时颧骨和苹果肌上提、下眼睑与外眼角参与、眼睛自然变窄但保持有神；亲和力不再只写抽象气质词，而要通过“笑到眼睛”的可见结构变化表现。
-- 男性 IP 的身份边界进一步确认：**骨相、面相、五官关系永久锁定；胖瘦可以根据职业、年龄、生活方式和故事变化。**
-- 用户已确认一组正脸 / 侧脸版本“真的很像”，后续应冻结为 Identity Master；大厂员工等角色只在 Identity Master 上改变发型、胖瘦、皮肤、穿搭、精神状态和场景，不再重新生成一套脸。
-- 男性 IP 的发型、发量、发际线、胖瘦、胡须、皮肤和体态已正式视为**故事角色状态变量**，不参考用户本人当前现实状态；由角色年龄、职业、工作压力、生活方式、性格和人生阶段决定。
-- 第一篇“大厂员工男主”已形成独立视觉设定：`docs/content/ai-comic/characters/001-big-tech-boyfriend-v0.md`。
+~~~text
+Male Actor Identity
+= Darcy
+
+Female Actor Identity
+= Wife
+~~~
+
+女主：
+
+- Root / Support Master 已建立；
+- `profile_subject_left` 已验证为 `MASTER-SUP-06`。
+
+男主：
+
+- 当前 + 年轻真人 Evidence 已正式进入共享 Identity Runtime；
+- Front / 3Q 当前保留 Candidate；
+- `profile_subject_left` 已人工确认并登记为 `DARCY-SUP-PROFILE-LEFT-01`。
+
+原则：
+
+> **真人 Identity 继续由 personal-ai-system 的 Human Visual Identity 能力维护，Relationship 不再复制一套身份方法。**
+
+#### 2. 漫画资产架构已经重构
+
+正式区分：
+
+~~~text
+Person Identity
+= 真人是谁
+
+Story Role
+= 真人在故事里演谁
+
+Role Transformation
+= 允许角色离真人多远
+
+Visual System
+= 整部漫画怎么呈现
+
+Comic Episode
+= 这一篇具体讲什么
+~~~
 
 正式入口：
 
-- `docs/content/ai-comic/character-and-viewpoint-v0.md`
-- `docs/content/ai-comic/visual-style-space-v0.md`
+- `docs/content/ai-comic/asset-architecture-v1.md`
 
-### AI 漫画接下来
+#### 3. Visual System v1 已建立
 
-按顺序继续：
+过去分散在：
 
-~~~text
-保留普通女性角色基线
-↓
-老婆脸版：只选 1 张近期真人正脸做第一轮校准
-↓
-真人原图保持不变，AI 只生成对应角色图
-↓
-非生成式并排比较
-↓
-先修身份结构 / 五官位置 / 眼神 / 表情
-↓
-用户确认“基本就是她”
-↓
-再调胖瘦 / 苹果肌 / 下颊软组织
-↓
-再验证眼镜 / 笑容 / 轻 3/4
-↓
-冻结 Female Current Identity Master v1
-↓
-进入多画风对比
-↓
-生成《互联网大厂男友》正式图
-~~~
+- `character-style-model-v0.md`
+- `visual-style-space-v0.md`
+- `character-and-viewpoint-v0.md` 的部分视觉内容
 
-仍然遵守：
+已经重新整理。
 
-> **先发真实样本，不为了“更完美”无限继续设计。**
+当前正式视觉设计底座：
 
-当前 MVP：
+- `docs/content/ai-comic/visual-system-v1.md`
+
+Visual System 正式拆成：
 
 ~~~text
-两页 = 一个小章节
-
-第 1 页
-→ 熟悉的标签 / 好坏反差
-
-第 2 页
-→ 换一种需要 / 生活方式 / 视角
-→ 立刻把刚才的判断翻过来
-
-复制 2 组
-→ 4 页内容
-
-最后 + 1 页
-→ 轻量点题 + 互动 / 评论引导
+Character Style
+Scene Style
+Composition
+Color / Lighting
+Text System
+Page Layout
 ~~~
 
-当前第一篇：
+并使用四种状态管理：
 
-> **互联网大厂男友：高薪，但没时间**
+- Locked；
+- Default；
+- Open；
+- Episode。
 
-正式脚本：
+这样单篇漫画不会重新决定已经确认的长期规则。
+
+#### 4. 角色与叙事视角已重构
+
+`character-and-viewpoint-v0.md` 已缩回它真正负责的范围：
+
+> **一格画谁、站谁的处境、谁可以缺席。**
+
+它不再维护：
+
+- 真人面部定义；
+- 画风候选；
+- 资产架构；
+- 历史身份校准。
+
+原长版已归档到 `docs/history/`。
+
+#### 5. 旧画风探索已退出 Runtime
+
+原：
+
+- `character-style-model-v0.md`
+- `visual-style-space-v0.md`
+
+已归档后从当前 ai-comic 目录删除。
+
+历史探索继续保留在：
+
+- `docs/history/2026-09-26-ai-comic-visual-style-exploration-v0.md`
+
+当前 Runtime 不再从旧 A～F 方案读取。
+
+---
+
+### 当前 Character Style 状态
+
+当前只保留三个正式候选：
+
+1. **A｜Identity-safe 轻手绘都市漫画**
+2. **B｜清爽都市线稿平涂**
+3. **C｜轻半写实生活插画**
+
+三套候选统一要求：
+
+> **漫画化不能覆盖真人 Identity。**
+
+第一次画风试验不进入 Story Role，先用：
+
+~~~text
+Darcy / Wife 当前真人 Identity
++
+L1 本人出演
++
+同一中性生活场景
++
+同一构图
++
+同一服装 / 表情 / 姿势
+↓
+只改变 Character Style
+~~~
+
+这样先回答：
+
+> **Relationship 的人物长期到底应该怎么画？**
+
+而不是把画风、角色职业和场景一起混着试。
+
+---
+
+### 当前 Visual System 状态
+
+| 模块 | 状态 |
+|---|---|
+| 平台 / 3:4 竖图 | Locked |
+| 真人 Identity 边界 | Locked |
+| Character Style | Open / A-B-C 待试画 |
+| Scene Style | Default |
+| Composition | Episode |
+| Color / Lighting | Default |
+| Text System | Default |
+| Page Layout | Default + 3:4 Locked |
+
+---
+
+### AI 漫画下一步
+
+现在只推进这一条：
+
+~~~text
+A / B / C Character Style 受控试画
+↓
+Human Comparison
+↓
+选出 Relationship Character Style v1
+↓
+Locked for Production
+↓
+确定 Episode 001 男女 Story Role + Role Transformation
+↓
+建立 Story Role Master
+↓
+Character Sheet
+↓
+Episode 001 storyboard / 5 页正式生产
+~~~
+
+不再回到：
+
+- 补齐所有角度；
+- 大范围扩画风候选；
+- 每页重新设计人物；
+- 先做完整 Scene / Prop Library。
+
+第一篇真正需要什么，再补什么。
+
+当前第一篇仍然是：
+
+> **《互联网大厂男友：高薪，但没时间》**
+
+脚本：
 
 - `docs/content/ai-comic/scripts/001-big-tech-boyfriend-v0.md`
-
-本轮原则：
-
-> **先发真实样本，不为了“更完美”继续拖。**
-
-发布以后再用真实反馈决定哪些结构需要调整。
 
 
 ---
