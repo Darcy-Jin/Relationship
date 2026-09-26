@@ -26,3 +26,5 @@ BOARD-APPROVED-01,layout,file_0000000087248209bedc1fc7321b4be8,female_identity_m
 HAIR-FAIL-01,generated,file_00000000eaf08206889c56c38d6ae780,a_clean_infographic_lifestyle_reference_collage_wi.png,rejected,Hairstyle Test,Rejected,unknown,执行协议失败；重新生成合集并漂脸
 HAIR-FAIL-02,generated,file_000000004dd4820996da6e691d4e82ff,a_clean_infographic_style_collage_poster_showing.png,rejected,Hairstyle Test,Rejected,unknown,执行协议失败；single 任务漂成合集
 HAIR-FAIL-03,generated,file_00000000df388209bd0ec197ce018a35,a_clean_infographic_collage_image_with_multiple_po.png,rejected,Hairstyle Test,Rejected,unknown,执行协议失败；不进入任何 Master / Positive Sample
+
+SIDE-DIAG-FAIL-01,generated,file_0000000085e88209bf9710f14d3c03cf,a_clean_infographic_document_page_flat_graphic.png,rejected,Diagnostic A Attempt,Rejected,MASTER-ROOT-01 + SIDE-CANDIDATE-02,Expected single side-face edit but tool returned infographic; Execution Shape Failure; do not use as reference
