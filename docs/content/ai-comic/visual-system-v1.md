@@ -474,6 +474,7 @@ Exact Pair Comparison Baseline
 
 - `Darcy-Jin/personal-ai-system/skills/visual-style-design/SKILL.md`
 - `Darcy-Jin/personal-ai-system/skills/visual-style-design/assets/style-comparison-run-contract.md`
+- `Darcy-Jin/personal-ai-system/skills/character-identity-preservation/references/multi-subject-composition.md`
 
 多人画风实验至少要求：
 
