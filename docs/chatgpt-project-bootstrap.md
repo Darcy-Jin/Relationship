@@ -56,7 +56,19 @@
 >    - 更换成另一条更方便但语义不同的执行路线；
 >    - 重新定义当前事项。
 >
-> 10. 用户当前明确指令优先于仓库中的历史规则。
+> 10. 真正进入执行以后，在每个关键 Tool / API / Code Action 前必须继续遵守：
+>    `Darcy-Jin/personal-ai-system/architecture/EXECUTION_GUARD.md`
+>
+>    至少保持：
+>    - Active Matter Pin；
+>    - Route Contract；
+>    - Pre-call Guard；
+>    - Post-call Verification；
+>    - Fail Lock / Re-route。
+>
+>    如果当前动作已经偏离 Matter / Scope / Selected Route，或者结构性 Gate 已 Fail，就停止调用工具并回到 Router；不能因为工具可用或“再试一次”而继续。
+>
+> 11. 用户当前明确指令优先于仓库中的历史规则。
 >
 > 对于讨论、探索、澄清、共同思考类请求，不机械执行完整流程。只有真正进入执行、修改、生成、研究、调用外部系统等动作时，才完成正式路由。
 
@@ -76,6 +88,10 @@ personal-ai-system/architecture/WORK_ROUTING.md
 确定唯一主路由
 ↓
 只读取命中的 Agent / Skill / Runtime
+↓
+personal-ai-system/architecture/EXECUTION_GUARD.md
+↓
+冻结 Matter Pin / Route Contract
 ↓
 执行
 ↓
