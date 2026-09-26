@@ -525,25 +525,55 @@ Execution Adapter
 - Darcy：`DARCY-SRC-005`；
 - Wife：`MASTER-ROOT-01`。
 
-当前尚未完成验证的是：
+当前已经把 Self-use Exact Asset Handoff 的**后端段**真正实现并验证：
 
 ~~~text
 Supabase Exact Asset
 ↓
-ChatGPT Web Current Image Context
+purpose-bound one-time export token
 ↓
-可证明的 Exact Edit Binding
+visual-identity-surface-mcp
+↓
+MCP image content
 ~~~
 
-因此当前自用路线的准确停点是：
+Darcy `DARCY-SRC-005` 回归结果：
 
-> **blocked_surface_handoff**
+- returned bytes = `181576`；
+- returned SHA-256 = `6ae0d8b4f546689e4acc07c3889ac5ac8e6a92591f3c8d6213e6c1811d504d24`；
+- 与 Canonical Asset 一致；
+- one-time token 已消费；
+- MCP 返回 `text + image`。
+
+私有 Plugin 已升级为：
+
+> `personal-ai-visual-identity v0.2.0`
+
+当前剩下的是**ChatGPT Surface 最后一跳**：
+
+~~~text
+Plugin tool 在当前 Surface 可发现？
+↓
+MCP 返回的 exact image 真正进入 Current Image Context？
+↓
+Image Executor 能证明 Exact Target Binding？
+~~~
+
+当前控制面出现不一致：
+
+- Plugin suggestion 报 `already_installed`；
+- App permission 检查报 `not_installed`；
+- 当前聊天 Tool Discovery 没有发现 v0.2 工具。
+
+因此当前自用路线的准确停点进一步收窄为：
+
+> **blocked_surface_plugin_discovery**
 
 而不是：
 
-> `Provider credits`。
+> `Provider credits` 或 `Backend Handoff`。
 
-`credit_balance_exhausted` 继续保留为 OpenAI Direct Adapter 的组件状态；如果未来主动选择该 Adapter，再处理它的额度即可。
+`credit_balance_exhausted` 继续只保留为 OpenAI Direct Adapter 的组件状态；如果未来主动选择该 Adapter，再处理它的额度即可。
 
 当前不允许的 fallback 继续不变：
 
@@ -576,8 +606,9 @@ ChatGPT Web Current Image Context
 #### A｜视觉生产线
 
 ~~~text
-验证 / 补齐 Self-use Exact Asset Handoff
-Supabase Exact Asset → ChatGPT Web Image Context
+确认 v0.2 Plugin 在当前 ChatGPT Surface 的安装 / Tool Discovery
+↓
+验证 MCP Exact Image → Current Image Context → Exact Target Binding
 ↓
 Darcy Exact Baseline → A / B / C
 ↓
