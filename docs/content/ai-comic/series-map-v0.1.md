@@ -706,6 +706,41 @@ Visual Production
 Publish / Feedback
 ~~~
 
+当前已经完成：
+
+~~~text
+9 个 Main Series
+↓
+127 个 Series Entry
+↓
+458 个 Topic Seed（v0.2）
+↓
+旧 30 个 Priority Topic 回挂 Series
+↓
+S01 工作岗位系列首轮 Review
+→ 15 个 Priority Topic
+~~~
+
+正式资产：
+
+- `series-entry-registry-v0.1.csv`
+- `series-topic-pool-v0.2.csv`
+- `series-priority-mapping-v0.1.csv`
+- `secondary-collection-registry-v0.1.csv`
+- `series-batch-production-v0.1.md`
+- `series/s01-job-work-priority-v0.1.md`
+
 下一步：
 
-> **建立 Series Registry + 第一版批量 Series Topic Pool。**
+> **继续按 Series 做 Priority Review，而不是回到全局散题模式。**
+
+优先顺序：
+
+~~~text
+S02 性格
+→ S09 外貌 / 吸引
+→ S05 / S06 / S07 补 Coverage
+→ 其他系列
+~~~
+
+每个系列先筛出自己的 8～15 个 Priority Topic，再从中做 Content Brief / Episode。
