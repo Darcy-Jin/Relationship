@@ -2,7 +2,7 @@
 
 > Date: 2026-09-26  
 > Status: Provider Blocked  
-> Goal: 先用两个单人样本选出 Relationship Character Style v1，再进入双人验证。
+> Goal: 先用两个单人 Baseline 做 Character Style Screening，再用代表性 Identity Coverage 做压力测试，通过后才锁 Relationship Character Style v1。
 
 ## 1. 这次只回答什么
 
@@ -336,16 +336,69 @@ Comparison Board：
 
 ---
 
-## 12. 完成条件
+## 12. Phase 2｜Representative Coverage Stress Test
+
+Phase 1 的 A / B / C 只负责：
+
+> **筛方向。**
+
+它不直接等于 Style Lock。
+
+Human Comparison 后先保留 1～2 个 Shortlisted Style，再用现有真人 Identity Coverage 选择少量代表性资产验证。
+
+每个人按真实用途优先选：
+
+~~~text
+1 个不同 View
++
+1 个明显 Expression
++
+1 个 Half / Full-body 状态（如果长期漫画会画身体）
+~~~
+
+有现成 Source / Validated Asset：
+
+> 直接复用 Exact Asset。
+
+没有：
+
+> 记录 Coverage Gap，再按 Human Visual Identity 的 Evidence Acquisition / Coverage Expansion 补。
+
+不要求：
+
+> A / B / C × 所有视角 × 所有表情 × 所有身体状态。
+
+Stress Test 只回答：
+
+- 同一个 Style 换角度后还像不像本人；
+- 表情能不能自然演出来；
+- 半身 / 全身时人物比例和风格是否仍稳定；
+- 这套 Style 是否只是“头像好看”。
+
+完整方法读取：
+
+- `Darcy-Jin/personal-ai-system/skills/character-identity-preservation/references/identity-evidence-coverage.md`
+
+---
+
+## 13. 完成条件
 
 ### 成功
 
 ~~~text
+Phase 1
 Darcy A/B/C valid
 +
 Wife A/B/C valid
 ↓
-Human Comparison
+Human Screening
+↓
+Shortlist
+
+Phase 2
+Representative Coverage Stress Test
+↓
+Identity + Style Stability Pass
 ↓
 Relationship Character Style v1
 = Locked for Production
@@ -357,17 +410,18 @@ Relationship Character Style v1
 
 - 三套都不稳；
 - 一套只适合其中一人；
+- 头像成立但换角度 / 表情 / 身体就崩；
 - Identity 漂移太严重；
 
 则：
 
-> **不硬选。**
+> **不硬锁。**
 
-回到 Style Candidate / Provider Benchmark。
+回到 Style Candidate / Provider Benchmark / Identity Coverage Gap。
 
 ---
 
-## 13. 当前执行状态｜2026-09-26
+## 14. 当前执行状态｜2026-09-26
 
 本实验已经完成第一条合法真实执行验证：
 
@@ -414,12 +468,19 @@ OpenAI Image Edit Provider
 
 ---
 
-## 14. 下一步
 
-本轮完成后才进入：
+## 15. 下一步
+
+当前 Provider Blocked 解除后：
 
 ~~~text
-Selected Character Style v1
+Phase 1｜Single-person A/B/C Screening
+↓
+Shortlist
+↓
+Phase 2｜Representative Coverage Stress Test
+↓
+Style v1 Lock
 ↓
 双人同画面验证
 ↓
