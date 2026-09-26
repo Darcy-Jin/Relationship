@@ -399,12 +399,28 @@ Work 浏览器本身仍会拦截原 import page，但 Runtime Adapter 已通过 
 
 当前剩余 Blocker：
 
-1. **OpenAI Image API 当前仍记录为 `credit_balance_exhausted`；**
-2. **因此单人 A/B/C 还未真正开始。**
+1. **Darcy Style A 已做第一次合法真实执行；**
+2. **Exact Asset Binding 已通过，请求真实到达 OpenAI Image API；**
+3. **Provider 返回 HTTP 429 / `credit_balance_exhausted`，因此没有生成图片。**
+
+本次 OpenAI request id：
+
+> `req_73c91ada69294f8596c3ee48f6b71ac4`
+
+因此现在可以明确排除：
+
+- Identity Asset 问题；
+- Resolver 问题；
+- Exact Binding 问题；
+- Style A Contract 问题。
+
+当前唯一真实 Blocker：
+
+> **Provider credits。**
 
 所以现在准确停点是：
 
-> **Darcy READY + Wife READY → Provider Ready → 单人 A/B/C → Human Comparison。**
+> **补 Provider credits → 原样重试 Darcy A → 通过 Gate 后再做 B / C → Wife A / B / C。**
 
 仍然不允许回到 ChatGPT Web 自由 generation 代替 Exact Controlled Edit。
 
