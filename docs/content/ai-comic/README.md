@@ -31,8 +31,8 @@ AI Comic 已经并入 Relationship，并作为三个正式层之一的 **AI 漫�
    先看 Identity、Story Role、Visual System、Character Sheet、Episode 之间是什么关系。
 2. [Visual System v1](visual-system-v1.md)  
    当前正式视觉设计底座：人物画风、场景、构图、色彩、文字、页面怎么管理。
-3. [AI 漫画内容模型](content-model.md)  
-   一篇内容从哪里来、标题怎么形成、正文怎么组成。
+3. [AI 漫画内容模型 v0.3](content-model.md)  
+   一篇内容从哪里来、标题怎么形成、正文怎么组成；已用 Episode 001～005 验证并放宽 Conditional Reframe。
 4. [AI 漫画内容地图 v0.2](content-map-v0.2.md)  
    当前正式内容空间：Person × Scene × Need/Fit，以及受约束组合和 Topic Gate。
 5. [Priority Set v0.1](topic-priority-set-v0.1.md)  
@@ -58,9 +58,17 @@ AI Comic 已经并入 Relationship，并作为三个正式层之一的 **AI 漫�
 
 - `Darcy-Jin/personal-ai-system/skills/character-identity-preservation/SKILL.md`
 
-当前第一篇试稿：
+当前 Validation Scripts：
 
 - [001｜互联网大厂男友：高薪，但没时间](scripts/001-big-tech-boyfriend-v0.md)
+- [002｜很顾家的男友](scripts/002-family-oriented-boyfriend-v0.md)
+- [003｜很节俭的男友](scripts/003-frugal-boyfriend-v0.md)
+- [004｜情绪稳定的男友](scripts/004-emotionally-stable-boyfriend-v0.md)
+- [005｜很会过日子的男友](scripts/005-mental-load-boyfriend-v0.md)
+
+横向验证：
+
+- [Episode 001–005 Content Model Validation](runs/2026-09-26-content-model-validation-001-005-v0.1.md)
 
 ## 2.1 当前生产前的资产顺序
 
