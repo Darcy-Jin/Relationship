@@ -269,37 +269,71 @@ Project / Composite Experiment Target
 
 因此“多人绑定能力缺失”已经解决。
 
-Direct Binary Transfer 这条缺口也已经继续补齐：
+Direct Binary Transfer 这条缺口随后又做了真实验证。
+
+曾尝试：
 
 ~~~text
 ChatGPT Library Exact Asset
 ↓
-ChatGPT Plugin file param
+Private Personal Plugin
 ↓
-visual-identity-mcp
+mcp.json
+↓
+remote visual-identity-mcp
 ↓
 Supabase Storage
 ~~~
 
-已创建：
+但该方案被验证为：
 
-- Supabase Edge Function：`visual-identity-mcp`；
-- Private Personal Plugin：`personal-ai-visual-identity v0.1.0`；
-- `prepare_identity_asset_ingest`；
-- `ingest_identity_asset`。
+> **当前 ChatGPT Web 路线错误。**
 
-这条正式路线**不再经过 Google Drive**。
+原因不是 MCP Server 在本地。
+
+而是 OpenAI 当前产品规则：
+
+> **Imported / portable plugin 只要声明 MCP server（例如 `mcp.json` / `.mcp.json`），即使 Server 是 remote HTTPS，也会进入 Desktop-only 范围，不能作为 ChatGPT Web Plugin 使用。**
+
+因此：
+
+- `personal-ai-visual-identity v0.1.0` 不再代表可用 Web Runtime；
+- `visual-identity-mcp` 后端保留为 Future Adapter；
+- Google Drive 临时中转继续禁止；
+- 不能再把“远程 MCP 已部署”写成“ChatGPT Web 已打通”。
+
+当前真实状态：
+
+~~~text
+ChatGPT Library Exact Asset
+→ 当前 ChatGPT 可以读取 / materialize
+
+Supabase Storage
+→ Cloud Runtime 可以读取
+
+ChatGPT Web → Supabase 的 Direct Binary Handoff
+→ 当前 personal surface 尚无已验证可用路径
+~~~
+
+另外，OpenAI 当前自定义 MCP App 属于另一套能力：
+
+- 可用于 Web；
+- 当前官方主要面向 Business / Enterprise / Edu；
+- MCP Apps 当前不支持 Mobile。
+
+所以它也不能被当成当前个人 ChatGPT Web + Mobile 的通用解法。
 
 当前剩余 Blocker：
 
-1. Private Plugin 已创建，但当前 Chat 会话尚未由用户显式安装 / 启用，所以本轮还不能调用它把 Darcy Exact Library 文件送进 Supabase；
-2. 当前 OpenAI Image API 运行状态仍记录为 `credit_balance_exhausted`，Provider 侧不能完成真实图片生成 / 编辑。
+1. **ChatGPT Web Direct Binary Handoff 未打通；**
+2. **Darcy Exact Identity Anchor 因此仍不能合法进入当前 Cloud Image Runtime；**
+3. **当前 OpenAI Image API 运行状态仍记录为 `credit_balance_exhausted`。**
 
-所以现在停点是：
+所以现在准确停点是：
 
-> **Direct Transfer Adapter Ready → Plugin Binding → Darcy Exact Asset Ingest → Provider Ready → Pair Comparison Baseline。**
+> **Cloud Runtime Ready → Binary Handoff Missing → Provider Blocked → Pair Comparison Baseline 尚未建立。**
 
-仍然不允许用普通 image generation 或 Google Drive 代替。
+仍然不允许用普通 image generation、Google Drive 或 Desktop-only Plugin 代替。
 
 ---
 
@@ -309,7 +343,7 @@ Supabase Storage
 |---|---|
 | 平台 / 3:4 竖图 | Locked |
 | 真人 Identity 边界 | Locked |
-| Character Style | Open / Blocked：等待 Direct Transfer Plugin Binding + Provider |
+| Character Style | Open / Blocked：等待 ChatGPT Web Direct Binary Handoff + Provider |
 | Scene Style | Default |
 | Composition | Episode |
 | Color / Lighting | Default |
@@ -325,11 +359,10 @@ Supabase Storage
 ~~~text
 Style Comparison Runtime Readiness
 ↓
-Runtime v0.3.0 Route Ready
+Cloud Runtime v0.3.x Ready
 ↓
-Direct Transfer MCP / Plugin Ready
-↓
-Plugin Binding
+ChatGPT Web Direct Binary Handoff
+→ 当前缺口
 ↓
 Darcy Exact Current Identity Asset → Supabase
 ↓
