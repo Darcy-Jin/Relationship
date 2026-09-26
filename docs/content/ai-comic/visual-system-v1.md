@@ -312,207 +312,149 @@ Relationship 讲的是成年人关系。
 
 # 8. Character Style Comparison Contract
 
-这一轮正式选画风时，必须做受控比较。
+当前正式策略：
 
-## 8.1 固定变量
+> **先完成单人画风实验，再做双人验证。**
 
-三套候选都保持：
+具体执行 Source of Truth：
+
+- [单人 Character Style 实验 v1](experiments/single-person-character-style-experiment-v1.md)
+
+## 8.1 为什么先单人
+
+当前目标只是：
+
+> **选 Character Style。**
+
+双人会额外引入：
+
+- Subject Binding；
+- Spatial Assignment；
+- Attribute Leakage；
+- Interaction / Occlusion。
+
+这些不是本轮想测的变量。
+
+因此先用两个独立单人样本：
+
+~~~text
+Darcy
+Exact Baseline → A / B / C
+
+Wife
+Exact Baseline → A / B / C
+~~~
+
+最后看同一 Style 是否对两个人都成立。
+
+## 8.2 Baseline 直接使用 Exact Identity Asset
+
+效果优先，本轮不额外生成“中性 Baseline”。
+
+优先：
+
+~~~text
+Darcy
+→ DARCY-SRC-005（current identity source）
+
+Wife
+→ MASTER-ROOT-01（approved Root Master）
+~~~
+
+执行前仍要过 Asset Binding Gate。
+
+这样减少：
+
+> **生成 Baseline 本身造成的一次身份漂移。**
+
+## 8.3 固定变量
+
+同一个 Subject 的三套候选都保持：
 
 ~~~text
 Person Identity
-= 同一位真人
-
-Story Role
-= 不变
-
-Role Transformation
-= 不变
-
 Appearance State
-= 年龄 / 胖瘦 / 发型 / 穿搭不变
-
+Hair / Clothing
 Expression / Pose
-= 不变
-
-Scene
-= 不变
-
+Scene / Background
 Composition / Camera
-= 不变
-
-Text
-= 不变
-
+Crop
 Output Ratio
-= 3:4
+non-target Lighting / Color
 ~~~
 
-只允许改变 Character Style。
+只允许改变：
 
-如果 A/B/C 同时换了：
+> **Character Style。**
 
-- 脸；
-- 角色年龄；
-- 服装；
-- 姿势；
-- 场景；
-- 构图；
+两个 Subject 之间不要求上述变量完全一致。
 
-那就不是画风实验。
+公平比较发生在：
 
-## 8.2 第一次试画不用 Story Role
+> **同一 Subject 的 A / B / C 内部。**
 
-为了先把“人物怎么画”单独测清楚，第一次直接走 Identity Asset Line：
+然后再看同一 Style 是否能跨 Subject 稳定成立。
 
-~~~text
-Darcy / Wife 当前真人 Identity
-+
-L1 本人出演
-+
-同一中性生活场景
-+
-同一构图
-+
-同一服装 / 表情 / 姿势
-+
-同一 3:4
-↓
-Character Style Experiment
-~~~
+## 8.4 每个 Candidate 必须独立从 Exact Baseline 分叉
 
-这样不会把“大厂员工”“约会状态”等 Story Role 条件混进画风选择。
-
-## 8.3 先做唯一 Pair Comparison Baseline，不直接生成 A / B / C
-
-第一次实验还要再分成两个阶段。
-
-### Phase 1｜Baseline Creation
+正确：
 
 ~~~text
-Darcy Exact Identity Anchor(s)
-+
-Wife Exact Identity Anchor(s)
-+
-L1 本人出演
-+
-普通衣服
-+
-同一表情
-+
-同一姿势
-+
-简单生活场景
-+
-同一双人构图
-+
-3:4
-↓
-Pair Baseline Candidate
-↓
-Human Gate
-“这两个人对不对？”
-+
-Control Variable Gate
-↓
-Approved Pair Comparison Baseline
-↓
-Freeze Exact Pixels
-~~~
-
-这一步只解决：
-
-> **A / B / C 到底从哪一张完全相同的图开始。**
-
-Pair Comparison Baseline 是：
-
-> **本次实验 Artifact。**
-
-它不是：
-
-- Darcy Identity Master；
-- Wife Identity Master；
-- Story Role Master；
-- Character Style Master。
-
-没有通过 Baseline Human Gate：
-
-> **不进入 A / B / C。**
-
-## 8.4 A / B / C 必须从同一个 Exact Baseline 分叉
-
-Baseline Approved 以后才进入：
-
-~~~text
-Exact Pair Comparison Baseline
+Exact Baseline
 ├─ Exact Style Edit → A
 ├─ Exact Style Edit → B
 └─ Exact Style Edit → C
 ~~~
 
-三个 Candidate：
+禁止：
 
-- Parent 必须完全相同；
-- 每次单独输出一张；
-- 不允许 A → B → C 链式派生；
-- 不允许三次各自重新生成一对夫妻；
-- 不允许生成模型自己补一张“Reference”。
+~~~text
+Baseline → A → B → C
+~~~
 
-如果任何一个版本同时漂了：
+也禁止一次请求生成：
 
-- 人脸；
-- 年龄 / 胖瘦；
-- 发型 / 衣服；
-- 表情 / 姿势；
-- 场景；
-- 镜头 / 构图；
+> Reference + A + B + C。
 
-该 Candidate 先 Reject，不进入画风偏好判断。
-
-## 8.5 Runtime Readiness｜执行器不支持就停
+## 8.5 Runtime Readiness
 
 正式执行读取：
 
 - `Darcy-Jin/personal-ai-system/skills/visual-style-design/SKILL.md`
 - `Darcy-Jin/personal-ai-system/skills/visual-style-design/assets/style-comparison-run-contract.md`
-- `Darcy-Jin/personal-ai-system/skills/character-identity-preservation/references/multi-subject-composition.md`
+- `Darcy-Jin/personal-ai-system/skills/character-identity-preservation/SKILL.md`
 
-多人画风实验至少要求：
+每个单人分支至少要求：
 
 ~~~text
 Exact Target Binding
 +
-Multi-subject Identity Binding
-+
-Project / Composite Baseline Binding
-+
 single Candidate Output
++
+Control Variable Gate
++
+Identity Gate
 +
 Deterministic Comparison Board
 ~~~
 
-如果当前 Runtime 不能证明这些能力：
+当前执行器如果不能证明 Exact Target Binding：
 
-> **实验状态 = Blocked。**
+> **该 Candidate 不进入正式 Style Comparison。**
 
-不能自动降级成 ChatGPT Web 自由生成。
+## 8.6 Human Delivery
 
-最终比较板只允许：
+最终只允许：
 
 ~~~text
-Exact Baseline
-+
-A 原输出
-+
-B 原输出
-+
-C 原输出
-↓
-Deterministic Composition
+Darcy
+Exact Baseline | A | B | C
+
+Wife
+Exact Baseline | A | B | C
 ~~~
 
-生成模型不负责 Reference / Comparison Board。
-
----
+Board 必须确定性排版，使用真实原像素。
 
 # 9. Character Style 怎么选
 
