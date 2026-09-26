@@ -207,6 +207,44 @@ Wife Exact Identity Baseline
 
 选出 Style v1 后，再回头做双人验证。
 
+### 2026-09-26 方法升级：Style Screening ≠ Style Lock
+
+本轮对标 Human Visual Identity Evidence、动画 Character Model Sheet 和 subject personalization 后，正式修正：
+
+> **单一 Baseline 的 A/B/C 只负责筛选画风方向，不足以直接证明长期生产稳定。**
+
+新的正式路径：
+
+~~~text
+Darcy / Wife
+Exact Baseline → A/B/C
+↓
+Human Screening
+↓
+Shortlist
+↓
+Representative Identity Coverage Stress Test
+- different view
+- expression
+- half / full body（业务需要时）
+↓
+Style v1 Lock
+↓
+双人验证
+~~~
+
+真人长期资产同时从单纯 View Coverage 上提为：
+
+> **Identity Coverage**
+
+包含 View / Dynamics / Whole-person / Appearance / Temporal / Imaging / Rendering 等维度。
+
+通用方法继续由：
+
+- `Darcy-Jin/personal-ai-system/skills/character-identity-preservation/references/identity-evidence-coverage.md`
+
+维护，Relationship 不复制方法。
+
 ### 2026-09-26 实际执行反馈：第一轮 A/B/C 被判 Invalid
 
 本轮真实执行暴露了 Runtime 问题，不是画风候选本身的问题。
