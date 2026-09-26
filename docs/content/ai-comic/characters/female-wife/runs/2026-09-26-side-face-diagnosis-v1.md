@@ -6,15 +6,18 @@
 
 ## 1. Exact Assets
 
-Primary Identity Anchor:
+Validated Identity Anchors:
 
-- `MASTER-ROOT-01`
+- `MASTER-ROOT-01`｜front Root Master
 - ChatGPT file id: `file_0000000069c48209b02d29ae4c1b5e19`
+- `MASTER-SUP-04`｜validated light 3/4 Support Master
 
-Current best side candidate:
+Current Working Side Candidate:
 
 - `SIDE-CANDIDATE-02`
 - ChatGPT file id: `file_00000000c06c8209b7485a4c7e50dcab`
+- role: `Working Candidate / Generated Hypothesis`
+- profile Validated View Baseline: **none**
 
 Do not use:
 
@@ -130,7 +133,13 @@ Purpose:
 - 鼻、眼、嘴基础关系；
 - 皮肤状态；
 - 灰色背景；
-- 写实风格。
+- 写实风格；
+- Imaging State：
+  - 镜头角度 / 距离 / 构图 / 裁切；
+  - 主光方向 / 软硬 / 明暗比例；
+  - 曝光 / 白平衡 / 色温 / 对比 / 饱和度；
+  - 肤色基线；
+  - 皮肤纹理 / 锐度 / 景深。
 
 Expected Output Shape:
 
@@ -138,11 +147,15 @@ Expected Output Shape:
 
 ## 7. Acceptance
 
-用户只需要判断：
+Human Gate 分两层：
 
-1. A / B / C 哪个更像本人；
-2. 哪个方向明显更差；
-3. 是否仍然有“尖 / 硬 / 少可爱”的感觉。
+1. **Within-view Comparison**
+   - A / B / C 相对 Working Candidate，哪个方向改善了？
+   - 哪个方向明显更差？
+   - 是否仍然有“尖 / 硬 / 少可爱”的感觉？
+
+2. **Cross-view Identity Comparison**
+   - Working Candidate / A / B / C 是否仍能和 `MASTER-ROOT-01 + MASTER-SUP-04` 解释成同一个人？
 
 不要求用户判断：
 
@@ -299,12 +312,19 @@ Supabase assets
 
 ## Current formal delivery plan
 
-后续云端 Runtime 跑通以后，本 Case 不只重跑 B / C。
+当前 profile 视角还没有任何已验证 Baseline。
 
-正式诊断包保持原实验设计：
+正式角色：
 
 ~~~text
-Exact Baseline
+Identity Anchors
+= MASTER-ROOT-01
++ MASTER-SUP-04
+
+Validated Profile Baseline
+= none
+
+Working Candidate
 = SIDE-CANDIDATE-02
 
 A
@@ -317,21 +337,30 @@ C
 = A + B 的轻度组合
 ~~~
 
-Human Gate 默认直接比较：
+所以 Human Gate 不能写成：
 
-> **SIDE-CANDIDATE-02 + A + B + C**
+> ~~SIDE-CANDIDATE-02 = Exact Baseline~~
 
-同时 Root Master + Validated 3/4 继续作为：
+正确比较包是：
 
-> **Identity / Cross-view Reference**
+> **Identity Anchors + Working Candidate + A + B + C**
 
-它们负责约束“是不是同一个三维人脸”，但不替代 SIDE-CANDIDATE-02 作为本轮修改前后的 Comparison Baseline。
+并做两个判断：
+
+1. **Within-view**：A / B / C 相对 Working Candidate 哪个方向改善；
+2. **Cross-view**：Working Candidate / A / B / C 是否仍像已验证正脸 + 3/4 的同一个人。
 
 交付要求：
 
 - A / B / C 分开生成；
-- 每张都从 Exact Baseline / 已验证 Identity References 出发，不链式沿用未验证结果；
+- 每张都读取同一组 Identity Anchors + 同一 Working Candidate；
+- 不链式沿用未验证结果；
+- Imaging State 进入 Preserve Set；
+- 先过 Control Variable Gate / Information Gain；
 - 最终比较板只做确定性排版；
-- 用户直接看到 Baseline + A + B + C；
-- 不要求用户靠记忆比较；
-- 没有 Human + Cross-view Gate 通过之前，A / B / C 都只是 Candidate。
+- 一张图内明确标注：
+  - Identity Anchor；
+  - Working Candidate；
+  - A / B / C 的改动说明；
+- 没有 Human + Cross-view Gate 通过之前，任何 profile Generated Candidate 都只是 Hypothesis；
+- 通过以后才允许把该 profile 资产升级为 Validated View / Support Master / View Baseline。
