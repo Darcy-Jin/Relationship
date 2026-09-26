@@ -181,7 +181,7 @@ F. Community / Case Signals
 
 `person-label-space/source-registry-v0.1.csv`
 
-当前 16 个来源，覆盖：
+当前 20 个来源，覆盖：
 
 - Relationship 正式模型；
 - 世纪佳缘当前搜索 / 注册 / 资料字段；
@@ -197,7 +197,7 @@ F. Community / Case Signals
 
 `person-label-space/raw-corpus-v0.1.csv`
 
-当前共 256 条 Raw Item。
+当前共 290 条 Raw Item。
 
 这里故意不先去重。
 
@@ -561,14 +561,24 @@ Possible Topic Space
 
 - 方法路由；
 - Research Protocol；
-- 16-source Source Registry；
-- 256-row Raw Corpus；
-- 第一轮 Multi-view 候选模型；
-- 旧 15 标签降级逻辑；
-- 完整后续研究阶段设计。
+- 20-source Source Registry；
+- 290-row Raw Corpus；
+- 290 条 Raw Term → View / Target Asset 第一轮 Mapping；
+- 8-View Person Feature 候选模型；
+- Coverage / Conflict Report；
+- 旧 15 标签正式降级为 Seed / Regression Set；
+- 识别出平台硬字段偏重、Need / Fit 与 Capability 覆盖不足等来源偏差。
+
+当前新的 System Impact：
+
+> **最终 Topic 如果仍以 Person × Scene × Need/Fit 组合，那么 Scene 和 Need/Fit 也必须按同样的 Coverage-first 方法建立自己的 Corpus / Model，不能让其中两个维度继续靠 AI 临场列举。**
 
 下一步继续：
 
-> **扩大 Corpus + 建 Raw Term → View / Concept Mapping。**
+1. 建 Scene Space Research；
+2. 建 Need / Fit Space Research；
+3. 三个空间分别完成 Corpus → Multi-view → Coverage / Conflict；
+4. 再进入 Combination Space；
+5. 最后才重新形成 Priority Set。
 
-现在还不能说“15 个优先入口已经确定”。
+现在仍不能说“15 个优先入口已经确定”。
