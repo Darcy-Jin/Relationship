@@ -135,6 +135,45 @@ Darcy Identity
 
 它属于 Identity 资产线。
 
+## 2.4 多人同画面｜调用共享 Multi-subject Composition
+
+Darcy 和 Wife 同时进入一张图时，不建立 Relationship 专用“夫妻 Identity”。
+
+仍然是：
+
+~~~text
+Darcy Person Identity
++
+Wife Person Identity
+↓
+Runtime Identity Pack × 2
+↓
+Multi-subject Composition
+├─ Subject Binding
+├─ Spatial Assignment
+├─ Attribute Isolation
+└─ Interaction / Occlusion
+↓
+Relationship Scene / Composition / Style
+~~~
+
+正式方法继续由 personal-ai-system 维护：
+
+- `skills/character-identity-preservation/references/multi-subject-composition.md`
+
+Relationship 只提供：
+
+- 这两个 Actor 为什么同时出现；
+- 当前 Story Role；
+- 场景；
+- 动作 / 关系；
+- 构图意图；
+- Character Style。
+
+Pair / Group Reference Sheet 如果需要，只是 Model Adapter 输入策略。
+
+Pair Comparison Baseline 则是画风实验 Artifact，两者不能混。
+
 ---
 
 # 3. B 线｜Story Role Line
