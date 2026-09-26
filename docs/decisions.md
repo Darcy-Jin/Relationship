@@ -715,3 +715,53 @@ Page Layout
 > **Relationship Character Style v1 / Locked for Production**
 
 不再每一页重新设计人物画法。
+
+
+---
+
+## 2026-09-26｜Character Style 受控实验必须先冻结 Exact Comparison Baseline
+
+第一次 A / B / C 不再直接各自生成。
+
+正式执行关系：
+
+~~~text
+Darcy Exact Identity
++
+Wife Exact Identity
++
+固定服装 / 表情 / 姿势 / 场景 / 构图
+↓
+Pair Comparison Baseline Candidate
+↓
+Human Gate
+↓
+Approved Exact Baseline
+↓
+A / B / C 从同一 Baseline 分叉
+↓
+确定性 Comparison Board
+~~~
+
+原因：
+
+> **“设计上固定变量”不等于“生成器实际固定了变量”。**
+
+如果三套 Style 各自重新生成，人物、姿势、场景和构图的随机差异会污染判断。
+
+同时正式决定：
+
+1. Comparison Baseline 只是实验 Artifact，不是 Identity / Story Role Master；
+2. 多人物实验必须显式绑定每个 Subject 的 Exact Identity Asset；
+3. A / B / C 每个版本单独输出，不生成四格海报；
+4. Reference / Baseline 必须使用真实 Exact Pixels，生成模型不能重画；
+5. Comparison Board 只走确定性排版；
+6. Runtime 不能证明 Multi-subject / Exact Target Binding 时，状态直接 Blocked；
+7. `do / 执行` 不允许绕过 Runtime Gate 改走自由生成。
+
+本决定来自一次真实失败：
+
+- 第一次生成了错误人物；
+- 第二次生成器自行伪造了 Reference + A/B/C 海报。
+
+两次结果均无效，不作为 Style 选择证据。
