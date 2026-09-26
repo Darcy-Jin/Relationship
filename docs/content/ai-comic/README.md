@@ -25,8 +25,9 @@ AI Comic 已经并入 Relationship，并作为三个正式层之一的 **AI 漫�
 - [人物模型](../../models/person-model.md)
 - [当前核心模型](../../current-model.md)
 
-漫画自己的表达规则再读：
+漫画自己的资产与表达规则再读：
 
+- [AI 漫画资产架构 v1](asset-architecture-v1.md)
 - [AI 漫画内容模型](content-model.md)
 - [角色与视角呈现规范 v0.1](character-and-viewpoint-v0.md)
 - [视觉风格组合空间 v0.1](visual-style-space-v0.md)
@@ -45,6 +46,37 @@ AI Comic 已经并入 Relationship，并作为三个正式层之一的 **AI 漫�
 当前第一篇试稿：
 
 - [001｜互联网大厂男友：高薪，但没时间](scripts/001-big-tech-boyfriend-v0.md)
+
+## 2.1 当前生产前的资产顺序
+
+Relationship 现在不再把“真人身份 → 故事角色 → 漫画”理解成一条线。
+
+正式结构：
+
+~~~text
+Person Identity
+├─ Identity Asset Line
+│  → 真人本人在不同视觉语言下怎样仍然是本人
+│
+└─ Story Role Line
+   → 这个真人作为演员，在故事里演谁
+
+Relationship Visual System
+→ 同时服务两条线
+~~~
+
+当前真正进入第一篇漫画前，只补最小缺口：
+
+1. 两位主角的 Person Identity；
+2. 当前 Character Style；
+3. 第一篇 Story Role + Role Transformation；
+4. 两个 Story Role Master；
+5. Character Sheet；
+6. Episode 001 正式生产。
+
+具体资产边界、固定 / 可变项、Character Master / Character Sheet 定义统一读取：
+
+- [AI 漫画资产架构 v1](asset-architecture-v1.md)
 
 ## 3. 当前最重要的内容母题
 
