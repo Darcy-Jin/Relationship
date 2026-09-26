@@ -28,9 +28,37 @@
 - 关系 / 婚恋轻漫画；
 - 少文字、扫一眼能懂；
 - 娱乐优先，不做知识海报；
-- 同一篇人物要稳定，但不同篇暂不固定长期 IP。
+- 男女主底层 Person Identity 长期固定为用户本人 + 用户妻子；不同篇允许扮演不同 Story Role。
 
 ---
+
+## 当前边界：固定的是 Person Identity，不是 Story Role
+
+当前男女主长期真人原型已经固定：
+
+- 男主 → 用户本人；
+- 女主 → 用户妻子。
+
+但这不等于每篇漫画都是现实中的同一对夫妻。
+
+正式关系：
+
+~~~text
+固定
+= Person Identity
+
+可变
+= Story Role
++ Role Transformation
++ Appearance State
++ Episode Scene
+~~~
+
+因此人物画风测试必须区分：
+
+> **是在测试 Character Style，还是在测试某个 Story Role。**
+
+测试画风时不要同时大改 Story Role。
 
 ## 当前第一优先参考方向
 
