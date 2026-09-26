@@ -128,6 +128,12 @@ Relationship 不替玩家算出“最适合谁”。
 
 默认不要重读整个仓库。
 
+在 ChatGPT Project 中，先由 Project Instructions 完成 Bootstrap：
+
+- [ChatGPT Project Bootstrap](docs/chatgpt-project-bootstrap.md)
+
+然后按当前 Matter 恢复：
+
 ~~~text
 personal-ai-system/README.md
 ↓
@@ -135,10 +141,16 @@ Relationship/README.md
 ↓
 docs/current-state.md
 ↓
-docs/current-model.md
+识别当前 Intent / Matter
 ↓
-根据当前任务进入对应分支
+personal-ai-system/architecture/WORK_ROUTING.md
+↓
+只读取命中的 Agent / Skill / Runtime
+↓
+需要领域理解时再读 docs/current-model.md / 对应分支
 ~~~
+
+不要从“当前有什么工具”开始工作。
 
 如果当前任务是：
 
