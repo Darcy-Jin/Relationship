@@ -35,9 +35,11 @@ AI Comic 已经并入 Relationship，并作为三个正式层之一的 **AI 漫�
    一篇内容从哪里来、标题怎么形成、正文怎么组成。
 4. [AI 漫画内容地图](content-map-v0.1.md)  
    人物 / 特点 × 生活场景 / 人生阶段 × 伴侣需要，怎样形成 Topic Candidate。
-5. [角色与叙事视角](character-and-viewpoint-v0.md)  
+5. [Topic Pool v0.1](topic-pool-v0.1.md)  
+   用 9 个不同类型的候选题验证三维内容地图，目前未发现必须新增第四个平级维度。
+6. [角色与叙事视角](character-and-viewpoint-v0.md)  
    一格画谁、站谁的处境、谁可以缺席。
-6. [老婆脸版 Current Definition v1](characters/female-wife-face-v0.md)  
+7. [老婆脸版 Current Definition v1](characters/female-wife-face-v0.md)  
    仅作为当前具体人物 Case 的人类可读说明。
 
 通用能力不在 Relationship 重复维护：
@@ -158,6 +160,9 @@ Relationship Visual System
 
 内容规划空间
 → content-map-v0.1.md
+
+首轮 Topic 验证
+→ topic-pool-v0.1.md
 
 角色 / 叙事视角
 → character-and-viewpoint-v0.md
