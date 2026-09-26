@@ -765,3 +765,41 @@ A / B / C 从同一 Baseline 分叉
 - 第二次生成器自行伪造了 Reference + A/B/C 海报。
 
 两次结果均无效，不作为 Style 选择证据。
+
+
+---
+
+## 2026-09-26｜Character Style 先做单人，再做双人
+
+当前不再让“双人身份绑定”阻塞画风选择。
+
+正式顺序改为：
+
+~~~text
+Darcy Exact Baseline
+→ A / B / C
+
+Wife Exact Baseline
+→ A / B / C
+↓
+先选 Character Style v1
+↓
+再做 Multi-subject Validation
+~~~
+
+原因：
+
+> **本轮真正想判断的是画风，不是多人绑定能力。**
+
+双人会额外引入 Subject Binding / Spatial Assignment / Attribute Leakage / Interaction 等变量，会污染画风判断。
+
+同时决定：
+
+1. 效果优先，本轮不额外生成“中性 Baseline”；
+2. 每个人直接使用高置信 Exact Identity Asset 作为 Baseline；
+3. Darcy 优先使用 `DARCY-SRC-005`；
+4. Wife 优先使用 `MASTER-ROOT-01`；
+5. 每个人的 A/B/C 都从自己的同一个 Exact Baseline 分叉；
+6. 两个人之间不要求姿势、服装、背景完全相同；
+7. 最终判断的是同一 Style 能否跨两个真人稳定成立；
+8. 选出 Style v1 后，再进入双人同画面验证。
