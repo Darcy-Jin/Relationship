@@ -615,3 +615,103 @@ Relationship
 因此：
 
 > **潜力和承诺不能作为已经实现的关系资产。**
+
+
+---
+
+## 2026-09-26｜AI 漫画正式分开 Identity、Story Role、Visual System 和 Episode
+
+以后不再把：
+
+> 真人、故事角色、画风、角色设定卡、单篇漫画
+
+串成一条容易混淆的流水线。
+
+正式区分：
+
+~~~text
+Person Identity
+= 这个真人是谁
+
+Story Role
+= 这个真人在故事里演谁
+
+Role Transformation
+= 这个角色允许离真人多远
+
+Visual System
+= 这部漫画怎么呈现
+
+Comic Episode
+= 这一篇具体讲什么
+~~~
+
+真人 Identity 可以直接形成不同画风下的本人资产。
+
+真人也可以作为 Actor 去扮演虚构 Story Role。
+
+Story Role 的职业、年龄状态、穿搭、精神状态等不能反向污染真人 Identity。
+
+Character Sheet 是已确认资产的组织视图，不是 Source of Truth。
+
+正式资产关系：
+
+- `docs/content/ai-comic/asset-architecture-v1.md`
+
+---
+
+## 2026-09-26｜Visual System v1 成为 Relationship AI Comic 的正式视觉设计底座
+
+过去分散的“画风 / 场景 / 构图 / 色彩 / 文字 / 页面”不再混在几个探索文档里共同作为入口。
+
+正式使用：
+
+- `docs/content/ai-comic/visual-system-v1.md`
+
+Visual System 分为：
+
+~~~text
+Character Style
+Scene Style
+Composition
+Color / Lighting
+Text System
+Page Layout
+~~~
+
+规则状态分为：
+
+- Locked；
+- Default；
+- Open；
+- Episode。
+
+目标是：
+
+> **单篇只决定真正应该变化的内容，不重新决定已经确认的长期设计资产。**
+
+当前 Character Style 只保留 3 个正式候选：
+
+1. Identity-safe 轻手绘都市漫画；
+2. 清爽都市线稿平涂；
+3. 轻半写实生活插画。
+
+画风比较必须固定：
+
+- Person Identity；
+- Role / Role Transformation；
+- Appearance State；
+- 服装；
+- 姿势；
+- 场景；
+- 构图；
+- 文字；
+- 输出比例。
+
+只改变 Character Style。
+
+选定后冻结为：
+
+> **Relationship Character Style v1 / Locked for Production**
+
+不再每一页重新设计人物画法。
