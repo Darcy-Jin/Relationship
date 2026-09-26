@@ -435,32 +435,73 @@ Darcy DARCY-SRC-005
 
 Work 浏览器本身仍会拦截原 import page，但 Runtime Adapter 已通过 token-bound JSON upload + Supabase `pg_net` 完成端到端验证。
 
-当前剩余 Blocker：
+### 2026-09-26 当前执行状态：Matter 与 Adapter 已重新分层
 
-1. **Darcy Style A 已做第一次合法真实执行；**
-2. **Exact Asset Binding 已通过，请求真实到达 OpenAI Image API；**
-3. **Provider 返回 HTTP 429 / `credit_balance_exhausted`，因此没有生成图片。**
+此前 `Darcy Style A` 已经完成一次合法的 OpenAI Direct Adapter 验证：
 
-本次 OpenAI request id：
+~~~text
+DARCY-SRC-005
+→ Asset Resolver READY
+→ Exact Target Binding
+→ OpenAI Direct Adapter
+→ HTTP 429 / credit_balance_exhausted
+~~~
 
-> `req_73c91ada69294f8596c3ee48f6b71ac4`
+这条 Run 证明：
 
-因此现在可以明确排除：
+- Darcy Exact Asset / Resolver / Exact Binding 链路成立；
+- **OpenAI Direct Adapter** 当前因 Provider credits 暂停。
 
-- Identity Asset 问题；
-- Resolver 问题；
-- Exact Binding 问题；
-- Style A Contract 问题。
+但它只是一条 Adapter 的运行证据，不再上升为整个 Character Style Matter 的唯一 Blocker。
 
-当前唯一真实 Blocker：
+当前正式系统已经把 Provider 与真人身份方法解耦：
 
-> **Provider credits。**
+~~~text
+Identity / Asset / Gate
+= 稳定业务层
 
-所以现在准确停点是：
+Execution Adapter
+├─ ChatGPT Web
+├─ OpenAI Direct
+├─ 国内模型
+└─ 其他 Provider
+~~~
 
-> **补 Provider credits → 原样重试 Darcy A → 通过 Gate 后再做 B / C → Wife A / B / C。**
+当前开发 / 自用优先 Surface 是 ChatGPT Web，但受控 A/B/C 仍要求：
 
-仍然不允许回到 ChatGPT Web 自由 generation 代替 Exact Controlled Edit。
+> **Exact Baseline 必须真实进入图像编辑上下文，不能用自由生成代替。**
+
+当前两张 Baseline 都已经在 Supabase Canonical Store，Resolver = READY：
+
+- Darcy：`DARCY-SRC-005`；
+- Wife：`MASTER-ROOT-01`。
+
+当前尚未完成验证的是：
+
+~~~text
+Supabase Exact Asset
+↓
+ChatGPT Web Current Image Context
+↓
+可证明的 Exact Edit Binding
+~~~
+
+因此当前自用路线的准确停点是：
+
+> **blocked_surface_handoff**
+
+而不是：
+
+> `Provider credits`。
+
+`credit_balance_exhausted` 继续保留为 OpenAI Direct Adapter 的组件状态；如果未来主动选择该 Adapter，再处理它的额度即可。
+
+当前不允许的 fallback 继续不变：
+
+- 普通自由 `image_gen` 冒充 Exact Edit；
+- 根据文字重建一个“像的人”；
+- 让用户重新上传系统已经持有的资产；
+- 因某个 Provider 不可用就改变 A/B/C 实验语义。
 
 ---
 
@@ -486,15 +527,18 @@ Work 浏览器本身仍会拦截原 import page，但 Runtime Adapter 已通过 
 #### A｜视觉生产线
 
 ~~~text
-补 Provider credits
+验证 / 补齐 Self-use Exact Asset Handoff
+Supabase Exact Asset → ChatGPT Web Image Context
 ↓
-Darcy A / B / C
+Darcy Exact Baseline → A / B / C
 ↓
-Wife A / B / C
+Wife Exact Baseline → A / B / C
 ↓
 Identity + Control Variable Gate
 ↓
-Human Comparison
+Human Screening
+↓
+Representative Identity Coverage Stress Test
 ↓
 锁定 Relationship Character Style v1
 ↓
