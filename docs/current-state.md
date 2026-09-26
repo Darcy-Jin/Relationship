@@ -184,27 +184,28 @@ Page Layout
 
 > **漫画化不能覆盖真人 Identity。**
 
-第一次画风试验不进入 Story Role，先用：
+第一次画风试验不进入 Story Role，并进一步简化为两个独立单人实验：
 
 ~~~text
-Darcy / Wife 当前真人 Identity
-+
-L1 本人出演
-+
-同一中性生活场景
-+
-同一构图
-+
-同一服装 / 表情 / 姿势
-↓
-只改变 Character Style
+Darcy Exact Identity Baseline
+→ A / B / C
+
+Wife Exact Identity Baseline
+→ A / B / C
 ~~~
+
+本轮不先生成双人图，也不额外生成中性 Baseline。
+
+优先使用：
+
+- Darcy：`DARCY-SRC-005`
+- Wife：`MASTER-ROOT-01`
 
 这样先回答：
 
-> **Relationship 的人物长期到底应该怎么画？**
+> **同一套 Character Style 能不能对两个不同真人都稳定成立？**
 
-而不是把画风、角色职业和场景一起混着试。
+选出 Style v1 后，再回头做双人验证。
 
 ### 2026-09-26 实际执行反馈：第一轮 A/B/C 被判 Invalid
 
@@ -343,7 +344,7 @@ ChatGPT Web → Supabase 的 Direct Binary Handoff
 |---|---|
 | 平台 / 3:4 竖图 | Locked |
 | 真人 Identity 边界 | Locked |
-| Character Style | Open / Blocked：等待 ChatGPT Web Direct Binary Handoff + Provider |
+| Character Style | Open / 单人 A-B-C 待执行；双人验证后置 |
 | Scene Style | Default |
 | Composition | Episode |
 | Color / Lighting | Default |
@@ -357,28 +358,15 @@ ChatGPT Web → Supabase 的 Direct Binary Handoff
 现在只推进这一条：
 
 ~~~text
-Style Comparison Runtime Readiness
+Darcy Exact Baseline
+→ A / B / C
 ↓
-Cloud Runtime v0.3.x Ready
+Wife Exact Baseline
+→ A / B / C
 ↓
-ChatGPT Web Direct Binary Handoff
-→ 当前缺口
+Identity + Control Variable Gate
 ↓
-Darcy Exact Current Identity Asset → Supabase
-↓
-Provider 可执行
-↓
-建立 Pair Comparison Baseline
-↓
-Human Gate：先确认“人对不对”
-↓
-Freeze Exact Baseline
-↓
-Exact Baseline 分叉 A / B / C
-↓
-Control Variable Gate
-↓
-Deterministic Comparison Board
+两张 Deterministic Comparison Board
 ↓
 Human Comparison
 ↓
@@ -386,31 +374,27 @@ Human Comparison
 ↓
 Locked for Production
 ↓
-确定 Episode 001 男女 Story Role + Role Transformation
+双人同画面验证
 ↓
-建立 Story Role Master
+Story Role + Role Transformation
+↓
+Story Role Master
 ↓
 Character Sheet
 ↓
-Episode 001 storyboard / 5 页正式生产
+Episode 001
 ~~~
 
-不再回到：
+正式实验入口：
 
-- 补齐所有角度；
+- `docs/content/ai-comic/experiments/single-person-character-style-experiment-v1.md`
+
+当前仍不做：
+
+- 双人 Style Experiment；
 - 大范围扩画风候选；
 - 每页重新设计人物；
 - 先做完整 Scene / Prop Library。
-
-第一篇真正需要什么，再补什么。
-
-当前第一篇仍然是：
-
-> **《互联网大厂男友：高薪，但没时间》**
-
-脚本：
-
-- `docs/content/ai-comic/scripts/001-big-tech-boyfriend-v0.md`
 
 
 ---
