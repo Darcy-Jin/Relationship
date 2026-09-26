@@ -516,7 +516,9 @@ Topic Candidate
 Content Brief / 标题 / Episode Script
 ~~~
 
-下一步先用真实候选题验证这三个维度是否够用，再逐层扩人物标签库、场景库和 Topic Pool；暂不把三维做成几百个机械组合，也不要求 Character Style、Story Role Master 或 Character Sheet 已完成。
+首轮已用 `docs/content/ai-comic/topic-pool-v0.1.md` 的 9 个不同候选题验证三维结构。当前没有发现必须新增第四个平级内容维度；“关系过程”继续作为跨维机制，“时间”继续放在生活场景的人生 / 关系阶段中。
+
+下一步优先建设 **人物 / 标签 / 特点库**：先整理用户现实中会拿什么词来形容、筛选一个对象，再把这些标签落到可观察的生活特点；之后再与场景库、伴侣需要库组合形成第一批正式 Topic Pool。
 
 当前仍不做：
 
