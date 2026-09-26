@@ -48,8 +48,29 @@
 5. 最后一页能不能回到“我想过什么生活”；
 6. 一篇需要 2 个还是 3 个小章节更自然。
 
+## 当前验证结果
+
+001～005 已全部形成 Episode Script v0.1：
+
+- [001](../scripts/001-big-tech-boyfriend-v0.md)
+- [002](../scripts/002-family-oriented-boyfriend-v0.md)
+- [003](../scripts/003-frugal-boyfriend-v0.md)
+- [004](../scripts/004-emotionally-stable-boyfriend-v0.md)
+- [005](../scripts/005-mental-load-boyfriend-v0.md)
+
+横向验证记录：
+
+- [Episode 001–005 Content Model Validation](../runs/2026-09-26-content-model-validation-001-005-v0.1.md)
+
+真实脚本验证后：
+
+- “两页一个小章节”暂时保留；
+- Reframe 不再只等于“换一种 Need”；
+- 允许 Need / Fit、协调方式、Relationship Process、责任结构等不同条件形成 Conditional Reframe；
+- Content Model 已升级为 v0.3。
+
 ## 下一步
 
-001 已有脚本。
+内容侧先不继续扩大 Topic Pool。
 
-下一步优先把 002～005 分别写成 Episode Script v0.1，再比较四篇真实脚本是否暴露 Content Model 的结构问题。
+下一步适合从 002～005 中选 1～2 篇进入文字 / Layout Storyboard，验证一页真正能承载多少信息，再决定是否需要调整 Episode Length / Page Layout。
