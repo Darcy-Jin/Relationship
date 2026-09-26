@@ -374,41 +374,39 @@ Provider Adapter
 Wife MASTER-ROOT-01
 → canonical_ready
 → Supabase Storage
+→ Resolver READY
 
 Darcy DARCY-SRC-005
-→ registered_source
-→ ChatGPT Library
-→ needs_canonicalization
+→ canonical_ready
+→ Supabase Storage
+→ Resolver READY
 ~~~
 
-当前 Cloud Runtime v0.3.2 已增加：
+2026-09-26，Darcy 历史 Library Source 已通过 ChatGPT Work 完成一次性 Canonicalization：
 
-> **resolve_asset**
+- Exact Library source：`current-02.jpg`，181576 bytes；
+- Canonical object：`identity-assets/identities/darcy/sources/current-02.jpg`；
+- Source / Canonical SHA-256 一致；
+- Source MD5 与 Storage object eTag 一致；
+- Asset Resolver 已实际重查返回 `READY`；
+- Executable Asset Handle 可取得。
 
-因此以后正式出图前，不再以“AI 看到了图片”为准，而以：
+因此：
 
-> **Asset Resolver 是否返回 READY + Executable Asset Handle**
+> **“Darcy Exact Asset 还不能进入 Cloud Runtime”这个 Blocker 已关闭。**
 
-为准。
+Work 浏览器本身仍会拦截原 import page，但 Runtime Adapter 已通过 token-bound JSON upload + Supabase `pg_net` 完成端到端验证。
 
 当前剩余 Blocker：
 
-1. **Darcy 的历史 Library Source 还需要一次 Legacy Canonicalization；**
-2. **Legacy Migration Adapter 的后端已经实现：`visual-identity-import-page`；**
-3. **当前 personal ChatGPT Chat 本身还不能直接把 Library binary 送进该后端；当前正式迁移 Adapter 改由 ChatGPT Work 执行并待首轮端到端验证；**
-4. **当前 OpenAI Image API 运行状态仍记录为 `credit_balance_exhausted`。**
+1. **OpenAI Image API 当前仍记录为 `credit_balance_exhausted`；**
+2. **因此单人 A/B/C 还未真正开始。**
 
 所以现在准确停点是：
 
-> **Asset Resolver Ready → Work Migration Adapter Backend Ready → 等首轮 Work Canonicalization Validation → Provider Blocked → 单人 A/B/C。**
+> **Darcy READY + Wife READY → Provider Ready → 单人 A/B/C → Human Comparison。**
 
-注意：
-
-> **这里不要求用户手工找图 / 下载 / 再上传。**
-
-Work Adapter 的职责就是自动完成历史 Library 资产迁移。
-
-仍然不允许用普通 image generation、Google Drive、Desktop-only Plugin 或重新生成“差不多的人”代替。
+仍然不允许回到 ChatGPT Web 自由 generation 代替 Exact Controlled Edit。
 
 ---
 
