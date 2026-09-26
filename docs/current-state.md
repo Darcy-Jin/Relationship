@@ -761,29 +761,23 @@ Episode Script
 
 当前不继续扩大标签数量，也不继续把 2733 个组合自动写成标题。
 
-下一步从首批 15 里挑 **3～5 个差异足够大的 Topic**，正式进入：
+当前已经从首批 15 中挑出 5 个差异足够大的 Topic，并形成 Content Brief：
 
-~~~text
-Topic
-↓
-Content Brief
-↓
-标题
-↓
-2 页小章节 × N
-↓
-收口
-↓
-Episode Script
-~~~
+- `briefs/001-big-tech-boyfriend-brief-v0.1.md`
+- `briefs/002-family-oriented-boyfriend-brief-v0.1.md`
+- `briefs/003-frugal-boyfriend-brief-v0.1.md`
+- `briefs/004-emotionally-stable-boyfriend-brief-v0.1.md`
+- `briefs/005-mental-load-boyfriend-brief-v0.1.md`
 
-用真实内容验证：
+当前验证覆盖：事业 / 时间、父母边界、钱、情绪回应、家务 / Mental Load。
 
-1. 这套大内容空间能不能稳定产生好内容；
-2. Scene 是否具体、自然、能画；
-3. Need / Fit 的 Reframe 是否真实；
-4. 当前两页小章节结构是否够用；
-5. 哪些后台研究维度在真正生产时仍有缺口。
+下一步不再扩研究空间，直接把 002～005 写成 Episode Script v0.1，并和已有 001 对照，验证：
+
+1. 两页一个小章节是否适用于不同题型；
+2. 每篇更适合 2 个还是 3 个小章节；
+3. Reframe 是否自然，不是为了反转而反转；
+4. Scene 是否具体、能画；
+5. 哪些后台研究维度在真正写脚本时仍然有缺口。
 
 这条内容规划线不依赖 Character Style 先完成。
 
