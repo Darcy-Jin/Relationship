@@ -245,6 +245,55 @@ Style v1 Lock
 
 维护，Relationship 不复制方法。
 
+### 2026-09-26 Identity Coverage 盘点已完成
+
+已按新方法直接读取云端现有资产，没有要求用户重新上传，也没有生成新图。
+
+Darcy：
+
+- 当前 Exact Baseline：`DARCY-SRC-005`；
+- 左侧纯侧脸：Validated；
+- Front / Light 3Q：Candidate；
+- 当前自然 / 轻微表情：已有 Source Evidence；
+- 当前大笑：已有 `DARCY-SRC-004`；
+- 当前全身 / 站姿：已有 `DARCY-SRC-004`；
+- 年轻时期：已有 3 张辅助 Evidence；
+- 当前说话 / 坐姿 / 右侧纯侧脸：当前 Missing；
+- 当前 identity_scope 仍为 Face，Whole-person Evidence 已登记，但未升级成正式 Whole-Person Identity。
+
+Wife：
+
+- 当前 Exact Baseline：`MASTER-ROOT-01`；
+- Front / Light 3Q / 左侧纯侧脸：Validated；
+- Neutral / Slight Smile / Speaking / Teeth Smile：Validated；
+- Glasses：Validated；
+- Full Body / Standing：已有多张高置信 Source Evidence；
+- Half Body / Seated：已有自然生活 Evidence；
+- 右侧纯侧脸：当前 Missing，但不是当前 Character Style 实验的前置阻塞；
+- 当前 identity_scope 仍为 Face，Whole-person Source Evidence 很丰富，但未升级成正式 Whole-Person Identity。
+
+Task Readiness：
+
+~~~text
+Phase 1｜Single-person A/B/C Screening
+Darcy → Ready
+Wife  → Ready
+
+Phase 2｜Representative Coverage Stress Test
+Darcy → Partial
+Wife  → Ready from Coverage perspective
+~~~
+
+Darcy 的 Partial 不是“没有全身图”，而是：
+
+- 部分 Stress-test 资产还在 Library，需要真正执行时再 canonicalize；
+- Dynamics 覆盖弱于 Wife；
+- Whole-Person Identity 还没正式确定 Scope。
+
+下一步不先补拍大批照片。
+
+先继续现有 Character Style Phase 1；Shortlist 以后，再只为实际选中的 Stress-test Coverage 补运行准备或真人 Evidence。
+
 ### 2026-09-26 实际执行反馈：第一轮 A/B/C 被判 Invalid
 
 本轮真实执行暴露了 Runtime 问题，不是画风候选本身的问题。
