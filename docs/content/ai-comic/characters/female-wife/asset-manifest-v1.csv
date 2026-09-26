@@ -1,0 +1,28 @@
+asset_id,category,platform_ref,name,quality,role,status,parent,notes
+SRC-001,source,file_00000000cb348206945e04ea8f939e07,1000035881.jpg,main,Identity / Current Life,active,,近期灰衣抱娃家庭照；脸较清楚；当前真人证据
+SRC-002,source,file_00000000c0588209bb782797822f0cd7,1000035876.jpg,aux,Appearance State / Glasses / Full Body,active,,红色上衣全身；戴眼镜；脸较小
+SRC-003,source,file_0000000095d88206baee6c39c6917027,1000035880.jpg,main,Identity / Expression,active,,生日蛋糕抱娃；无眼镜；近脸
+SRC-004,source,file_0000000070288206b17dbda8aab05326,1000035879.jpg,weak,Expression / Glasses / Scene,active,,熊猫馆；自然笑；脸偏小
+SRC-005,source,file_00000000cbbc8209815328dc849b804c,1000035878.jpg,weak,Pose / Full Body / Hat,active,,户外帽子全身
+SRC-006,source,file_00000000c9f88209a67a9a10fbe60590,1000035877.jpg,weak,Pose / Full Body / Hat,active,,户外帽子全身同场景
+SRC-007,source,file_00000000abf48209a038d8d8f7fcd51c,1000035875.jpg,aux,Appearance State / Glasses / Full Body,active,,红色上衣背娃；帽子+眼镜
+SRC-008,source,file_00000000e9e082069a2a26b209cdc6b0,1000035874.jpg,weak,Long-term / Group / Expression,active,,多人合照；脸较小
+SRC-009,source,file_00000000a108820991476db60a5aabd6,1000035870.jpg,aux,Identity / Outdoor / 3Q,active,,户外家庭自拍；脸可见但有透视和强光
+MASTER-ROOT-01,generated,file_0000000069c48209b02d29ae4c1b5e19,浅蓝t恤的自然肖像.png,approved,Root Identity,Root Master,,用户明确“这一轮可以了”的六图之一；当前主要身份锚点
+MASTER-SUP-01,generated,file_0000000055208206ba912d3ede18e4c3,清新自然的女性证件照.png,approved,Dynamics / slight smile,Support Master,MASTER-ROOT-01,正脸轻微微笑
+MASTER-SUP-02,generated,file_00000000451c8209ba4aaaa3cc806b48,浅灰背景下的自然人像.png,approved,Dynamics / speaking,Support Master,MASTER-ROOT-01,正脸说话
+MASTER-SUP-03,generated,file_0000000016308206aee69cd5e866ed8b,自然微笑的证件风肖像.png,approved,Dynamics / teeth smile,Support Master,MASTER-ROOT-01,露齿笑
+MASTER-SUP-04,generated,file_000000002bf8820993066cd249331a07,自然光下的温柔女性肖像.png,approved,Identity Geometry / light 3Q,Support Master,MASTER-ROOT-01,轻3/4
+MASTER-SUP-05,generated,file_00000000a124820995a875b5546f6b20,浅灰背景下的微笑肖像.png,approved,Appearance State / glasses + 3Q,Support Master,MASTER-ROOT-01,戴眼镜轻3/4
+ROBUST-01,generated,file_00000000eae482069ce165edfa81a599,清新自然的灰背景女性肖像.png,candidate,Opposite 3Q,Candidate,MASTER-ROOT-01,压力测试；尚无明确人工确认
+SIDE-CANDIDATE-01,generated,file_000000004d8882068181f56e7a58a5b3,浅灰背景下的女性侧脸肖像.png,candidate,Side Geometry,Under Rework,MASTER-ROOT-01,用户反馈“怪怪的”；怀疑颧区/苹果肌；可爱感少
+ROBUST-03,generated,file_0000000031608206b4d16ae839341eb9,自然开怀的女性肖像.png,candidate,Dynamics / big smile,Candidate,MASTER-ROOT-01,压力测试；尚无明确人工确认
+ROBUST-04,generated,file_00000000d79482099fb9d58ae13a1139,柔光灰背景下的淡蓝衣女子肖像.png,candidate,Dynamics / serious,Candidate,MASTER-ROOT-01,压力测试；尚无明确人工确认
+ROBUST-05,generated,file_0000000028e082099128e7186a584151,浅灰背景下的自然微笑女性肖像.png,candidate,Pose / slight low head,Candidate,MASTER-ROOT-01,压力测试；尚无明确人工确认
+ROBUST-06,generated,file_0000000027f88209b44b492176ff2e84,灰背景下的自然侧目肖像.png,candidate,Gaze / side glance,Candidate,MASTER-ROOT-01,压力测试；尚无明确人工确认
+SIDE-CANDIDATE-02,generated,file_00000000c06c8209b7485a4c7e50dcab,柔和自然的女性侧脸肖像.png,candidate,Side Geometry / current best,Preferred Candidate,SIDE-CANDIDATE-01,用户后续明确认为它比下一版好；仍未批准为 Support Master
+SIDE-CANDIDATE-03,generated,file_000000003ce48209b1bd1b5ca0eef49c,浅蓝上衣女子侧颜肖像.png,rejected,Side Geometry,Rejected,SIDE-CANDIDATE-02,下半脸“顺”被错误实现成收得更干净；用户反馈更尖、更少可爱感
+BOARD-APPROVED-01,layout,file_0000000087248209bedc1fc7321b4be8,female_identity_master_v1_exact.png,derived,Deterministic Comparison,layout-only,MASTER-ROOT-01 + MASTER-SUP-01..05,六张已确认 Master 的确定性拼版；不能替代单张 Master
+HAIR-FAIL-01,generated,file_00000000eaf08206889c56c38d6ae780,a_clean_infographic_lifestyle_reference_collage_wi.png,rejected,Hairstyle Test,Rejected,unknown,执行协议失败；重新生成合集并漂脸
+HAIR-FAIL-02,generated,file_000000004dd4820996da6e691d4e82ff,a_clean_infographic_style_collage_poster_showing.png,rejected,Hairstyle Test,Rejected,unknown,执行协议失败；single 任务漂成合集
+HAIR-FAIL-03,generated,file_00000000df388209bd0ec197ce018a35,a_clean_infographic_collage_image_with_multiple_po.png,rejected,Hairstyle Test,Rejected,unknown,执行协议失败；不进入任何 Master / Positive Sample
