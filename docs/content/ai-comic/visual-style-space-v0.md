@@ -222,9 +222,9 @@ Relationship 第一版不希望太“老师”，所以轻松、都市、冷幽�
 4. 固定男女主；
 5. 完整原创 IP 群像。
 
-第一版当前暂定：
+当前修正：
 
-> 同一篇人物一致，不同篇可以变化。
+> **底层 Person Identity 跨篇固定为用户本人 + 用户妻子；不同篇变化的是 Story Role / Role Transformation / Appearance State，而不是重新换一个真人身份。**
 
 ---
 
