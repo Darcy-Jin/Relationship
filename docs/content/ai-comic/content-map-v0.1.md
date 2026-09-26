@@ -1,6 +1,7 @@
-# AI 漫画内容地图 v0.1
+# AI 漫画内容地图 v0.1｜Superseded
 
-> 状态：Current / Planning  
+> 状态：Superseded / Historical  
+> 当前正式版本：[AI 漫画内容地图 v0.2](content-map-v0.2.md)  
 > 作用：定义 Relationship AI Comic 的内容空间，回答“以后可以从哪些人物、生活和需要组合出内容”。  
 > 它不替代 [内容模型](content-model.md)。内容模型负责“一篇怎么生成、怎么组成”；本文件负责“有哪些值得组合的内容材料”。
 
