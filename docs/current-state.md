@@ -294,6 +294,41 @@ Darcy 的 Partial 不是“没有全身图”，而是：
 
 先继续现有 Character Style Phase 1；Shortlist 以后，再只为实际选中的 Stress-test Coverage 补运行准备或真人 Evidence。
 
+
+### 2026-09-26 Identity Coverage Asset Plan v1 已建立
+
+正式项目方案：
+
+- `docs/content/ai-comic/experiments/identity-coverage-asset-plan-v1.md`
+
+本方案明确：
+
+- Relationship 两位长期 Actor 使用较完整的 v1 Identity Coverage，而不是只为当前单张任务补最小缺口；
+- 每个 Coverage Slot 同时区分 Source Evidence、Validated Production Asset 和 Presentation Artifact；
+- 不要求原图直接承担所有生产任务；
+- 原图负责现实依据，经过 Gate 的 Root / Support / Branch / Identity Style Master 可以作为更有效的生产资产；
+- 当前项目字段“生产首选资产（Preferred Production Asset）”只用于指明某个 Slot 当前最适合的 Exact Asset，不新增平行 Source of Truth；
+- Character Sheet 继续是 Deterministic Presentation Artifact，不反向定义 Person Identity；
+- Person Identity 与 Story Role / Appearance State / Visual System 保持分离。
+
+Runtime 已同步本 Plan 的核心 Coverage Slot 和 P0/P1/P2 状态。
+
+当前下一步：
+
+~~~text
+Darcy P0
+Front / 3Q Human Gate
+↓
+Darcy + Wife P1
+补关键 View / Dynamics / Whole-person Production Asset
+↓
+Character Style Screening
+↓
+Coverage Stress Test
+↓
+Style v1 Lock
+~~~
+
 ### 2026-09-26 实际执行反馈：第一轮 A/B/C 被判 Invalid
 
 本轮真实执行暴露了 Runtime 问题，不是画风候选本身的问题。
