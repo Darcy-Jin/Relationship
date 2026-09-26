@@ -1,6 +1,6 @@
 # 人物 / 标签 / 特点库 v0.1
 
-> 状态：Current / Content Planning Asset  
+> 状态：Under Rework / Seed Asset  
 > 作用：保存用户现实中会拿来形容、筛选一个对象的词，并把这些词继续还原成可观察的生活特点。  
 > 上游：[人物模型](../../models/person-model.md)  
 > 内容组合：[内容地图](content-map-v0.1.md)  
@@ -660,7 +660,7 @@ G. 负面警示 / 高冲突标签
 
 ---
 
-# 11. 第一批优先深化标签
+# 11. Early Seed Samples｜旧 15 标签（已降级）
 
 不是所有 Seed 都马上详细建模。
 
@@ -672,7 +672,7 @@ G. 负面警示 / 高冲突标签
 - 很容易做成具体场景；
 - 能帮助用户反过来认识自己的需要。
 
-第一批建议：
+下面 15 个词保留为前期讨论形成的 **Seed / Test Set**，不再代表研究后的优先级：
 
 1. 大厂 / 高收入；
 2. 事业心强 / 上进；
@@ -699,7 +699,9 @@ G. 负面警示 / 高冲突标签
 - 生活方式；
 - 家庭。
 
-足够作为第一轮 Topic 生产底座。
+它们只用于测试当前研究结构是否能把用户语言还原成具体生活特点。
+
+正式 Priority Set 必须等 `docs/research/ai-comic/12-person-label-feature-space-research.md` 完成 Corpus → Mapping → Multi-view → Coverage / Conflict → Combination Gate 后重新筛选。
 
 ---
 
