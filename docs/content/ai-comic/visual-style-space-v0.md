@@ -1,9 +1,10 @@
 # AI 漫画视觉风格组合空间 v0.1
 
-> 人物画风维度已在后续讨论中重构。当前人物画风正式入口：
-> [AI 漫画人物画风模型 v0.1](character-style-model-v0.md)
+> 通用人物画风方法已经提升到 `Darcy-Jin/personal-ai-system/skills/visual-style-design/`。
+> Relationship 只保留自己的当前配置：
+> [AI 漫画人物画风｜Relationship 当前配置](character-style-model-v0.md)
 >
-> 本文件继续负责更宽的视觉组合空间（人物 + 场景 + 构图 + 版式等）。早期“人物载体 / Q版 / 原创 IP”等混层分类不再作为人物画风正式定义。
+> 本文件继续负责项目内更宽的视觉组合空间（人物 + 场景 + 构图 + 版式等）。其中涉及人物画风时，以 personal-ai-system 的通用模型为准。
 
 > 状态：Exploration / Selection。
 > 当前目的不是立即选定终极画风，而是把影响画面效果的主要因素摊开，形成可比较的候选组合，再用目标用户、内容表达和实际出图验证来选。
