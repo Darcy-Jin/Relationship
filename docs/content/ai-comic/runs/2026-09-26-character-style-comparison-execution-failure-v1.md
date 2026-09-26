@@ -205,3 +205,43 @@ Human Gate
 ~~~
 
 不继续用 ChatGPT Web 普通生成画 A / B / C。
+
+
+## 9. Surface Compatibility Correction｜Desktop-only Plugin
+
+后续尝试把 `visual-identity-mcp` 包装成 Private Personal Plugin，并在 `mcp.json` 中声明 remote HTTPS MCP。
+
+该方案再次被验证为当前 ChatGPT Web 路线无效：
+
+> **包含 `mcp.json` / `.mcp.json` 的 imported / portable plugin 会被标记为 Desktop only；remote HTTPS 不会改变这个 surface 限制。**
+
+因此：
+
+- Private Plugin 只保留为一次失败实现证据；
+- 不作为 ChatGPT Web Runtime；
+- 不要求用户为了这条路线切到 Desktop；
+- `visual-identity-mcp` 后端可继续作为 Future Adapter；
+- 当前 personal ChatGPT Web 的 Direct Binary Handoff 仍是 Capability Gap。
+
+OpenAI 当前 Developer Mode MCP App：
+
+- Web 可用；
+- 当前官方主要面向 Business / Enterprise / Edu；
+- Mobile 当前不可用。
+
+所以这也不是当前“个人 Web + Mobile”统一解决方案。
+
+当前 Stop Point 更新为：
+
+~~~text
+Cloud Image Runtime Ready
+↓
+ChatGPT Web Direct Binary Handoff
+→ Missing
+↓
+Provider
+→ blocked_provider_quota
+↓
+Pair Comparison Baseline
+→ Not started
+~~~
