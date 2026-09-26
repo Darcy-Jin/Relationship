@@ -497,13 +497,26 @@ Character Sheet
 最后一页收口 / 互动
 ~~~
 
-当前内容规划可以继续推进：
+当前内容规划已经新增：
 
-1. 展开人物 / 标签 / 特点；
-2. 展开生活场景与人生时间线；
-3. 展开不同伴侣需要 / 生活方式；
-4. 从组合里形成 Topic / Content Brief；
-5. 暂不要求 Character Style、Story Role Master 或 Character Sheet 已完成。
+- `docs/content/ai-comic/content-map-v0.1.md`
+
+当前正式内容空间：
+
+~~~text
+人物 / 标签 / 特点
+×
+生活场景
+  = 人生阶段 × 共同生活领域 × 事件 / 压力
+×
+伴侣需要 / 生活方式
+↓
+Topic Candidate
+↓
+Content Brief / 标题 / Episode Script
+~~~
+
+下一步先用真实候选题验证这三个维度是否够用，再逐层扩人物标签库、场景库和 Topic Pool；暂不把三维做成几百个机械组合，也不要求 Character Style、Story Role Master 或 Character Sheet 已完成。
 
 当前仍不做：
 
