@@ -443,24 +443,22 @@ Work 浏览器本身仍会拦截原 import page，但 Runtime Adapter 已通过 
 
 ### AI 漫画下一步
 
-现在只推进这一条：
+当前改为两条线并行，不再让 Character Style 阻塞内容规划。
+
+#### A｜视觉生产线
 
 ~~~text
-Darcy Exact Baseline
-→ A / B / C
+补 Provider credits
 ↓
-Wife Exact Baseline
-→ A / B / C
+Darcy A / B / C
+↓
+Wife A / B / C
 ↓
 Identity + Control Variable Gate
 ↓
-两张 Deterministic Comparison Board
-↓
 Human Comparison
 ↓
-选出 Relationship Character Style v1
-↓
-Locked for Production
+锁定 Relationship Character Style v1
 ↓
 双人同画面验证
 ↓
@@ -470,19 +468,50 @@ Story Role Master
 ↓
 Character Sheet
 ↓
-Episode 001
+进入正式页面生产
 ~~~
 
 正式实验入口：
 
 - `docs/content/ai-comic/experiments/single-person-character-style-experiment-v1.md`
 
+#### B｜内容规划线
+
+`docs/content/ai-comic/content-model.md` 已整理为完整两层模型：
+
+~~~text
+第一层｜Content Generation
+这个人 × 这个特点 × 这段生活 × 我的需要
+↓
+形成真正值得讨论的问题
+↓
+形成标题与 Content Brief
+
+第二层｜Content Composition
+标题
+↓
+若干两页小章节
+↓
+每个小章节：特点进入生活 → 换一种需要重新看
+↓
+最后一页收口 / 互动
+~~~
+
+当前内容规划可以继续推进：
+
+1. 展开人物 / 标签 / 特点；
+2. 展开生活场景与人生时间线；
+3. 展开不同伴侣需要 / 生活方式；
+4. 从组合里形成 Topic / Content Brief；
+5. 暂不要求 Character Style、Story Role Master 或 Character Sheet 已完成。
+
 当前仍不做：
 
 - 双人 Style Experiment；
 - 大范围扩画风候选；
 - 每页重新设计人物；
-- 先做完整 Scene / Prop Library。
+- 先做完整 Scene / Prop Library；
+- 因视觉卡点停止内容资产建设。
 
 
 ---
