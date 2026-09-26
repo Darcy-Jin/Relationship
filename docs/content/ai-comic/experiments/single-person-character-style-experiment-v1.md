@@ -1,7 +1,7 @@
 # Relationship AI Comic｜单人 Character Style 实验 v1
 
 > Date: 2026-09-26  
-> Status: Self-use Exact-Asset Handoff Blocked  
+> Status: Surface Plugin Discovery / Exact Binding Validation Pending  
 > Goal: 先用两个单人 Baseline 做 Character Style Screening，再用代表性 Identity Coverage 做压力测试，通过后才锁 Relationship Character Style v1。
 
 ## 1. 这次只回答什么
@@ -463,15 +463,42 @@ Exact Target Binding Evidence
 Controlled Style Candidate
 ~~~
 
-当前准确停点：
+Self-use Handoff 后端段现在已经验证：
 
-> **blocked_surface_handoff**
+~~~text
+DARCY-SRC-005
+↓
+purpose-bound one-time export token
+↓
+visual-identity-surface-mcp
+↓
+MCP image content
+~~~
 
-也就是说：
+回归证据：
 
-> **不是缺照片，不是 Identity 不成熟，不是 Style Contract 有问题，也不是整个 Matter 被 OpenAI credits 锁住；缺的是当前自用 ChatGPT Web 的 Exact Asset Handoff / Binding 证据。**
+- bytes = `181576`；
+- SHA-256 = `6ae0d8b4f546689e4acc07c3889ac5ac8e6a92591f3c8d6213e6c1811d504d24`；
+- 与 Canonical Asset 一致；
+- token single-use passed。
 
-OpenAI Direct 继续保留为可选 Adapter；它的 `credit_balance_exhausted` 只保留为组件状态。
+私有 Plugin 已升级为 `personal-ai-visual-identity v0.2.0`。
+
+当前准确停点已经收窄为：
+
+> **blocked_surface_plugin_discovery**
+
+当前 ChatGPT 控制面状态互相矛盾：
+
+- suggestion control：`already_installed`；
+- permission inspection：`not_installed`；
+- current chat tool discovery：未发现该 Plugin Tool。
+
+因此现在缺的不是 Backend Handoff，而是：
+
+> **确认 v0.2 Plugin 在当前 Surface 可调用，并验证它返回的 exact image 真正进入 Image Context / Exact Target Binding。**
+
+OpenAI Direct 继续只是可选 Adapter；它的 `credit_balance_exhausted` 只保留为组件状态。
 
 本轮继续冻结：
 
@@ -488,7 +515,9 @@ OpenAI Direct 继续保留为可选 Adapter；它的 `credit_balance_exhausted` 
 先完成当前自用执行缺口，而不是先处理某个可选 Provider 的额度：
 
 ~~~text
-Self-use Exact Asset Handoff validated
+v0.2 Plugin discoverable on current ChatGPT Surface
+↓
+MCP exact image → Current Image Context → Exact Target Binding validated
 ↓
 Phase 1｜Single-person A/B/C Screening
 ↓
