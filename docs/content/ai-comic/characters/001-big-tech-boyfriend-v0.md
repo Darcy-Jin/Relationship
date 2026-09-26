@@ -4,6 +4,34 @@
 > 状态：第一版角色设定，待正式出图验证
 > 身份规则：使用已确认的男性 IP Identity Master；骨相、面相、五官关系不重新设计。
 
+## 0. Actor / Story Role 关系
+
+这一篇不是“真人 Darcy 的现实履历”。
+
+正式关系：
+
+~~~text
+Person Identity
+= Darcy
+
+Story Role
+= 001 大厂高薪男友
+
+Role Transformation
+= 待正式确定（L1～L4）
+
+Appearance State
+= 按本角色工作态 / 约会态 / 加班态变化
+~~~
+
+也就是说：
+
+> **Darcy 是演员；“大厂男友”是角色。**
+
+角色可以拥有虚构职业、收入、工作方式和生活节奏，这些不能反向写回真人 Identity。
+
+Role Transformation 在正式做 Story Role Master 前必须锁定。
+
 ## 1. 一句话
 
 > **一个 32～35 岁、条件不错、清爽利落、稍微帅一点、笑起来很有亲和力，但长期处于高工作投入状态的互联网大厂男性。**
