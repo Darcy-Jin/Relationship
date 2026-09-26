@@ -745,37 +745,63 @@ OpenAI Direct 的 `credit_balance_exhausted` 只保留为该 Adapter 的组件�
 
 #### A｜视觉生产线
 
+当前新增一条更重要的正向证据：
+
+> **Codex 已经能够产出一版用户主观认为“效果还挺好”的真人漫画页面。**
+
+因此当前不再默认把：
+
+> ChatGPT Web Exact Binding Gap
+
+当成视觉生产线必须先解决的唯一技术问题。
+
+正式下一步改为：
+
 ~~~text
-解决 / 验证 Self-use Surface → Image Executor Exact Binding
+Codex 当前视觉生产链
 ↓
-形成可证明 Exact Target Binding + Edit Semantics 的执行路线
+只读 Audit
 ↓
-Darcy Exact Baseline → A / B / C
+检查历史问题 P01～P14 在当前 Pipeline 中：
+PRESENT / ABSENT / UNKNOWN / N/A
 ↓
-Wife Exact Baseline → A / B / C
+确认“为什么现在效果变好了”
 ↓
-Identity + Control Variable Gate
+只修真正存在、影响长期生产的问题
 ↓
-Human Screening
+最小真实验证
 ↓
-Representative Identity Coverage Stress Test
-↓
-锁定 Relationship Character Style v1
-↓
-双人同画面验证
-↓
-Story Role + Role Transformation
-↓
-Story Role Master
-↓
-Character Sheet
-↓
-进入正式页面生产
+再决定是否进入规模化 Episode Production
 ~~~
 
-正式实验入口：
+正式 Codex Audit Handoff：
 
-- `docs/content/ai-comic/experiments/single-person-character-style-experiment-v1.md`
+- `docs/content/ai-comic/codex-visual-production-audit-v1.md`
+
+第一轮 Codex：
+
+> **只审计，不修改。**
+
+重点检查：
+
+- 真人 Reference 是否真正进入模型输入；
+- Darcy / Wife 是否分别绑定正确 Reference；
+- 是否还有 fake reference / free generation 冒充 controlled run；
+- output shape / deterministic layout；
+- Identity Asset 角色；
+- provenance；
+- silent fallback / retry；
+- 跨 Panel / 跨 Episode Identity 稳定性。
+
+如果当前 Codex Pipeline 已经通过 Character Reference / Multi-reference Generation 稳定保持真人 Identity：
+
+> **不要求为了符合旧 Runtime 而强行改成 Exact Pixel Edit。**
+
+长期 Outcome 仍然是：
+
+> **同一个真人进入不同生活场景后仍然被稳定识别为同一个人。**
+
+原 ChatGPT Web self-use Exact Binding Gap 继续保留为 Runtime Capability Evidence，但不再阻塞 Codex 视觉生产审计。
 
 #### B｜内容规划线
 
