@@ -286,8 +286,8 @@ Style Lock 后，再建立对应：
 
 | Dimension | Coverage Slot | Current State | Current Evidence / Asset | Preferred Production Asset | Gap / Next Action |
 |---|---|---|---|---|---|
-| View | Front | Candidate | DARCY-SRC-004/005 + DARCY-CAND-FRONT-01 | DARCY-CAND-FRONT-01（通过 Human Gate 后） | 先做 Human Gate；通过后晋升 Support / production asset |
-| View | Light 3/4 | Candidate | DARCY-SRC-004/005 + DARCY-CAND-3Q-01 | DARCY-CAND-3Q-01（通过 Gate 后） | 先验证 |
+| View | Front | Validated | DARCY-SRC-004/005 + DARCY-CAND-FRONT-01 | DARCY-CAND-FRONT-01 | Human Gate 已通过；已晋升 Support Master。当前 Binary 仍在 Library，正式 Controlled Runtime 使用前需 canonicalize |
+| View | Light 3/4 | Validated | DARCY-SRC-004/005 + DARCY-CAND-3Q-01 | DARCY-CAND-3Q-01 | Human Gate 已通过；已晋升 Support Master。当前 Binary 仍在 Library，正式 Controlled Runtime 使用前需 canonicalize |
 | View | Opposite 3/4 | Missing | — | 待建立 | 用当前 Source + validated geometry 生成 Working Candidate |
 | View | Profile Left | Validated | DARCY-SUP-PROFILE-LEFT-01 | DARCY-SUP-PROFILE-LEFT-01 | 已完成 |
 | View | Profile Right | Missing | — | 待建立 | 不能镜像左侧；从多视角 Evidence 生成并过 Cross-view Gate |
@@ -306,15 +306,15 @@ Style Lock 后，再建立对应：
 | Appearance | Default Hair | Evidence Available | DARCY-SRC-004/005 | 跟随 Current Identity Anchor | 不单独造 Master，除非发型变化成为真实需求 |
 | Temporal | Current | Evidence Available | DARCY-SRC-004/005 | DARCY-SRC-005 为 Face Anchor | 已满足当前生产 |
 | Temporal | Younger | Evidence Available | DARCY-SRC-001/002/003 | 不作为 current 默认生产资产 | 只作为年龄轨迹辅助 Evidence |
-| Imaging | Controlled Portrait | Partial | 生成 Front / 3Q / Profile 资产 | 验证后的 Standard Master | Front / 3Q 仍需 Gate |
+| Imaging | Controlled Portrait | Validated | Front / 3Q / Profile 已通过 Human Gate | 对应 Validated Support Master | 三个核心受控视角均已验证；Front / 3Q 仍需 canonicalize 到正式 Binary Store |
 | Imaging | Naturalistic Life | Evidence Available | DARCY-SRC-004/005 | Source only | 已有 |
 | Rendering | Relationship Style v1 | Missing | A/B/C 尚未合法执行完成 | 待建立 Identity Style Master | Style Screening → Stress Test → Lock |
 
 ### Darcy 当前优先顺序
 
 ~~~text
-P0
-Front / 3Q Human Gate
+P0 completed
+Front / 3Q Human Gate → Passed
 ↓
 P1
 Opposite 3Q + Right Profile
