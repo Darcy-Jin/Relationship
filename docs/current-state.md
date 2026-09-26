@@ -253,7 +253,7 @@ Darcy：
 
 - 当前 Exact Baseline：`DARCY-SRC-005`；
 - 左侧纯侧脸：Validated；
-- Front / Light 3Q：Candidate；
+- Front / Light 3Q：Validated；
 - 当前自然 / 轻微表情：已有 Source Evidence；
 - 当前大笑：已有 `DARCY-SRC-004`；
 - 当前全身 / 站姿：已有 `DARCY-SRC-004`；
@@ -313,12 +313,17 @@ Darcy 的 Partial 不是“没有全身图”，而是：
 
 Runtime 已同步本 Plan 的核心 Coverage Slot 和 P0/P1/P2 状态。
 
+当前 Human Gate 结果：
+
+- Darcy `DARCY-CAND-FRONT-01` → Validated Support Master；
+- Darcy `DARCY-CAND-3Q-01` → Validated Support Master；
+- 用户原话：`这4张图可以的`；
+- 对应 Runtime Coverage：Front / Light 3Q = Validated / high confidence；
+- 两张新 Support Master 当前仍是 Library Binary，后续正式 Controlled Runtime 使用前需要 canonicalize。
+
 当前下一步：
 
 ~~~text
-Darcy P0
-Front / 3Q Human Gate
-↓
 Darcy + Wife P1
 补关键 View / Dynamics / Whole-person Production Asset
 ↓
