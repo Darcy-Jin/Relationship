@@ -456,6 +456,37 @@ Exact Baseline | A | B | C
 
 Board 必须确定性排版，使用真实原像素。
 
+## 8.7 Screening 之后先做 Coverage Stress Test
+
+A / B / C 在单一 Exact Baseline 上比较，负责：
+
+> **筛掉不合适方向。**
+
+它不单独负责：
+
+> **证明这套 Style 已经能长期生产。**
+
+Human Screening 后，对 Shortlisted Style 选择少量代表性 Identity Coverage：
+
+- 不同 view；
+- 明显 expression；
+- half / full body（长期漫画会画身体时）；
+- 高频 appearance state（确实会反复出现时）。
+
+只有在这些代表性状态里：
+
+- Identity 仍稳定；
+- Style 仍稳定；
+- 表情 / 身体仍可读；
+
+才进入 Style Lock。
+
+不做所有组合的穷举。
+
+正式方法：
+
+- `Darcy-Jin/personal-ai-system/skills/character-identity-preservation/references/identity-evidence-coverage.md`
+
 # 9. Character Style 怎么选
 
 不做复杂总分。
@@ -488,9 +519,9 @@ Board 必须确定性排版，使用真实原像素。
 
 # 10. Style Lock｜选完以后怎么保存
 
-选出当前最好方案后：
+完成 Human Screening + Representative Coverage Stress Test 后：
 
-> **冻结为 Relationship Character Style v1 / Locked for Production。**
+> **才冻结为 Relationship Character Style v1 / Locked for Production。**
 
 至少保存：
 
@@ -737,13 +768,21 @@ Character Sheet 只做组织和展示，不反过来定义真人 Identity。
 | Text System | Default |
 | Page Layout | Default + 3:4 Locked |
 
-因此现在真正需要解决的只有一个：
+因此现在真正需要解决的仍然只有一个：
 
-> **选出 Relationship Character Style v1。**
+> **选出并验证 Relationship Character Style v1。**
 
-选完以后就直接进入：
+但正式分成两步：
 
 ~~~text
+A/B/C Single-person Screening
+↓
+Shortlist
+↓
+Representative Identity Coverage Stress Test
+↓
+Style v1 Lock
+↓
 Story Role
 ↓
 Role Transformation
@@ -755,4 +794,4 @@ Character Sheet
 Episode 001
 ~~~
 
-不再回到“大范围画风探索”。
+不再回到“大范围画风探索”，也不因为一张 Hero Portrait 好看就提前锁风格。
