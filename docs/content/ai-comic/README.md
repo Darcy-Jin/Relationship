@@ -35,13 +35,17 @@ AI Comic 已经并入 Relationship，并作为三个正式层之一的 **AI 漫�
    一篇内容从哪里来、标题怎么形成、正文怎么组成；已用 Episode 001～005 验证并放宽 Conditional Reframe。
 4. [AI 漫画内容地图 v0.2](content-map-v0.2.md)  
    当前正式内容空间：Person × Scene × Need/Fit，以及受约束组合和 Topic Gate。
-5. [Priority Set v0.1](topic-priority-set-v0.1.md)  
-   从 2733 个受约束候选组合中形成的 30 个 Priority Candidate、首批 15 + 后备 15。
-6. [Content Briefs](briefs/README.md)  
+5. [Series Map v0.1](series-map-v0.1.md)  
+   当前正式内容产品层：9 个主系列 + 横向专题，把完整 Content Space 组织成可持续栏目。
+6. [Series Batch Production v0.1](series-batch-production-v0.1.md)  
+   当前批量化机制：127 个 Series Entry、458 个 Topic Seed、系列内 Priority Review。
+7. [Priority Set v0.1](topic-priority-set-v0.1.md)  
+   早期全局 Priority：30 个 Priority Candidate、首批 15 + 后备 15；继续保留并映射到 Series。
+8. [Content Briefs](briefs/README.md)  
    当前 5 个跨类型 Validation Brief，用来验证 Content Map v0.2 和 Content Model 真正落到单篇时是否稳定。
-7. [角色与叙事视角](character-and-viewpoint-v0.md)  
+9. [角色与叙事视角](character-and-viewpoint-v0.md)  
    一格画谁、站谁的处境、谁可以缺席。
-8. [老婆脸版 Current Definition v1](characters/female-wife-face-v0.md)  
+10. [老婆脸版 Current Definition v1](characters/female-wife-face-v0.md)  
    仅作为当前具体人物 Case 的人类可读说明。
 
 通用能力不在 Relationship 重复维护：
@@ -171,7 +175,18 @@ Relationship Visual System
 内容规划空间
 → content-map-v0.2.md
 
-当前 Priority Set
+系列化内容产品层
+→ series-map-v0.1.md
+
+批量 Series Entry / Topic Pool
+→ series-entry-registry-v0.1.csv
+→ series-topic-pool-v0.2.csv
+→ series-batch-production-v0.1.md
+
+当前系列 Priority 示例
+→ series/s01-job-work-priority-v0.1.md
+
+早期全局 Priority Set
 → topic-priority-set-v0.1.md
 
 当前 Content Brief Validation Set
