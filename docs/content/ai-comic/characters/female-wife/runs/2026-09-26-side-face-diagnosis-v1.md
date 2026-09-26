@@ -151,3 +151,30 @@ Expected Output Shape:
 - 专业解剖原因。
 
 结果再更新 H1 / H2 / H3 的置信度。
+
+
+## 8. Attempt A Execution Result
+
+Attempted:
+
+> A｜颧区平衡测试
+
+Expected:
+
+> single side-face portrait based on Exact Root Master + SIDE-CANDIDATE-02.
+
+Actual:
+
+> tool returned an infographic / dashboard instead of the requested portrait edit.
+
+Classification:
+
+> **Execution Protocol Failure / Execution Shape Failure**
+
+Actions:
+
+- output marked Rejected;
+- not used as reference;
+- B / C not executed on top of this failure;
+- return to Exact Master + SIDE-CANDIDATE-02;
+- next execution must first solve the runtime's explicit image-target binding / edit-shape problem rather than continuing to tweak facial structure.
