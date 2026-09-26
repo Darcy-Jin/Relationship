@@ -242,7 +242,9 @@ Style Candidate Failure
 - Work Routing 增加 Exact Asset / Multi-subject Runtime Gate；
 - Visual Identity Cloud Runtime v0.2.4 增加 Capability Preflight。
 
-当前 Cloud Runtime 能力：
+随后已经继续补齐 Runtime。
+
+当前 Cloud Runtime v0.3.0 能力：
 
 ~~~text
 Exact Target Binding
@@ -252,17 +254,31 @@ Single Identity Asset Binding
 → Supported
 
 Multi-subject Binding
-→ Unsupported
+→ Supported
 
-Project / Composite Target
-→ Unsupported
+Cross-identity Reference Binding
+→ Supported
+
+Project / Composite Experiment Target
+→ Supported
 ~~~
 
-所以这次真正停点是：
+新增 `experiment_edit`：
 
-> **Pair Comparison Baseline 尚未建立；当前 Runtime 还不能合法执行双真人受控 Style Comparison。**
+> **允许一个 Exact Target + 多个不同 Identity 的 Exact Reference 进入同一次视觉实验，并把实验 Artifact 与 Run Sidecar 单独保存在 Object Storage。**
 
-在能力补齐前，不再用普通 image generation 代替。
+因此“多人绑定能力缺失”已经解决。
+
+当前剩余 Blocker：
+
+1. **Darcy 当前可用 Identity Anchor 仍主要在 ChatGPT Library，尚未迁到 Cloud Runtime 可直接读取的 Supabase Storage；**
+2. **当前 OpenAI Image API 运行状态仍记录为 `credit_balance_exhausted`，Provider 侧不能完成真实图片调用。**
+
+所以现在停点已经前移到：
+
+> **Runtime Route Ready → 等 Exact Darcy Asset Server Binding + Provider 可执行 → 再建立 Pair Comparison Baseline。**
+
+仍然不允许用普通 image generation 代替。
 
 ---
 
@@ -272,7 +288,7 @@ Project / Composite Target
 |---|---|
 | 平台 / 3:4 竖图 | Locked |
 | 真人 Identity 边界 | Locked |
-| Character Style | Open / Blocked：等待 Multi-subject Exact Binding |
+| Character Style | Open / Blocked：等待 Darcy Exact Asset Server Binding + Provider |
 | Scene Style | Default |
 | Composition | Episode |
 | Color / Lighting | Default |
@@ -288,7 +304,11 @@ Project / Composite Target
 ~~~text
 Style Comparison Runtime Readiness
 ↓
-补齐 Multi-subject + Composite Baseline Binding
+Runtime v0.3.0 Route Ready
+↓
+迁移 / 绑定 Darcy Exact Current Identity Asset
+↓
+Provider 可执行
 ↓
 建立 Pair Comparison Baseline
 ↓
