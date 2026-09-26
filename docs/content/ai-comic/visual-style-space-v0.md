@@ -9,6 +9,46 @@
 > 状态：Exploration / Selection。
 > 当前目的不是立即选定终极画风，而是把影响画面效果的主要因素摊开，形成可比较的候选组合，再用目标用户、内容表达和实际出图验证来选。
 
+## 0. 当前结构：Character Style 与 Visual System 分开
+
+这份文件过去把很多东西都统称为“视觉风格”。
+
+现在正式拆成：
+
+~~~text
+Character Style
+= 人物本身怎么画
+
+Scene Style
+= 环境怎么画
+
+Composition
+= 镜头 / 构图怎么组织
+
+Color / Lighting
+= 整体色彩和光
+
+Text System
+= 文字怎样进入画面
+
+Page Layout
+= 一页怎样排、平台比例怎样适配
+~~~
+
+所以：
+
+> **下一轮先只锁 Character Style。**
+
+Scene / Composition / Text / Page Layout 不跟人物画风一起大改；它们在第一篇真实页面生产中逐步冻结。
+
+当前统一资产架构：
+
+- [AI 漫画资产架构 v1](asset-architecture-v1.md)
+
+当前人物画风候选：
+
+- [AI 漫画人物画风｜Relationship 当前配置](character-style-model-v0.md)
+
 ## 1. 当前选择要服务什么
 
 当前 AI 漫画已经确认：
@@ -511,3 +551,39 @@ Relationship 第一版不希望太“老师”，所以轻松、都市、冷幽�
 
 > **第一优先试画方向。**
 
+
+
+## 9. 当前选择方式已收敛
+
+前面的 A～F 是探索阶段的候选空间，继续保留用于理解差异，但不再全部进入正式试画。
+
+当前正式只比较三种 Character Style：
+
+1. **F2｜Identity-safe 轻手绘都市漫画**
+2. **清爽都市线稿平涂**
+3. **轻半写实生活插画**
+
+三者的详细定义统一维护在：
+
+- [AI 漫画人物画风｜Relationship 当前配置](character-style-model-v0.md)
+
+这一轮禁止同时改变：
+
+- Person Identity；
+- Story Role；
+- Role Transformation；
+- Appearance State；
+- Scene；
+- Composition；
+- Text；
+- Page Ratio。
+
+因此这一次真正回答的只有：
+
+> **Relationship 的人物，长期到底用哪一种视觉语言来画。**
+
+选定后：
+
+> **冻结 Character Style v1，立即进入 Story Role Master / Character Sheet / Episode 001。**
+
+不继续无期限扩大画风候选空间。
