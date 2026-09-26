@@ -1,7 +1,7 @@
 # Relationship AI Comic｜单人 Character Style 实验 v1
 
 > Date: 2026-09-26  
-> Status: Surface Plugin Discovery / Exact Binding Validation Pending  
+> Status: Self-use Surface Exact Image Binding Blocked  
 > Goal: 先用两个单人 Baseline 做 Character Style Screening，再用代表性 Identity Coverage 做压力测试，通过后才锁 Relationship Character Style v1。
 
 ## 1. 这次只回答什么
@@ -484,25 +484,52 @@ MCP image content
 
 私有 Plugin 已升级为 `personal-ai-visual-identity v0.2.0`。
 
-当前准确停点已经收窄为：
+但当前 Tool Registry 没有 `get_exact_identity_asset`，所以该 Plugin Route 当前仍不可调用。
 
-> **blocked_surface_plugin_discovery**
+同时，另一条更直接的 self-use 路线也做了真实回归：
 
-执行前现在必须读取：
+~~~text
+DARCY-SRC-005 的 Exact Library Source
+→ current-02.jpg
+→ 当前 ChatGPT 可以读取并内联显示
+→ image_gen
+~~~
 
-- `Darcy-Jin/personal-ai-system/runtime/visual-identity/execution-routing.json`
+连续两次结果都显示：
 
-并形成唯一 `Execution Route Snapshot`；历史 Run 只作为 Evidence，不能重新决定 Adapter。
+- `edit_op = null`；
+- `parent_gen_id = null`；
+- 输出不是对 Exact Baseline 的单张 Edit；
+- 第二次甚至再次扩成双人 / A-B-C 比较板。
 
-当前 ChatGPT 控制面状态互相矛盾：
+所以当前准确停点不再只是 Plugin Discovery，而是更上层的：
 
-- suggestion control：`already_installed`；
-- permission inspection：`not_installed`；
-- current chat tool discovery：未发现该 Plugin Tool。
+> **blocked_surface_exact_image_binding**
 
-因此现在缺的不是 Backend Handoff，而是：
+也就是说当前缺的是：
 
-> **确认 v0.2 Plugin 在当前 Surface 可调用，并验证它返回的 exact image 真正进入 Image Context / Exact Target Binding。**
+> **一个能在自用 ChatGPT Surface 上证明 Exact Target Binding + Edit Semantics 的 Image Executor Route。**
+
+执行前必须读取：
+
+- `Darcy-Jin/personal-ai-system/runtime/visual-identity/execution-routing.json`；
+- `Darcy-Jin/personal-ai-system/architecture/EXECUTION_GUARD.md`。
+
+并形成：
+
+~~~text
+Active Matter Pin
++
+Execution Route Snapshot / Route Contract
++
+Pre-call Guard
+~~~
+
+如果 Exact Binding / Edit Semantics 再次失败：
+
+> **FAIL_LOCKED → Stop / Re-route。**
+
+不能再通过改 Prompt、重新显示同一图片、再次调用同类 `image_gen` 来继续。
 
 OpenAI Direct 继续只是可选 Adapter；它的 `credit_balance_exhausted` 只保留为组件状态。
 
@@ -521,9 +548,9 @@ OpenAI Direct 继续只是可选 Adapter；它的 `credit_balance_exhausted` 只
 先完成当前自用执行缺口，而不是先处理某个可选 Provider 的额度：
 
 ~~~text
-v0.2 Plugin discoverable on current ChatGPT Surface
+解决 / 验证 Self-use Surface → Image Executor Exact Binding
 ↓
-MCP exact image → Current Image Context → Exact Target Binding validated
+证明 Exact Target Binding + Edit Semantics + single output
 ↓
 Phase 1｜Single-person A/B/C Screening
 ↓
